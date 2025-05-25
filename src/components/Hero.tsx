@@ -12,7 +12,7 @@ export const HeroSection = () => {
 
   return (
     <section className="min-h-screen flex items-center justify-center relative hero-gradient">
-      <div className="container mx-auto px-6 text-center">
+      <div className="container mx-auto px-6 text-center rounded-md">
         <Badge variant="secondary" className="mb-6 font-mono">
           Tech that gives a damn
         </Badge>
