@@ -28,7 +28,7 @@ const steps = [
 ];
 
 export const ApproachSection = () => (
-  <section id="approach" className="py-20 bg-card/30 scroll-mt-24">
+  <section id="approach" className="py-20 bg-secondary/30 scroll-mt-24">
     <div className="container mx-auto px-6">
       <div className="max-w-4xl mx-auto text-center">
         <h2 className="text-3xl md:text-5xl font-bold mb-8">
