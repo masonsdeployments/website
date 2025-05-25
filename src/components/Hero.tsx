@@ -11,12 +11,11 @@ export const HeroSection = () => {
   };
 
   return (
-    <section className="min-h-screen flex items-center justify-center relative hero-gradient">
+    <section className="min-h-svh flex items-center justify-center relative hero-gradient">
       <div className="container mx-auto px-6 text-center rounded-md">
         <Badge variant="secondary" className="mb-6 font-mono">
           Tech that gives a damn
         </Badge>
-
         <h1 className="text-4xl md:text-7xl font-bold mb-6 leading-tight">
           We build tools that
           <br />
