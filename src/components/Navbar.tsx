@@ -52,7 +52,7 @@ const Navbar = () => {
           </div>
 
           {/* Desktop Nav */}
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden lg:flex items-center space-x-8">
             <button
               onClick={() => handleNav("mission")}
               className="hover:text-primary transition-colors hover:cursor-pointer"
@@ -87,7 +87,7 @@ const Navbar = () => {
           </div>
 
           {/* Mobile Menu Button */}
-          <div className="xl:hidden flex items-center space-x-4">
+          <div className="lg:hidden flex items-center space-x-4">
             <DarkModeToggle />
             <MobileNav />
           </div>
