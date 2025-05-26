@@ -3,7 +3,9 @@
 import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { DarkModeToggle } from "@/components/DarkModeToggle";
-import { LogoSvg } from "./LogoSvg";
+import { useRouter, usePathname } from "next/navigation";
+import LogoLink from "./LogoLink";
+import MobileNav from "./MobileNavbar";
 
 const Navbar = () => {
   const [scrollY, setScrollY] = useState(0);
@@ -24,6 +26,17 @@ const Navbar = () => {
     }
   };
 
+  const router = useRouter();
+  const pathname = usePathname();
+
+  const handleNav = (sectionId: string) => {
+    if (pathname !== "/") {
+      router.push(`/?scrollTo=${sectionId}`);
+    } else {
+      scrollToSection(sectionId);
+    }
+  };
+
   return (
     <nav
       className={`fixed top-0 w-full z-50 transition-all duration-300 ${
@@ -35,49 +48,50 @@ const Navbar = () => {
       <div className="container mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
           <div className="text-2xl font-bold font-mono">
-            <span className="gradient-text">
-              <LogoSvg className="text-primary" width={60} height={60} />
-            </span>
+            <LogoLink />
           </div>
 
           {/* Desktop Nav */}
           <div className="hidden md:flex items-center space-x-8">
             <button
-              onClick={() => scrollToSection("mission")}
+              onClick={() => handleNav("mission")}
               className="hover:text-primary transition-colors hover:cursor-pointer"
             >
               Mission
             </button>
             <button
-              onClick={() => scrollToSection("services")}
+              onClick={() => handleNav("services")}
               className="hover:text-primary transition-colors hover:cursor-pointer"
             >
               What We Build
             </button>
             <button
-              onClick={() => scrollToSection("approach")}
+              onClick={() => handleNav("approach")}
               className="hover:text-primary transition-colors hover:cursor-pointer"
             >
               Approach
             </button>
+            <button
+              onClick={() => router.push(`/about`)}
+              className="hover:text-primary transition-colors hover:cursor-pointer"
+            >
+              About Us
+            </button>
             <DarkModeToggle />
             <Button
-              onClick={() => scrollToSection("contact")}
+              onClick={() => router.push(`/contact`)}
               className="bg-primary text-primary-foreground hover:bg-primary/90 hover:cursor-pointer"
             >
-              Get in Touch
+              Contact
             </Button>
           </div>
 
           {/* Mobile Menu Button */}
-          <div className="md:hidden flex items-center space-x-4">
+          <div className="xl:hidden flex items-center space-x-4">
             <DarkModeToggle />
-            {/* Future: MobileNav toggle button here */}
+            <MobileNav />
           </div>
         </div>
-
-        {/* Mobile Navigation (to be added) */}
-        {/* <MobileNav /> */}
       </div>
     </nav>
   );

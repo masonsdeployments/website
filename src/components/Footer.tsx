@@ -1,4 +1,4 @@
-import { LogoSvg } from "./LogoSvg";
+import LogoLink from "./LogoLink";
 
 export const Footer = () => {
   return (
@@ -7,7 +7,7 @@ export const Footer = () => {
         <div className="flex flex-col md:flex-row justify-between items-center">
           <div className="text-2xl font-bold font-mono mb-4 md:mb-0">
             <span className="gradient-text flex flex-row justify-center items-center gap-3 text-primary font-sans">
-              <LogoSvg className="text-primary" width={60} height={60} />
+              <LogoLink />
               Masons
             </span>
           </div>

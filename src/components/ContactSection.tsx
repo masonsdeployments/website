@@ -1,5 +1,6 @@
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 export const ContactSection = () => {
   return (
@@ -23,25 +24,23 @@ export const ContactSection = () => {
             <Button
               size="lg"
               className="bg-primary text-primary-foreground hover:bg-primary/90 text-lg px-8 py-3 hover:cursor-pointer"
-              disabled={true}
             >
-              Start a Conversation
+              <Link href="/contact">Start a Conversation</Link>
               <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
             <Button
               variant="outline"
-              disabled={true}
               size="lg"
               className="text-lg px-8 py-3 hover:cursor-pointer"
             >
-              View Our Work
+              <Link href="/about">Meet the team</Link>
             </Button>
           </div>
 
           <div className="mt-16 pt-8 border-t border-border">
             <p className="text-muted-foreground font-mono">
-              seifzellaban@gmail.com • We&apos;re not just writing code —
-              we&apos;re building systems that empower people.
+              wearemasonsteam@gmail.com • We&apos;re not just writing code —
+              we&apos;re building systems that empower you!
             </p>
           </div>
         </div>

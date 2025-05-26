@@ -3,28 +3,31 @@ import { ProjectCard } from "./ProjectCard";
 const projects = [
   {
     badge: "AI & Mental Health",
-    title: "Empathetic AI Systems",
+    title: "Rafiqi",
     description:
-      "We develop AI-driven mental health platforms that understand context, emotion, and individual needs. Our systems provide support that feels genuinely human.",
-    href: "#",
+      "We're developing an AI-driven mental health platforms that understand context, emotion, and individual needs. Our systems provide support that feels genuinely human.",
+    href: "https://rafiqi.wearemasons.com",
   },
   {
-    badge: "Human-Centered Platforms",
-    title: "Intuitive Interfaces",
+    badge: "AI & Fintech (GDGC  AI Hackathon)",
+    title: "repAI",
     description:
-      "We design and build platforms that feel natural to use. Every interaction is crafted to reduce friction and increase understanding between humans and technology.",
+      "RepAi is an AI-driven web application that incentivizes recycling by providing real-time pricing for recyclable materials, connecting users with collectors, and rewarding them with cashback. By leveraging cutting-edge AI and financial technologies, RepAi transforms recycling into a profitable and sustainable activity for individuals and businesses.",
+    href: "https://repai.wearemasons.com",
   },
   {
-    badge: "Systems Architecture",
-    title: "Scalable Infrastructure",
+    badge: "Three.js (Space Apps Cairo)",
+    title: "Orbit",
     description:
-      "We architect systems that grow with your needs while maintaining performance and reliability. Built for the long term, designed for real-world usage.",
+      "Orbit is an interactive 3D web application designed to simulate the solar system and track Near-Earth Objects (NEOs). The project utilizes Next.js for the frontend, Three.js for 3D rendering, and a Golang backend. This was our official submission for the NASA Space Apps Cairo 2024 hackathon.",
+    href: "https://orbit.wearemasons.com",
   },
   {
-    badge: "Product Strategy",
-    title: "Thoughtful Development",
+    badge: "AI (Space Apps Cairo)",
+    title: "NAVRIS",
     description:
-      "We help you navigate from idea to impact. Our strategic approach ensures every feature serves a purpose and every launch creates genuine value.",
+      "A hackathon project from NASA Space Apps Cairo 2023 built as an early warning system for natural disasters. It detects earthquakes (45% accuracy), storms (87%), and tornadoes (91%). It uses a Dot Matrix Generator to map longitude/latitude points with pressure, wind speed, and direction.",
+    href: "https://rafiqi.wearemasons.com",
   },
 ];
 
