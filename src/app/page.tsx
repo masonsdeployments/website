@@ -1,4 +1,5 @@
 "use client";
+import { Suspense } from "react";
 import { MissionSection } from "@/components/MissionSection";
 import { ProjectsSection } from "@/components/ProjectsSection";
 import { ApproachSection } from "@/components/ApproachSection";
@@ -10,6 +11,14 @@ import { useSearchParams } from "next/navigation";
 import { useEffect } from "react";
 
 export default function Home() {
+  return (
+    <Suspense>
+      <HomeContent />
+    </Suspense>
+  );
+}
+
+function HomeContent() {
   const searchParams = useSearchParams();
 
   useEffect(() => {
