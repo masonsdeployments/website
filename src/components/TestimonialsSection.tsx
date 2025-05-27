@@ -1,21 +1,3 @@
-// import { useState } from "react";
-// import { cn } from "@/lib/utils";
-
-// export const Component = () => {
-//   const [count, setCount] = useState(0);
-
-//   return (
-//     <div className={cn("flex flex-col items-center gap-4 p-4 rounded-lg")}>
-//       <h1 className="text-2xl font-bold mb-2">Component Example</h1>
-//       <h2 className="text-xl font-semibold">{count}</h2>
-//       <div className="flex gap-2">
-//         <button onClick={() => setCount((prev) => prev - 1)}>-</button>
-//         <button onClick={() => setCount((prev) => prev + 1)}>+</button>
-//       </div>
-//     </div>
-//   );
-// };
-
 "use client";
 
 import React, { useState, useEffect } from "react";
@@ -230,7 +212,7 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({
           isCenter ? "text-primary-foreground" : "text-foreground",
         )}
       >
-        "{testimonial.testimonial}"
+        `{testimonial.testimonial}`
       </h3>
       <p
         className={cn(

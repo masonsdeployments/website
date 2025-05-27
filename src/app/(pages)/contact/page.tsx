@@ -24,7 +24,6 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { toast } from "sonner";
-import { collectSegments } from "next/dist/build/segment-config/app/app-segments";
 
 interface ContactMethod {
   icon: React.ReactNode;
