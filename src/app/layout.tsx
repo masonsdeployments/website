@@ -2,13 +2,14 @@ import type { Metadata } from "next";
 import { Space_Grotesk, Space_Mono, Crimson_Pro } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "../components/ThemeProvider";
+import { Toaster } from "@/components/ui/sonner";
 
-const geistSans = Space_Grotesk({
+const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
   variable: "--font-sans",
 });
 
-const geistMono = Space_Mono({
+const spaceMono = Space_Mono({
   subsets: ["latin"],
   weight: ["400", "700"],
   variable: "--font-mono",
@@ -36,9 +37,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${crimsonPro.variable} antialiased`}
+        className={`${spaceGrotesk.variable} ${spaceMono.variable} ${crimsonPro.variable} antialiased`}
       >
         <ThemeProvider>{children}</ThemeProvider>
+        <Toaster />
       </body>
     </html>
   );

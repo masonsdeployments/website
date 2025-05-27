@@ -9,6 +9,7 @@ import { HeroSection } from "@/components/Hero";
 import Navbar from "@/components/Navbar";
 import { useSearchParams } from "next/navigation";
 import { useEffect } from "react";
+import { StaggerTestimonials } from "@/components/TestimonialsSection";
 
 export default function Home() {
   return (
@@ -47,6 +48,8 @@ function HomeContent() {
 
       {/* Approach Section */}
       <ApproachSection />
+
+      <StaggerTestimonials />
 
       {/* Contact Section */}
       <ContactSection />

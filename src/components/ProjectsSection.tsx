@@ -2,7 +2,7 @@ import { ProjectCard } from "./ProjectCard";
 
 const projects = [
   {
-    badge: "AI & Mental Health",
+    badge: "AI Powered Mental Health",
     title: "Rafiqi",
     description:
       "We're developing an AI-driven mental health platforms that understand context, emotion, and individual needs. Our systems provide support that feels genuinely human.",
@@ -16,7 +16,7 @@ const projects = [
     href: "https://repai.wearemasons.com",
   },
   {
-    badge: "Three.js (Space Apps Cairo)",
+    badge: "Three.js & AI (Space Apps Cairo)",
     title: "Orbit",
     description:
       "Orbit is an interactive 3D web application designed to simulate the solar system and track Near-Earth Objects (NEOs). The project utilizes Next.js for the frontend, Three.js for 3D rendering, and a Golang backend. This was our official submission for the NASA Space Apps Cairo 2024 hackathon.",
@@ -36,8 +36,8 @@ export const ProjectsSection = () => (
     <div className="container mx-auto px-6">
       <div className="text-center mb-16">
         <h2 className="text-3xl md:text-5xl font-bold mb-6">
-          What we{" "}
-          <span className="gradient-text font-serif not-italic">build</span>
+          What we&apos;ve{" "}
+          <span className="gradient-text font-serif not-italic">built</span>
         </h2>
         <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
           From concept to deployment, we create technology that makes a

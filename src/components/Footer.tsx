@@ -8,11 +8,10 @@ export const Footer = () => {
           <div className="text-2xl font-bold font-mono mb-4 md:mb-0">
             <span className="gradient-text flex flex-row justify-center items-center gap-3 text-primary font-sans">
               <LogoLink />
-              Masons
             </span>
           </div>
           <p className="text-muted-foreground text-center md:text-right">
-            © 2025 Masons. Built with empathy, deployed with purpose.
+            © 2025 Masons. Building what matters, Brick by brick.
           </p>
         </div>
       </div>

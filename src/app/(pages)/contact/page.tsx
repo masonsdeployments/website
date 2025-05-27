@@ -23,8 +23,9 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { toast } from "sonner";
+import { collectSegments } from "next/dist/build/segment-config/app/app-segments";
 
-// Contact method card component
 interface ContactMethod {
   icon: React.ReactNode;
   title: string;
@@ -62,9 +63,10 @@ const ContactForm = () => {
     projectType: "",
     message: "",
   });
+  const [loading, setLoading] = useState(false);
 
   const handleInputChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
@@ -74,9 +76,43 @@ const ContactForm = () => {
     setFormData((prev) => ({ ...prev, projectType: value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Form submitted:", formData);
+    setLoading(true);
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await res.json();
+
+      if (res.ok) {
+        toast.success("✅ Email Sent!", {
+          description: "We'll get back to you within 24 hours.",
+        });
+        setFormData({
+          name: "",
+          email: "",
+          company: "",
+          projectType: "",
+          message: "",
+        });
+      } else {
+        toast.error("❌ Failed to Send", {
+          description: data.error || "Something went wrong.",
+        });
+      }
+    } catch (error) {
+      toast.error("🚨 Error", {
+        description: "Check your network or try again later.",
+      });
+      console.error(error);
+    }
+
+    setLoading(false);
   };
 
   return (
@@ -158,8 +194,8 @@ const ContactForm = () => {
             />
           </div>
 
-          <Button type="submit" size="lg" className="w-full">
-            Start the Conversation
+          <Button type="submit" size="lg" className="w-full" disabled={true}>
+            {loading ? "Sending..." : "Start the Conversation"}
           </Button>
 
           <p className="text-sm text-muted-foreground text-center">
@@ -206,7 +242,6 @@ const ContactMethodsSection = () => {
       title: "Quick Chat",
       description: "Schedule a 15-minute call to discuss your project.",
       action: "Book a Call",
-      href: "#", // You'd replace this with your actual booking link
     },
     {
       icon: <MapPin className="w-6 h-6 text-primary" />,
@@ -256,7 +291,7 @@ const ProjectTypesSection = () => {
   ];
 
   return (
-    <section className="bg-muted/20 rounded-2xl p-8 md:p-12">
+    <section className="bg-muted/30 rounded-2xl p-8 md:p-12">
       <h2 className="text-2xl md:text-3xl font-bold mb-8 text-center">
         How we typically help
       </h2>

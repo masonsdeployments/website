@@ -26,7 +26,9 @@ export const MissionSection = () => (
       <div className="max-w-4xl mx-auto text-center">
         <h2 className="text-3xl md:text-5xl font-bold mb-8">
           Built on{" "}
-          <span className="gradient-text font-serif not-italic">empathy</span>
+          <span className="gradient-text font-serif not-italic">
+            understanding
+          </span>
         </h2>
         <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed mb-12">
           We believe great products start with understanding people. Empathy is

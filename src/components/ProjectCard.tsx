@@ -2,6 +2,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
+import Link from "next/link";
 
 type ProjectCardProps = {
   badge: string;
@@ -33,10 +34,10 @@ export const ProjectCard = ({
           className="group w-fit hover:cursor-pointer" // bug here: cursor is not pointing...
           asChild
         >
-          <a href={href}>
-            Learn More
+          <Link href={href}>
+            View Live Demo
             <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-          </a>
+          </Link>
         </Button>
       )}
     </CardContent>
