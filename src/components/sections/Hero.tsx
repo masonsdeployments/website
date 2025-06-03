@@ -17,20 +17,20 @@ export const HeroSection = () => {
     >
       <div className="container mx-auto px-6 text-center rounded-md">
         <Badge variant="secondary" className="mb-6 font-mono">
-          Tech that gives a damn
+          Impact Without Compromise
         </Badge>
         <h1 className="text-4xl md:text-7xl font-bold mb-6 leading-tight">
-          We build tools that
-          <br />
+          We Turn Problems Into
           <span className="gradient-text font-serif not-italic">
-            solve real problems
+            &nbsp;Possibilities
           </span>
         </h1>
 
         <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-3xl mx-auto leading-relaxed">
-          A collective of builders, thinkers, and makers creating technology
-          with zero bullshit and full intention. From AI-driven mental health to
-          realtime platforms — we craft systems that empower people.
+          We&apos;re the collective behind AI systems that understand emotion,
+          platforms that prevent disasters, and tools that turn recycling into
+          profit. No vanity metrics. No empty promises. Just technology that
+          solves problems that matter.
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
@@ -39,16 +39,16 @@ export const HeroSection = () => {
             onClick={() => scrollToSection("services")}
             className="bg-primary text-primary-foreground hover:bg-primary/90 text-lg px-8 py-3 hover:cursor-pointer"
           >
-            Explore Our Work
+            See Our Impact
             <ArrowRight className="ml-2 h-5 w-5" />
           </Button>
           <Button
             variant="outline"
             size="lg"
-            onClick={() => scrollToSection("mission")}
+            onClick={() => scrollToSection("contact")}
             className="text-lg px-8 py-3 hover:cursor-pointer"
           >
-            Our Mission
+            Start Your Project
           </Button>
         </div>
       </div>

@@ -1,8 +1,8 @@
 "use client";
 
 import { Card, CardContent } from "@/components/ui/card";
-import Navbar from "@/components/Navbar";
-import { Footer } from "@/components/Footer";
+import Navbar from "@/components/layout/Navbar";
+import { Footer } from "@/components/layout/Footer";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import { useState } from "react";
@@ -68,6 +68,10 @@ interface TeamMember {
   focus: string;
   image?: string;
   href?: string;
+  gh?: string;
+  fb?: string;
+  ig?: string;
+  x?: string;
 }
 
 const TeamMemberCard = ({ member }: { member: TeamMember }) => (
@@ -103,16 +107,67 @@ const TeamMemberCard = ({ member }: { member: TeamMember }) => (
 const HeroSection = () => (
   <section className="flex flex-col items-center justify-center text-center max-w-4xl mx-auto">
     <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed mb-8">
-      Masons started in a coffee shop at 2am. Three devs, tired of building
-      flashy tech that didn&apos;t actually help anyone, decided to do things
-      differently.
+      Masons started in a coffee shop at 2AM. Three teenage devs sat huddled
+      over half-dead laptops, half-full cups of bitter Turkish coffee, and fully
+      charged dreams.
+    </p>
+    <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed mb-8">
+      Back then, they were barely 16. Still figuring out what a for loop was,
+      still learning to walk in the dev world without tripping over syntax
+      errors. They had an idea: an app that could actually help people. So they
+      mapped it out, picked a stack they barely knew, and dove in headfirst. For
+      three months, they learned, built, dreamed. Everything felt like it was
+      lining up.
+    </p>
+    <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed mb-8">
+      Then one random day, just opening the Play Store to update Clash of Clans
+      like any other normal teenager... bam. There it was. The exact same app.
+      Built by someone else. Shipped. Polished. Everywhere. And it was good.
+      Like, damn, hats-off kind of good. It crushed in Egypt. That sting? Yeah,
+      it hurt. But respect where it&apos;s due. They got beat fair and square.
+    </p>
+    <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed mb-8">
+      After that, life kicked in. One dev dipped. School got hectic. The dream
+      went into deep freeze for a while. Third secondary, finals, the chaos of
+      teenhood. Masons went quiet.
+    </p>
+    <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed mb-8">
+      But legends don&apos;t stay dormant forever.
+    </p>
+    <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed mb-8">
+      They graduated highschool. Life shifted. Seif crossed paths with two
+      powerhouses: Ahmed Khalid, better known as Z3ln, and Sherif Lotfy, aka
+      Sizif. Meanwhile, Abdelaziz met Omar Waleed in a different corner of the
+      college cosmos. And just like that, the universe tossed a new challenge
+      their way: NASA Space Apps Cairo 2023. That was the spark.
+    </p>
+    <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed mb-8">
+      Seif called in the cavalry: his cousin Omar Ellaban. The puzzle pieces
+      locked in. Six minds, six stories, one wild idea. For the first time, the
+      Mighty Founding Six stood assembled.
+    </p>
+    <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed mb-8">
+      When Rafiqi came into view, something shifted. The mission got real. They
+      searched, reached out, brought new people into the fold. Each one brought
+      a different background, a new way of thinking, skills the OGs didn&apos;t
+      have. And that&apos;s what made the team powerful as hell. Not clones, but
+      a crew of misfits with heart, grit, and range. Every one of them unique as
+      hell.
+    </p>
+    <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed mb-8">
+      From there, it was never about the hype. Not about slapping
+      &quot;AI-powered&quot; on a landing page just to raise eyebrows. They
+      weren&apos;t here for billion-dollar nothings.
+    </p>
+    <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed mb-8">
+      They were here to build real stuff that mattered. Sometimes that meant AI
+      that actually understood the context of a conversation, not just spit out
+      buzzwords. Other times it was about infrastructure that didn&apos;t fall
+      apart when 50,000 users showed up at once. Always, always, it was about
+      putting people before ego.
     </p>
     <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed">
-      We&apos;re not here to chase hype or build the next billion-dollar
-      nothing. We&apos;re here to craft technology that makes life genuinely
-      better for the humans who use it. Sometimes that means AI that actually
-      understands context. Sometimes it&apos;s infrastructure that doesn&apos;t
-      fall apart at scale. Always, it&apos;s about putting people before ego.
+      This wasn&apos;t just a startup. This was Masons.
     </p>
   </section>
 );
@@ -160,13 +215,13 @@ const teamMembers: TeamMember[] = [
     name: "Seif Zakaria",
     role: "Founder & CEO of Masons",
     description:
-      "Just a guy who loves building shit that actually works. Deep in code, big on clarity, always chasing better systems.",
+      "Just a guy who loves shipping apps that actually works. Deep in code, big on clarity, always chasing better systems.",
     focus: "Pretending it's simple until it actually is",
-    image: "https://avatar.iran.liara.run/public/boy?username=Seif",
+    image: "https://avatar.iran.liara.run/public/boy?username=mason",
     href: "https://seifzellaban.work/",
   },
   {
-    name: "Abdelaziz",
+    name: "Abdelaziz Amr",
     role: "Backend Dev & Co-Founder of Masons",
     description:
       "Turns user pain into elegant solutions. Has strong opinions about whitespace.",
@@ -174,7 +229,7 @@ const teamMembers: TeamMember[] = [
     image: "https://avatar.iran.liara.run/public/boy?username=Zizo",
   },
   {
-    name: "Z3ln",
+    name: "Ahmed Khaled (Z3ln)",
     role: "Fullstack Dev & CTO of Masons",
     description:
       "Turns user pain into elegant solutions. Has strong opinions about whitespace.",
@@ -182,7 +237,7 @@ const teamMembers: TeamMember[] = [
     image: "https://avatar.iran.liara.run/public/boy?username=Z3ln",
   },
   {
-    name: "Sizif",
+    name: "Sherif Lotfy (Sizif)",
     role: "Fullstack Dev & VP of Frontend Team",
     description:
       "Turns user pain into elegant solutions. Has strong opinions about whitespace.",
@@ -191,7 +246,7 @@ const teamMembers: TeamMember[] = [
     href: "https://sizif.wearemasons.com/",
   },
   {
-    name: "Omar Ellaban",
+    name: "Omar Ellaban (Ktlr)",
     role: "Backend Engineer",
     description:
       "Builds APIs you actually want to use. Once fixed a critical bug from a moving taxi.",

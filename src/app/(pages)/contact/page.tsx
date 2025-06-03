@@ -5,8 +5,8 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
-import Navbar from "@/components/Navbar";
-import { Footer } from "@/components/Footer";
+import Navbar from "@/components/layout/Navbar";
+import { Footer } from "@/components/layout/Footer";
 import { useState } from "react";
 import {
   Mail,

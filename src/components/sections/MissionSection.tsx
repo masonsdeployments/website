@@ -1,22 +1,24 @@
 import { Heart, Zap, Users } from "lucide-react";
-import { MissionCard } from "./MissionCard";
+import { MissionCard } from "../cards/MissionCard";
 
 const missionItems = [
   {
     icon: <Heart className="h-12 w-12 text-primary mx-auto" />,
-    title: "Human-Centered",
+    title: "Human-First Engineering",
     description:
-      "Every decision starts with the people who will use our software.",
+      "We start with empathy, not algorithms. Every system we design begins with deep user research and ends with measurable human impact.",
   },
   {
     icon: <Zap className="h-12 w-12 text-primary mx-auto" />,
-    title: "Zero Bullshit",
-    description: "We cut through the noise to build what actually matters.",
+    title: "Zero-Waste Development",
+    description:
+      "No bloated features. No technical debt. We build lean, powerful systems that solve actual problems, not imaginary ones.",
   },
   {
     icon: <Users className="h-12 w-12 text-primary mx-auto" />,
-    title: "Collective Impact",
-    description: "Together, we're stronger than the sum of our parts.",
+    title: "Collective Intelligence",
+    description:
+      "Our distributed team thinks like a single, brilliant mind. We combine diverse perspectives to create solutions no individual could imagine alone.",
   },
 ];
 
@@ -25,9 +27,9 @@ export const MissionSection = () => (
     <div className="container mx-auto px-6">
       <div className="max-w-4xl mx-auto text-center">
         <h2 className="text-3xl md:text-5xl font-bold mb-8">
-          Built on{" "}
+          While Others Build Features,{" "}
           <span className="gradient-text font-serif not-italic">
-            understanding
+            We Build Futures
           </span>
         </h2>
         <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed mb-12">

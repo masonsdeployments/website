@@ -1,0 +1,90 @@
+/* Gruvbox Dark Hard Theme for highlight.js */
+.hljs {
+  background: #1d2021 !important;
+  color: #ebdbb2 !important;
+}
+
+/* Comments */
+.hljs-comment,
+.hljs-quote {
+  color: #928374 !important;
+  font-style: italic;
+}
+
+/* Keywords */
+.hljs-keyword,
+.hljs-selector-tag,
+.hljs-literal,
+.hljs-section,
+.hljs-link {
+  color: #fb4934 !important;
+}
+
+/* Functions */
+.hljs-function .hljs-keyword {
+  color: #8ec07c !important;
+}
+
+.hljs-subst {
+  color: #ebdbb2 !important;
+}
+
+/* Strings */
+.hljs-string,
+.hljs-title,
+.hljs-name,
+.hljs-type,
+.hljs-attribute,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition,
+.hljs-variable,
+.hljs-template-tag,
+.hljs-template-variable {
+  color: #b8bb26 !important;
+}
+
+/* Numbers */
+.hljs-number,
+.hljs-regexp,
+.hljs-deletion {
+  color: #d3869b !important;
+}
+
+/* Built-ins */
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-class .hljs-title {
+  color: #fabd2f !important;
+}
+
+/* Meta */
+.hljs-meta {
+  color: #83a598 !important;
+}
+
+.hljs-meta-string {
+  color: #b8bb26 !important;
+}
+
+/* Tags */
+.hljs-tag {
+  color: #8ec07c !important;
+}
+
+.hljs-tag .hljs-attr {
+  color: #fabd2f !important;
+}
+
+.hljs-tag .hljs-name {
+  color: #8ec07c !important;
+}
+
+/* Emphasis */
+.hljs-emphasis {
+  font-style: italic;
+}
+
+.hljs-strong {
+  font-weight: bold;
+}

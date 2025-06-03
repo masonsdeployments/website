@@ -1,25 +1,16 @@
 "use client";
-import { Suspense } from "react";
-import { MissionSection } from "@/components/MissionSection";
-import { ProjectsSection } from "@/components/ProjectsSection";
-import { ApproachSection } from "@/components/ApproachSection";
-import { ContactSection } from "@/components/ContactSection";
-import { Footer } from "@/components/Footer";
-import { HeroSection } from "@/components/Hero";
-import Navbar from "@/components/Navbar";
+import { MissionSection } from "@/components/sections/MissionSection";
+import { ProjectsSection } from "@/components/sections/ProjectsSection";
+import { ApproachSection } from "@/components/sections/ApproachSection";
+import { ContactSection } from "@/components/sections/ContactSection";
+import { Footer } from "@/components/layout/Footer";
+import { HeroSection } from "@/components/sections/Hero";
+import Navbar from "@/components/layout/Navbar";
 import { useSearchParams } from "next/navigation";
 import { useEffect } from "react";
-import { StaggerTestimonials } from "@/components/TestimonialsSection";
+import { StaggerTestimonials } from "@/components/sections/TestimonialsSection";
 
 export default function Home() {
-  return (
-    <Suspense>
-      <HomeContent />
-    </Suspense>
-  );
-}
-
-function HomeContent() {
   const searchParams = useSearchParams();
 
   useEffect(() => {

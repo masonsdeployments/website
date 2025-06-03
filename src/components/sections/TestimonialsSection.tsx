@@ -4,7 +4,7 @@ import React, { useState, useEffect } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
-import { Button } from "./ui/button";
+import { Button } from "../ui/button";
 
 const SQRT_5000 = Math.sqrt(5000);
 
@@ -170,7 +170,7 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({
         "absolute left-1/2 top-1/2 cursor-pointer border-2 p-8 transition-all duration-500 ease-in-out",
         isCenter
           ? "z-10 bg-primary text-primary-foreground border-primary"
-          : "z-0 bg-card text-card-foreground border-border hover:border-primary/50",
+          : "z-0 bg-card text-card-foreground border-border hover:border-primary/50"
       )}
       style={{
         width: cardSize,
@@ -209,7 +209,7 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({
       <h3
         className={cn(
           "text-base sm:text-xl font-medium",
-          isCenter ? "text-primary-foreground" : "text-foreground",
+          isCenter ? "text-primary-foreground" : "text-foreground"
         )}
       >
         `{testimonial.testimonial}`
@@ -217,7 +217,7 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({
       <p
         className={cn(
           "absolute bottom-8 left-8 right-8 mt-2 text-sm italic",
-          isCenter ? "text-primary-foreground/80" : "text-muted-foreground",
+          isCenter ? "text-primary-foreground/80" : "text-muted-foreground"
         )}
       >
         - {testimonial.by}
@@ -286,7 +286,7 @@ export const StaggerTestimonials: React.FC = () => {
           className={cn(
             "flex h-14 w-14 items-center justify-center text-2xl transition-colors",
             "bg-background border-2 border-border",
-            "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 rounded-lg cursor-pointer",
+            "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 rounded-lg cursor-pointer"
           )}
           aria-label="Previous testimonial"
         >
@@ -298,7 +298,7 @@ export const StaggerTestimonials: React.FC = () => {
           className={cn(
             "flex h-14 w-14 items-center justify-center text-2xl transition-colors",
             "bg-background border-2 border-border",
-            "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 rounded-lg cursor-pointer",
+            "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 rounded-lg cursor-pointer"
           )}
           aria-label="Next testimonial"
         >

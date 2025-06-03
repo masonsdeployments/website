@@ -1,11 +1,11 @@
-import { ApproachStep } from "./ApproachStep";
+import { ApproachStep } from "../cards/ApproachStep";
 
 const steps = [
   {
     step: "01",
     title: "Listen First",
     description:
-      "Before we write a single line of code, we listen. We understand your users, your challenges, and your vision. This foundation shapes everything that follows.",
+      "We don't just ask what you want, we uncover what you actually need. Through user interviews, market analysis, and problem archaeology, we find the real challenge hiding behind the obvious one.",
   },
   {
     step: "02",
@@ -17,13 +17,13 @@ const steps = [
     step: "03",
     title: "Build to Last",
     description:
-      "We craft code like we're building cathedrals — with attention to detail, structural integrity, and the understanding that others will inherit our work.",
+      "We build like your users' lives depend on it; because sometimes they do. Every interaction is crafted, every edge case considered, every detail refined until it's not just functional, but meaningful.",
   },
   {
     step: "04",
-    title: "Iterate with Empathy",
+    title: "Impact Amplification",
     description:
-      "We test, learn, and improve. But we never lose sight of the humans using our creations. Every iteration brings us closer to meaningful impact.",
+      "Launch is just the beginning. We measure what matters, iterate based on real usage, and continuously enhance until your solution doesn't just work.. it transforms lives.",
   },
 ];
 

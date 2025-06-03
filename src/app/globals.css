@@ -204,6 +204,20 @@
   .glass-card {
     @apply backdrop-blur-sm bg-card/50 border border-border/50;
   }
+  .custom-scroll::-webkit-scrollbar {
+    height: 8px;
+  }
+  .custom-scroll::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  .custom-scroll::-webkit-scrollbar-thumb {
+    background-color: rgba(100, 116, 139, 0.5); /* Slate-500/50 */
+    border-radius: 6px;
+  }
+  .custom-scroll {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(100, 116, 139, 0.5) transparent;
+  }  
 }
 
 .font-sans {

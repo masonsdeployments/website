@@ -2,9 +2,9 @@
 
 import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
-import { DarkModeToggle } from "@/components/DarkModeToggle";
+import { DarkModeToggle } from "@/components/layout/DarkModeToggle";
 import { useRouter, usePathname } from "next/navigation";
-import LogoLink from "./LogoLink";
+import LogoLink from "../LogoLink";
 import MobileNav from "./MobileNavbar";
 
 const Navbar = () => {

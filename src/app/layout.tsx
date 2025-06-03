@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
 import { Space_Grotesk, Space_Mono, Crimson_Pro } from "next/font/google";
 import "./globals.css";
-import { ThemeProvider } from "../components/ThemeProvider";
+import "../styles/gruvbox-dark-hard.css";
+import { ThemeProvider } from "../components/layout/ThemeProvider";
 import { Toaster } from "@/components/ui/sonner";
+import { Suspense } from "react";
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
@@ -39,7 +41,9 @@ export default function RootLayout({
       <body
         className={`${spaceGrotesk.variable} ${spaceMono.variable} ${crimsonPro.variable} antialiased`}
       >
-        <ThemeProvider>{children}</ThemeProvider>
+        <ThemeProvider>
+          <Suspense>{children}</Suspense>
+        </ThemeProvider>
         <Toaster />
       </body>
     </html>

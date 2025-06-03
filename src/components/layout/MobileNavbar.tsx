@@ -10,8 +10,8 @@ import {
 // import Link from "next/link";
 import { useState } from "react";
 import { Menu } from "lucide-react";
-import { Button } from "./ui/button";
-// import { LogoSvg } from "./LogoSvg";
+import { Button } from "../ui/button";
+// import { LogoSvg } from "../LogoSvg";
 
 const NAV_HEIGHT = 72;
 

@@ -1,4 +1,4 @@
-import LogoLink from "./LogoLink";
+import LogoLink from "../LogoLink";
 
 export const Footer = () => {
   return (
@@ -11,7 +11,7 @@ export const Footer = () => {
             </span>
           </div>
           <p className="text-muted-foreground text-center md:text-right">
-            © 2025 Masons. Building what matters, Brick by brick.
+            © 2025 Masons. Crafting tomorrow&apos;s solutions today.
           </p>
         </div>
       </div>

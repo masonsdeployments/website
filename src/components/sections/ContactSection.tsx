@@ -39,8 +39,9 @@ export const ContactSection = () => {
 
           <div className="mt-16 pt-8 border-t border-border">
             <p className="text-muted-foreground font-mono">
-              wearemasonsteam@gmail.com • We&apos;re not just writing code —
-              we&apos;re building systems that empower you!
+              wearemasonsteam@gmail.com • No lengthy contracts. No up-front
+              fees. Just a conversation about how technology can amplify your
+              impact.
             </p>
           </div>
         </div>
