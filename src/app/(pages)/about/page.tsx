@@ -6,6 +6,7 @@ import { Footer } from "@/components/layout/Footer";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import { useState } from "react";
+import React from "react";
 import { ArrowRight } from "lucide-react";
 
 const Avatar = ({
@@ -18,6 +19,7 @@ const Avatar = ({
   className?: string;
 }) => {
   const [imageError, setImageError] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
   const initials = name
     .split(" ")
@@ -39,16 +41,58 @@ const Avatar = ({
     name.split("").reduce((acc, char) => acc + char.charCodeAt(0), 0) %
     colors.length;
 
+  // Reset error state when image prop changes
+  React.useEffect(() => {
+    if (image) {
+      setImageError(false);
+      setIsLoading(true);
+    }
+  }, [image]);
+
   if (image && !imageError) {
+    // Use regular img tag for external URLs for better compatibility
+    if (image.startsWith('http')) {
+      return (
+        <img
+          src={image}
+          alt={name}
+          onLoad={() => {
+            setIsLoading(false);
+            setImageError(false);
+          }}
+          onError={() => {
+            setIsLoading(false);
+            setImageError(true);
+          }}
+          className={`w-16 h-16 rounded-full object-cover ${className} ${isLoading ? 'opacity-0' : 'opacity-100'} transition-opacity duration-300`}
+        />
+      );
+    }
+
+    // Use Next.js Image for local images
     return (
-      <Image
-        src={image}
-        alt={name}
-        onError={() => setImageError(true)}
-        width={50}
-        height={50}
-        className={`w-16 h-16 rounded-full object-cover ${className}`}
-      />
+      <div className={`relative w-16 h-16 rounded-full overflow-hidden ${className}`}>
+        <Image
+          src={image}
+          alt={name}
+          fill
+          className="object-cover"
+          onLoad={() => {
+            setIsLoading(false);
+            setImageError(false);
+          }}
+          onError={() => {
+            setIsLoading(false);
+            setImageError(true);
+          }}
+          sizes="64px"
+        />
+        {isLoading && (
+          <div className={`absolute inset-0 rounded-full ${colors[colorIndex]} flex items-center justify-center text-white font-bold text-lg animate-pulse`}>
+            {initials}
+          </div>
+        )}
+      </div>
     );
   }
 
@@ -75,7 +119,7 @@ interface TeamMember {
 }
 
 const TeamMemberCard = ({ member }: { member: TeamMember }) => (
-  <Card className="p-8 transition-all duration-300 hover:scale-[1.02] hover:shadow-lg h-full">
+  <Card className="p-8 transition-all duration-300 hover:scale-[1.02] hover:shadow-lg h-full min-h-[400px] md:min-h-auto">
     <CardContent className="p-0 space-y-4">
       <div className="flex items-center space-x-4">
         <Avatar name={member.name} image={member.image} />
@@ -217,7 +261,7 @@ const teamMembers: TeamMember[] = [
     description:
       "Just a guy who loves shipping apps that actually works. Deep in code, big on clarity, always chasing better systems.",
     focus: "Pretending it's simple until it actually is",
-    image: "https://avatar.iran.liara.run/public/boy?username=mason",
+    image: "/images/team/seif.jpeg",
     href: "https://seifzellaban.work/",
   },
   {
@@ -226,7 +270,7 @@ const teamMembers: TeamMember[] = [
     description:
       "Turns user pain into elegant solutions. Has strong opinions about whitespace.",
     focus: "Design that respects humans",
-    image: "https://avatar.iran.liara.run/public/boy?username=Zizo",
+    image: "/images/team/abdelaziz.jpeg",
   },
   {
     name: "Ahmed Khaled (Z3ln)",

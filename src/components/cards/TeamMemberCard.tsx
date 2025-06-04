@@ -19,7 +19,7 @@ export default function TeamMemberCard({
   avatarUrl,
 }: TeamMemberProps) {
   return (
-    <Card className="p-6 hover:scale-[1.02] hover:shadow-lg transition-transform h-full">
+    <Card className="p-6 hover:scale-[1.02] hover:shadow-lg transition-transform h-full min-h-[350px] md:min-h-auto">
       <CardContent className="p-0 space-y-4">
         <div className="flex items-center gap-4">
           <div className="relative w-16 h-16 rounded-full overflow-hidden border-2 border-primary">

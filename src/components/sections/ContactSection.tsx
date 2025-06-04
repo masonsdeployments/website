@@ -8,7 +8,7 @@ export const ContactSection = () => {
       <div className="container mx-auto px-6 text-center">
         <div className="max-w-3xl mx-auto">
           <h2 className="text-3xl md:text-5xl font-bold mb-8">
-            Ready to build something that{" "}
+            Ready to build something <br /> that{" "}
             <span className="gradient-text font-serif not-italic">
               matters?
             </span>
@@ -39,9 +39,8 @@ export const ContactSection = () => {
 
           <div className="mt-16 pt-8 border-t border-border">
             <p className="text-muted-foreground font-mono">
-              wearemasonsteam@gmail.com • No lengthy contracts. No up-front
-              fees. Just a conversation about how technology can amplify your
-              impact.
+              wearemasonsteam@gmail.com • Just a conversation about how our
+              technology can amplify your impact.
             </p>
           </div>
         </div>

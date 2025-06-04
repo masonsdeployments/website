@@ -34,7 +34,7 @@ interface ContactMethod {
 }
 
 const ContactMethodCard = ({ method }: { method: ContactMethod }) => (
-  <Card className="p-6 transition-all duration-300 hover:scale-[1.02] hover:shadow-lg h-full">
+  <Card className="p-6 transition-all duration-300 hover:scale-[1.02] hover:shadow-lg h-full min-h-[250px] md:min-h-auto">
     <CardContent className="p-0 space-y-4 text-center">
       <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mx-auto">
         {method.icon}
@@ -340,7 +340,7 @@ export default function ContactPage() {
           </h2>
 
           <div className="space-y-6">
-            <Card className="p-6">
+            <Card className="p-6 min-h-[200px] md:min-h-auto">
               <CardContent className="p-0">
                 <h3 className="font-semibold mb-3">
                   How do you typically work with clients?
@@ -354,7 +354,7 @@ export default function ContactPage() {
               </CardContent>
             </Card>
 
-            <Card className="p-6">
+            <Card className="p-6 min-h-[200px] md:min-h-auto">
               <CardContent className="p-0">
                 <h3 className="font-semibold mb-3">
                   What&apos;s your typical project timeline?
@@ -367,7 +367,7 @@ export default function ContactPage() {
               </CardContent>
             </Card>
 
-            <Card className="p-6">
+            <Card className="p-6 min-h-[200px] md:min-h-auto">
               <CardContent className="p-0">
                 <h3 className="font-semibold mb-3">
                   Do you work with early-stage startups?

@@ -28,9 +28,9 @@ export const MissionSection = () => (
     className="py-20 bg-secondary dark:bg-secondary/30 scroll-mt-24"
   >
     <div className="container mx-auto px-6">
-      <div className="max-w-4xl mx-auto text-center">
+      <div className="max-w-5xl mx-auto text-center">
         <h2 className="text-3xl md:text-5xl font-bold mb-8">
-          While Others Build Features,{" "}
+          While Others Build <br /> Features,{" "}
           <span className="gradient-text font-serif not-italic">
             We Build Futures
           </span>

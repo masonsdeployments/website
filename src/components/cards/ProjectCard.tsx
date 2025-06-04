@@ -36,7 +36,7 @@ export const ProjectCard = ({
   codeHref,
   caseStudyHref,
 }: ProjectCardProps) => (
-  <Card className="glass-card hover:bg-card/70 transition-all duration-500 h-full group hover:shadow-2xl">
+  <Card className="glass-card hover:bg-card/70 transition-all duration-500 h-full group hover:shadow-2xl min-h-[500px] md:min-h-auto">
     <CardContent className="py-2 px-6 flex flex-col justify-between h-full">
       <div className="space-y-6">
         {/* Header */}
