@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { useTheme } from "@/components/layout/ThemeProvider";
 
 export function DarkModeToggle() {
-  const { theme, toggleTheme } = useTheme();
+  const { toggleTheme } = useTheme();
 
   const handleToggle = (event: React.MouseEvent<HTMLButtonElement>) => {
     const { clientX: x, clientY: y } = event;
