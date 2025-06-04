@@ -84,10 +84,10 @@ const MobileNav = () => {
               Mission
             </button>
             <button
-              onClick={() => handleNav("services")}
+              onClick={() => handleNav("projects")}
               className="text-xl hover:text-accent-hover transition-all"
             >
-              What We Build
+              Our Projects
             </button>
             <button
               onClick={() => handleNav("approach")}

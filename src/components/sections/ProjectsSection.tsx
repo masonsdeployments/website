@@ -65,12 +65,12 @@ const projects = [
 ];
 
 export const ProjectsSection = () => (
-  <section id="services" className="py-20 bg-background scroll-mt-24">
+  <section id="projects" className="py-20 bg-background scroll-mt-24">
     <div className="container mx-auto px-6">
       <div className="text-center mb-16">
         <h2 className="text-3xl md:text-5xl font-bold mb-6">
-          What we&apos;ve{" "}
-          <span className="gradient-text font-serif not-italic">built</span>
+          What We&apos;ve{" "}
+          <span className="gradient-text font-serif not-italic">Built</span>
         </h2>
         <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
           Real Problems. Real Solutions. Real Impact.

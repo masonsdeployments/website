@@ -60,10 +60,10 @@ const Navbar = () => {
               Mission
             </button>
             <button
-              onClick={() => handleNav("services")}
+              onClick={() => handleNav("projects")}
               className="hover:text-primary transition-colors hover:cursor-pointer"
             >
-              What We Build
+              Our Projects
             </button>
             <button
               onClick={() => handleNav("approach")}
