@@ -4,6 +4,7 @@ import createMDX from "@next/mdx";
 const nextConfig: NextConfig = {
   pageExtensions: ["mdx", "ts", "tsx"],
   images: {
+    unoptimized: true, // Disables Next.js image optimization
     remotePatterns: [
       {
         protocol: "https",
@@ -14,6 +15,7 @@ const nextConfig: NextConfig = {
         hostname: "i.pravatar.cc",
       },
     ],
+    domains: ["wearemasons.com"],
   },
 };
 
