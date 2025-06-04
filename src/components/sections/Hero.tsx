@@ -20,7 +20,8 @@ export const HeroSection = () => {
           Impact Without Compromise
         </Badge>
         <h1 className="text-4xl md:text-7xl font-bold mb-6 leading-tight">
-          We Turn Problems Into
+          We Turn Problems <br />
+          Into
           <span className="gradient-text font-serif not-italic">
             &nbsp;Possibilities
           </span>
@@ -36,7 +37,7 @@ export const HeroSection = () => {
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
           <Button
             size="lg"
-            onClick={() => scrollToSection("services")}
+            onClick={() => scrollToSection("projects")}
             className="bg-primary text-primary-foreground hover:bg-primary/90 text-lg px-8 py-3 hover:cursor-pointer"
           >
             See Our Impact

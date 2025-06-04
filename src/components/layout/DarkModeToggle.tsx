@@ -3,17 +3,18 @@ import { Button } from "@/components/ui/button";
 import { useTheme } from "@/components/layout/ThemeProvider";
 
 export function DarkModeToggle() {
-  const { theme, setTheme } = useTheme();
+  const { theme, toggleTheme } = useTheme();
 
-  const toggleTheme = () => {
-    setTheme(theme === "dark" ? "light" : "dark");
+  const handleToggle = (event: React.MouseEvent<HTMLButtonElement>) => {
+    const { clientX: x, clientY: y } = event;
+    toggleTheme({ x, y });
   };
 
   return (
     <Button
       variant="outline"
       size="icon"
-      onClick={toggleTheme}
+      onClick={handleToggle}
       className="relative overflow-hidden hover:cursor-pointer"
     >
       <Sun className="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
