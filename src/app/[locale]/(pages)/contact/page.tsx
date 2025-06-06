@@ -112,9 +112,7 @@ const ContactForm = () => {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
       });
-
       const data = await res.json();
-
       if (res.ok) {
         toast.success(t("successTitle"), {
           description: t("successDescription"),
@@ -223,7 +221,7 @@ const ContactForm = () => {
             />
           </div>
 
-          <Button type="submit" size="lg" className={`w-full ${isRtl ? 'font-arabic' : ''}`} disabled={true}>
+          <Button type="submit" size="lg" className={`w-full ${isRtl ? 'font-arabic' : ''}`}>
             {loading ? t("submittingButton") : t("submitButton")}
           </Button>
 
