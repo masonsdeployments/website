@@ -29,7 +29,7 @@
   },
   "Approach": {
     "headlineStart": "Our",
-    "headlineSerif": "approach",
+    "headlineSerif": "Approach",
     "step1Title": "Listen First",
     "step1Desc": "We don't just ask what you want, we uncover what you actually need. Through user interviews, market analysis, and problem archaeology, we find the real challenge hiding behind the obvious one.",
     "step2Title": "Design with Intent",
@@ -82,8 +82,9 @@
     }
   },
   "Contact": {
-    "headlineStart": "Ready to build something",
-    "headlineSerif": "matters?",
+    "headlineStart": "Ready to Build Something",
+    "headlineBr": "That",
+    "headlineSerif": "Matters?",
     "description": "Whether you have a clear vision or just a burning problem that needs solving, we'd love to hear from you. Let's create technology that makes a difference.",
     "startConversation": "Start a Conversation",
     "meetTeam": "Meet the team",
