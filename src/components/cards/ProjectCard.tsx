@@ -155,7 +155,11 @@ export const ProjectCard = ({
             >
               <Link href={demoHref}>
                 {t("cta2")}
-                <ArrowRight className="ml-2 h-4 w-4 group-hover/btn:translate-x-1 transition-transform" />
+                {isRtl ? (
+                  <ArrowLeft className="ml-2 h-4 w-4 group-hover/btn:translate-x-1 transition-transform" />
+                ) : (
+                  <ArrowRight className="ml-2 h-4 w-4 group-hover/btn:translate-x-1 transition-transform" />
+                )}
               </Link>
             </Button>
           )}
@@ -169,7 +173,11 @@ export const ProjectCard = ({
             >
               <Link href={codeHref}>
                 {t("cta3")}
-                <ArrowRight className="ml-2 h-4 w-4 group-hover/btn:translate-x-1 transition-transform" />
+                {isRtl ? (
+                  <ArrowLeft className="ml-2 h-4 w-4 group-hover/btn:translate-x-1 transition-transform" />
+                ) : (
+                  <ArrowRight className="ml-2 h-4 w-4 group-hover/btn:translate-x-1 transition-transform" />
+                )}
               </Link>
             </Button>
           )}
