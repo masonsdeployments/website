@@ -82,7 +82,8 @@
     }
   },
   "Contact": {
-    "headlineStart": "Prêt à Construire Quelque Chose Qui",
+    "headlineStart": "Prêt à Construire Quelque",
+    "headlineBr": "Chose Qui",
     "headlineSerif": "Compte ?",
     "description": "Que vous ayez une vision claire ou juste un problème brûlant qui nécessite une solution, on aimerait vous entendre. Créons ensemble de la technologie qui fait la différence.",
     "startConversation": "Commencer Une Conversation",
