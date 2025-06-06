@@ -1,8 +1,11 @@
 import { ArrowRight, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import { useTranslations } from "next-intl";
 
 export const HeroSection = () => {
+  const t = useTranslations("Hero");
+
   const scrollToSection = (id: string) => {
     const el = document.getElementById(id);
     if (el) {
@@ -17,21 +20,18 @@ export const HeroSection = () => {
     >
       <div className="container mx-auto px-6 text-center rounded-md">
         <Badge variant="secondary" className="mb-6 font-mono">
-          Impact Without Compromise
+          {t("tagline")}
         </Badge>
         <h1 className="text-4xl md:text-7xl font-bold mb-6 leading-tight">
-          We Turn Problems <br />
-          Into
+          {t("titleStart")} <br />
+          {t("titleBr")}
           <span className="gradient-text font-serif not-italic">
-            &nbsp;Possibilities
+            &nbsp;{t("titleSerif")}
           </span>
         </h1>
 
         <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-3xl mx-auto leading-relaxed">
-          We&apos;re the collective behind AI systems that understand emotion,
-          platforms that prevent disasters, and tools that turn recycling into
-          profit. No vanity metrics. No empty promises. Just technology that
-          solves problems that matter.
+          {t("description")}
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
@@ -40,7 +40,7 @@ export const HeroSection = () => {
             onClick={() => scrollToSection("projects")}
             className="bg-primary text-primary-foreground hover:bg-primary/90 text-lg px-8 py-3 hover:cursor-pointer"
           >
-            See Our Impact
+            {t("seeImpact")}
             <ArrowRight className="ml-2 h-5 w-5" />
           </Button>
           <Button
@@ -49,7 +49,7 @@ export const HeroSection = () => {
             onClick={() => scrollToSection("contact")}
             className="text-lg px-8 py-3 hover:cursor-pointer"
           >
-            Start Your Project
+            {t("startProject")}
           </Button>
         </div>
       </div>

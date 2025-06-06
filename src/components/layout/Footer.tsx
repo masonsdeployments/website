@@ -1,6 +1,9 @@
+import { useTranslations } from "next-intl";
 import LogoLink from "../LogoLink";
 
 export const Footer = () => {
+  const t = useTranslations("Footer");
+
   return (
     <footer className="py-12 bg-muted dark:bg-secondary/50 border-t border-border">
       <div className="container mx-auto px-6">
@@ -11,7 +14,7 @@ export const Footer = () => {
             </span>
           </div>
           <p className="text-muted-foreground text-center md:text-right">
-            © 2025 Masons. Crafting tomorrow&apos;s solutions today.
+            {t("text")}
           </p>
         </div>
       </div>

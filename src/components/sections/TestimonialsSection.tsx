@@ -5,72 +5,65 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
 import { Button } from "../ui/button";
+import { useTranslations } from "next-intl";
 
 const SQRT_5000 = Math.sqrt(5000);
 
 const testimonials = [
   {
     tempId: 0,
-    testimonial:
-      "Judging the GDG Cairo hackathon, Masons stood out not just for their tech but for their incredible team energy. Top 7 well deserved!",
-    by: "Mohamed, Senior Android Developer @ Yassir & GDG Hackthon Judge",
+    testimonialKey: "t0.text",
+    byKey: "t0.by",
     imgSrc: "/images/testimonials/mohamed-atef.jpeg",
   },
   {
     tempId: 1,
-    testimonial:
-      "As a hackathon judge, I rarely see teams with such genuine passion. Masons creates an environment where creativity thrives.",
-    by: "Mohamed, CTO @ Electro Pi & GDG Hackthon Judge",
+    testimonialKey: "t1.text",
+    byKey: "t1.by",
     imgSrc: "/images/testimonials/mohamed-essam.jpeg",
   },
   {
     tempId: 2,
-    testimonial:
-      "Masons brought such positive energy to the hackathon. Their approach to problem-solving is both technical and deeply human.",
-    by: "Qamar, Android Developer @ Yassir & GDG Hackthon Judge",
+    testimonialKey: "t2.text",
+    byKey: "t2.by",
     imgSrc: "/images/testimonials/qamar-safadi.jpeg",
   },
   {
     tempId: 3,
-    testimonial:
-      "The collaborative spirit at Masons is unmatched. we felt like part of the family from day one.",
-    by: "Collective of Interns @ Masons",
+    testimonialKey: "t3.text",
+    byKey: "t3.by",
     imgSrc: "/logo.svg",
   },
   {
     tempId: 4,
-    testimonial:
-      "Judging their NASA project, I was impressed by their technical skills but blown away by their team dynamics. Special culture.",
-    by: "Ayman, CTO @ North West Africa Nokia",
+    testimonialKey: "t4.text",
+    byKey: "t4.by",
     imgSrc: "/images/testimonials/ayman-mosaad.jpeg",
   },
   {
     tempId: 5,
-    testimonial:
-      "Masons creates an environment where learning never stops. The growth mindset here is absolutely contagious.",
-    by: "Abdelaziz, Co-Founder @ Masons",
+    testimonialKey: "t5.text",
+    byKey: "t5.by",
     imgSrc: "/images/team/abdelaziz.jpeg",
   },
   {
     tempId: 6,
-    testimonial:
-      "At Masons, we focus on building a culture of trust, curiosity, and continuous improvement. Every milestone is a reflection of the team's dedication and shared vision.",
-    by: "Seif, Founder & CEO @ Masons",
+    testimonialKey: "t6.text",
+    byKey: "t6.by",
     imgSrc: "/images/team/seif.jpeg",
   },
   {
     tempId: 7,
-    testimonial:
-      "Seif showed excellent technical depth and leadership at DEPI. He leads by example and understands how to move teams with clarity and focus.",
-    by: "Sayed Safwet, Senior Full Stack Engineer @ _VOIS & Mentor @ DEPI",
+    testimonialKey: "t7.text",
+    byKey: "t7.by",
     imgSrc: "/images/testimonials/sayed-safwet.jpeg",
   },
 ];
 
 interface Testimonial {
   tempId: string | number;
-  testimonial: string;
-  by: string;
+  testimonialKey: string;
+  byKey: string;
   imgSrc: string;
   originalIndex?: number;
 }
@@ -88,6 +81,7 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({
   handleManualMove,
   cardSize,
 }) => {
+  const t = useTranslations("Testimonials");
   const isCenter = position === 0;
 
   return (
@@ -97,7 +91,7 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({
         "absolute left-1/2 top-1/2 cursor-pointer border-2 p-8 transition-all duration-500 ease-in-out min-h-[350px]",
         isCenter
           ? "z-10 bg-primary text-primary-foreground border-primary"
-          : "z-0 bg-card text-card-foreground border-border hover:border-primary/50",
+          : "z-0 bg-card text-card-foreground border-border hover:border-primary/50"
       )}
       style={{
         width: cardSize,
@@ -125,7 +119,7 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({
       />
       <Image
         src={testimonial.imgSrc}
-        alt={`${testimonial.by.split(",")[0]}`}
+        alt={t(testimonial.byKey).split(",")[0]}
         className="mb-4 h-14 w-12 bg-muted object-cover object-top"
         width={50}
         height={50}
@@ -136,26 +130,28 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({
       <h3
         className={cn(
           "text-base sm:text-xl font-medium",
-          isCenter ? "text-primary-foreground" : "text-foreground",
+          isCenter ? "text-primary-foreground" : "text-foreground"
         )}
       >
-        &quot;{testimonial.testimonial}&quot;
+        &quot;{t(testimonial.testimonialKey)}&quot;
       </h3>
       <p
         className={cn(
           "absolute bottom-8 left-8 right-8 mt-2 text-sm italic",
-          isCenter ? "text-primary-foreground/80" : "text-muted-foreground",
+          isCenter ? "text-primary-foreground/80" : "text-muted-foreground"
         )}
       >
-        - {testimonial.by}
+        - {t(testimonial.byKey)}
       </p>
     </div>
   );
 };
 
 export const StaggerTestimonials: React.FC = () => {
+  const t = useTranslations("Testimonials");
   const [cardSize, setCardSize] = useState(365);
-  const [testimonialsList, setTestimonialsList] = useState<Testimonial[]>(testimonials);
+  const [testimonialsList, setTestimonialsList] =
+    useState<Testimonial[]>(testimonials);
   const [isAutoPlay, setIsAutoPlay] = useState(true);
   const [isHovered, setIsHovered] = useState(false);
   const [screenWidth, setScreenWidth] = useState(1200);
@@ -180,7 +176,7 @@ export const StaggerTestimonials: React.FC = () => {
       }
       return extended;
     },
-    [],
+    []
   );
 
   const handleMove = useCallback(
@@ -201,7 +197,7 @@ export const StaggerTestimonials: React.FC = () => {
       }
       setTestimonialsList(newList);
     },
-    [testimonialsList],
+    [testimonialsList]
   );
 
   const handleManualMove = (steps: number) => {
@@ -274,7 +270,7 @@ export const StaggerTestimonials: React.FC = () => {
           className={cn(
             "flex h-14 w-14 items-center justify-center text-2xl transition-colors",
             "bg-background border-2 border-border",
-            "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 rounded-lg cursor-pointer",
+            "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 rounded-lg cursor-pointer"
           )}
           aria-label="Previous testimonial"
         >
@@ -286,7 +282,7 @@ export const StaggerTestimonials: React.FC = () => {
           className={cn(
             "flex h-14 w-14 items-center justify-center text-2xl transition-colors",
             "bg-background border-2 border-border",
-            "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 rounded-lg cursor-pointer",
+            "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 rounded-lg cursor-pointer"
           )}
           aria-label="Next testimonial"
         >

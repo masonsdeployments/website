@@ -1,10 +1,13 @@
 import type { Metadata } from "next";
 import { Space_Grotesk, Space_Mono, Crimson_Pro } from "next/font/google";
 import "./globals.css";
-import "../styles/gruvbox-dark-hard.css";
-import { ThemeProvider } from "../components/layout/ThemeProvider";
+import "@/styles/gruvbox-dark-hard.css";
+import { ThemeProvider } from "../../components/layout/ThemeProvider";
 import { Toaster } from "@/components/ui/sonner";
 import { Suspense } from "react";
+import { NextIntlClientProvider, hasLocale } from "next-intl";
+import { notFound } from "next/navigation";
+import { routing } from "@/i18n/routing";
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
@@ -31,18 +34,26 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
+export default async function LocaleLayout({
   children,
-}: Readonly<{
+  params,
+}: {
   children: React.ReactNode;
-}>) {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  if (!hasLocale(routing.locales, locale)) {
+    notFound();
+  }
   return (
     <html lang="en">
       <body
         className={`${spaceGrotesk.variable} ${spaceMono.variable} ${crimsonPro.variable} antialiased`}
       >
         <ThemeProvider>
-          <Suspense>{children}</Suspense>
+          <Suspense>
+            <NextIntlClientProvider>{children}</NextIntlClientProvider>
+          </Suspense>
         </ThemeProvider>
         <Toaster />
       </body>

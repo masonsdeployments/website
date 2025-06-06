@@ -6,9 +6,12 @@ import { DarkModeToggle } from "@/components/layout/DarkModeToggle";
 import { useRouter, usePathname } from "next/navigation";
 import LogoLink from "../LogoLink";
 import MobileNav from "./MobileNavbar";
+import { useTranslations } from "next-intl";
 
 const Navbar = () => {
   const [scrollY, setScrollY] = useState(0);
+
+  const t = useTranslations("Navbar");
 
   useEffect(() => {
     const handleScroll = () => setScrollY(window.scrollY);
@@ -57,32 +60,32 @@ const Navbar = () => {
               onClick={() => handleNav("mission")}
               className="hover:text-primary transition-colors hover:cursor-pointer"
             >
-              Mission
+              {t("mission")}
             </button>
             <button
               onClick={() => handleNav("projects")}
               className="hover:text-primary transition-colors hover:cursor-pointer"
             >
-              Our Projects
+              {t("projects")}
             </button>
             <button
               onClick={() => handleNav("approach")}
               className="hover:text-primary transition-colors hover:cursor-pointer"
             >
-              Approach
+              {t("approach")}
             </button>
             <button
               onClick={() => router.push(`/about`)}
               className="hover:text-primary transition-colors hover:cursor-pointer"
             >
-              About Us
+              {t("about")}
             </button>
             <DarkModeToggle />
             <Button
               onClick={() => router.push(`/contact`)}
               className="bg-primary text-primary-foreground hover:bg-primary/90 hover:cursor-pointer"
             >
-              Contact
+              {t("contact")}
             </Button>
           </div>
 

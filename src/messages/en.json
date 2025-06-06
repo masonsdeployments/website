@@ -1,0 +1,128 @@
+{
+  "Navbar": {
+    "mission": "Mission",
+    "projects": "Our Projects",
+    "approach": "Approach",
+    "about": "About Us",
+    "contact": "Contact"
+  },
+  "Hero": {
+    "tagline": "Impact Without Compromise",
+    "titleStart": "We Turn Problems",
+    "titleBr": "Into",
+    "titleSerif": "Possibilities",
+    "description": "We're the collective behind AI systems that understand emotion, platforms that prevent disasters, and tools that turn recycling into profit. No vanity metrics. No empty promises. Just technology that solves problems that matter.",
+    "seeImpact": "See Our Impact",
+    "startProject": "Start Your Project"
+  },
+  "Mission": {
+    "headlineStart": "While Others Build Features,",
+    "headlineSerif": "We Build Futures",
+    "description": "We believe great products start with understanding people. Empathy is the foundation that underlies all we do, including development, interface design, and system architecture.",
+    "humanFirstTitle": "Human-First Engineering",
+    "humanFirstDesc": "We start with empathy, not algorithms. Every system we design begins with deep user research and ends with measurable human impact.",
+    "zeroWasteTitle": "Zero-Waste Development",
+    "zeroWasteDesc": "No bloated features. No technical debt. We build lean, powerful systems that solve actual problems, not imaginary ones.",
+    "collectiveTitle": "Collective Intelligence",
+    "collectiveDesc": "Our distributed team thinks like a single, brilliant mind. We combine diverse perspectives to create solutions no individual could imagine alone."
+  },
+  "Approach": {
+    "headlineStart": "Our",
+    "headlineSerif": "approach",
+    "step1Title": "Listen First",
+    "step1Desc": "We don't just ask what you want, we uncover what you actually need. Through user interviews, market analysis, and problem archaeology, we find the real challenge hiding behind the obvious one.",
+    "step2Title": "Design with Intent",
+    "step2Desc": "Every feature exists for a reason. We design systems that solve real problems, not just showcase cool technology. Purpose drives every decision.",
+    "step3Title": "Build to Last",
+    "step3Desc": "We build like your users' lives depend on it; because sometimes they do. Every interaction is crafted, every edge case considered, every detail refined until it's not just functional, but meaningful.",
+    "step4Title": "Impact Amplification",
+    "step4Desc": "Launch is just the beginning. We measure what matters, iterate based on real usage, and continuously enhance until your solution doesn't just work.. it transforms lives."
+  },
+  "Projects": {
+    "card": {
+      "award": "Winner",
+      "cta1": "See Impact",
+      "cta2": "Live Demo",
+      "cta3": "Code Base"
+    },
+    "headlineStart": "What We've",
+    "headlineSerif": "Built",
+    "description": "Real Problems. Real Solutions. Real Impact.",
+    "rafiqi": {
+      "badge": "AI + Mental Health",
+      "title": "Rafiqi",
+      "story": "Mental health support shouldn't feel like talking to a robot. We built Rafiqi as an AI companion that genuinely understands context, reads emotional nuance, and adapts to individual healing journeys. The result? Support that feels authentically human, available whenever someone needs it most—turning technology into a bridge to better mental health."
+    },
+    "repai": {
+      "badge": "AI + Fintech",
+      "title": "repAI",
+      "story": "What if recycling could pay your bills? RepAI transforms environmental responsibility into personal profit by providing real-time pricing for recyclable materials, connecting users with collectors, and delivering instant cashback rewards. We've turned the circular economy into a win-win game where doing good for the planet literally pays off.",
+      "achievement": "GDGC AI Hackathon Top 7 Finalist"
+    },
+    "orbit": {
+      "badge": "3D Visualization",
+      "title": "Orbit",
+      "story": "Space shouldn't feel distant and incomprehensible. Orbit brings the cosmos to your screen through an interactive 3D solar system that tracks Near-Earth Objects in real-time. We've made asteroid awareness and space exploration accessible to everyone, turning complex astronomical data into an engaging, educational experience that sparks curiosity about our universe.",
+      "achievement": "NASA Space Apps Cairo 2024 Submission",
+      "metrics": [
+        { "label": "NEOs Tracked", "value": "100+" },
+        { "label": "Potential Reach", "value": "10K+" }
+      ]
+    },
+    "naveris": {
+      "badge": "Disaster Early Warning",
+      "title": "NAVERIS",
+      "story": "Seconds matter when disaster strikes. NAVERIS is our AI-powered early warning system that predicts natural disasters with remarkable accuracy—91% for tornadoes, 87% for storms. By analyzing environmental patterns invisible to the human eye, we're giving communities precious time to prepare, potentially saving thousands of lives with each alert.",
+      "achievement": "NASA Space Apps Cairo 2023 Submission",
+      "metrics": [
+        { "label": "Tornado Accuracy", "value": "91%" },
+        { "label": "Storm Detection", "value": "87%" }
+      ]
+    }
+  },
+  "Contact": {
+    "headlineStart": "Ready to build something",
+    "headlineSerif": "matters?",
+    "description": "Whether you have a clear vision or just a burning problem that needs solving, we'd love to hear from you. Let's create technology that makes a difference.",
+    "startConversation": "Start a Conversation",
+    "meetTeam": "Meet the team",
+    "footer": "wearemasonsteam@gmail.com • Just a conversation about how our technology can amplify your impact."
+  },
+  "Testimonials": {
+    "t0": {
+      "text": "Judging the GDG Cairo hackathon, Masons stood out not just for their tech but for their incredible team energy. Top 7 well deserved!",
+      "by": "Mohamed, Senior Android Developer @ Yassir & GDG Hackthon Judge"
+    },
+    "t1": {
+      "text": "As a hackathon judge, I rarely see teams with such genuine passion. Masons creates an environment where creativity thrives.",
+      "by": "Mohamed, CTO @ Electro Pi & GDG Hackthon Judge"
+    },
+    "t2": {
+      "text": "Masons brought such positive energy to the hackathon. Their approach to problem-solving is both technical and deeply human.",
+      "by": "Qamar, Android Developer @ Yassir & GDG Hackthon Judge"
+    },
+    "t3": {
+      "text": "The collaborative spirit at Masons is unmatched. we felt like part of the family from day one.",
+      "by": "Collective of Interns @ Masons"
+    },
+    "t4": {
+      "text": "Judging their NASA project, I was impressed by their technical skills but blown away by their team dynamics. Special culture.",
+      "by": "Ayman, CTO @ North West Africa Nokia"
+    },
+    "t5": {
+      "text": "Masons creates an environment where learning never stops. The growth mindset here is absolutely contagious.",
+      "by": "Abdelaziz, Co-Founder @ Masons"
+    },
+    "t6": {
+      "text": "At Masons, we focus on building a culture of trust, curiosity, and continuous improvement. Every milestone is a reflection of the team's dedication and shared vision.",
+      "by": "Seif, Founder & CEO @ Masons"
+    },
+    "t7": {
+      "text": "Seif showed excellent technical depth and leadership at DEPI. He leads by example and understands how to move teams with clarity and focus.",
+      "by": "Sayed Safwet, Senior Full Stack Engineer @ _VOIS & Mentor @ DEPI"
+    }
+  },
+  "Footer": {
+    "text": "© 2025 Masons. Crafting tomorrow's solutions today."
+  }
+}
