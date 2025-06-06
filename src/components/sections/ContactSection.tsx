@@ -25,7 +25,7 @@ export const ContactSection = () => {
       <div className="container mx-auto px-6 text-center">
         <div className="max-w-3xl mx-auto">
           <h2 className="text-3xl md:text-5xl font-bold mb-8">
-            {t("headlineStart")} <br />
+            {t("headlineStart")} <br /> {`${t("headlineBr")} `}
             <span className="gradient-text font-serif not-italic">
               {t("headlineSerif")}
             </span>

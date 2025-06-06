@@ -29,7 +29,7 @@
   },
   "Approach": {
     "headlineStart": "Notre",
-    "headlineSerif": "approche",
+    "headlineSerif": "Approche",
     "step1Title": "Écouter D'abord",
     "step1Desc": "On ne demande pas juste ce que vous voulez, on découvre ce dont vous avez réellement besoin. Interviews utilisateurs, analyse de marché, archéologie de problème — on trouve le vrai défi caché derrière l'évident.",
     "step2Title": "Concevoir Avec Intention",
@@ -82,8 +82,9 @@
     }
   },
   "Contact": {
-    "headlineStart": "Prêt à construire quelque chose qui",
-    "headlineSerif": "compte ?",
+    "headlineStart": "Prêt à Construire Quelque",
+    "headlineBr": "Chose Qui",
+    "headlineSerif": "Compte ?",
     "description": "Que vous ayez une vision claire ou juste un problème brûlant qui nécessite une solution, on aimerait vous entendre. Créons ensemble de la technologie qui fait la différence.",
     "startConversation": "Commencer Une Conversation",
     "meetTeam": "Rencontrer l'équipe",
