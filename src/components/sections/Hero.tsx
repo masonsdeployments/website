@@ -1,10 +1,24 @@
-import { ArrowRight, ChevronDown } from "lucide-react";
+import { ArrowLeft, ArrowRight, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { useTranslations } from "next-intl";
+import { useEffect, useState } from "react";
 
 export const HeroSection = () => {
   const t = useTranslations("Hero");
+  const [isRtl, setIsRtl] = useState(false);
+
+  useEffect(() => {
+    // RTL detection
+    setIsRtl(document.body.getAttribute("data-rtl") === "true");
+    const observer = new MutationObserver(() => {
+      setIsRtl(document.body.getAttribute("data-rtl") === "true");
+    });
+    observer.observe(document.body, {
+      attributes: true,
+      attributeFilter: ["data-rtl"],
+    });
+  }, []);
 
   const scrollToSection = (id: string) => {
     const el = document.getElementById(id);
@@ -41,7 +55,11 @@ export const HeroSection = () => {
             className="bg-primary text-primary-foreground hover:bg-primary/90 text-lg px-8 py-3 hover:cursor-pointer"
           >
             {t("seeImpact")}
-            <ArrowRight className="ml-2 h-5 w-5" />
+            {isRtl ? (
+              <ArrowLeft className="ml-2 h-5 w-5" />
+            ) : (
+              <ArrowRight className="ml-2 h-5 w-5" />
+            )}
           </Button>
           <Button
             variant="outline"

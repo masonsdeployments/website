@@ -1,5 +1,6 @@
 {
   "Navbar": {
+    "home": "home",
     "mission": "Mission",
     "projects": "Our Projects",
     "approach": "Approach",
@@ -120,6 +121,151 @@
     "t7": {
       "text": "Seif showed excellent technical depth and leadership at DEPI. He leads by example and understands how to move teams with clarity and focus.",
       "by": "Sayed Safwet, Senior Full Stack Engineer @ _VOIS & Mentor @ DEPI"
+    }
+  },
+  "About": {
+    "heroIntro": "Masons started in a coffee shop at 2AM. Three teenage devs sat huddled over half-dead laptops, half-full cups of bitter Turkish coffee, and fully charged dreams.",
+    "heroStory1": "Back then, they were barely 16. Still figuring out what a for loop was, still learning to walk in the dev world without tripping over syntax errors. They had an idea: an app that could actually help people. So they mapped it out, picked a stack they barely knew, and dove in headfirst. For three months, they learned, built, dreamed. Everything felt like it was lining up.",
+    "heroStory2": "Then one random day, just opening the Play Store to update Clash of Clans like any other normal teenager... bam. There it was. The exact same app. Built by someone else. Shipped. Polished. Everywhere. And it was good. Like, damn, hats-off kind of good. It crushed in Egypt. That sting? Yeah, it hurt. But respect where it's due. They got beat fair and square.",
+    "heroStory3": "After that, life kicked in. One dev dipped. School got hectic. The dream went into deep freeze for a while. Third secondary, finals, the chaos of teenhood. Masons went quiet.",
+    "heroStory4": "But legends don't stay dormant forever.",
+    "heroStory5": "They graduated highschool. Life shifted. Seif crossed paths with two powerhouses: Ahmed Khalid, better known as Z3ln, and Sherif Lotfy, aka Sizif. Meanwhile, Abdelaziz met Omar Waleed in a different corner of the college cosmos. And just like that, the universe tossed a new challenge their way: NASA Space Apps Cairo 2023. That was the spark.",
+    "heroStory6": "Seif called in the cavalry: his cousin Omar Ellaban. The puzzle pieces locked in. Six minds, six stories, one wild idea. For the first time, the Mighty Founding Six stood assembled.",
+    "heroStory7": "When Rafiqi came into view, something shifted. The mission got real. They searched, reached out, brought new people into the fold. Each one brought a different background, a new way of thinking, skills the OGs didn't have. And that's what made the team powerful as hell. Not clones, but a crew of misfits with heart, grit, and range. Every one of them unique as hell.",
+    "heroStory8": "From there, it was never about the hype. Not about slapping \"AI-powered\" on a landing page just to raise eyebrows. They weren't here for billion-dollar nothings.",
+    "heroStory9": "They were here to build real stuff that mattered. Sometimes that meant AI that actually understood the context of a conversation, not just spit out buzzwords. Other times it was about infrastructure that didn't fall apart when 50,000 users showed up at once. Always, always, it was about putting people before ego.",
+    "heroStory10": "This wasn't just a startup. This was Masons.",
+    "teamHeadlineStart": "Meet The",
+    "teamHeadlineSerif": "Builders",
+    "ctaHeadlineStart": "Let's Build Something That",
+    "ctaHeadlineSerif": "Matters",
+    "ctaDescription": "Whether you need help bringing an idea to life, or want to join a team that gives a damn — we'd love to talk. No pitch decks needed. Just real conversations about real problems worth solving.",
+    "ctaButton": "Start a Conversation",
+    "team": {
+      "seif": {
+        "name": "Seif Zakaria",
+        "role": "Founder & CEO of Masons",
+        "description": "Just a guy who loves shipping apps that actually works. Deep in code, big on clarity, always chasing better systems.",
+        "focus": "Pretending it's simple until it actually is",
+        "portfolioButton": "Visit Portfolio"
+      },
+      "abdelaziz": {
+        "name": "Abdelaziz Amr",
+        "role": "Backend Dev & Co-Founder of Masons",
+        "description": "Turns user pain into elegant solutions. Has strong opinions about whitespace.",
+        "focus": "Design that respects humans"
+      },
+      "ahmed": {
+        "name": "Ahmed Khaled (Z3ln)",
+        "role": "Fullstack Dev & CTO of Masons",
+        "description": "Turns user pain into elegant solutions. Has strong opinions about whitespace.",
+        "focus": "Design that respects humans"
+      },
+      "sherif": {
+        "name": "Sherif Lotfy (Sizif)",
+        "role": "Fullstack Dev & VP of Frontend Team",
+        "description": "Turns user pain into elegant solutions. Has strong opinions about whitespace.",
+        "focus": "Design that respects humans",
+        "portfolioButton": "Visit Portfolio"
+      },
+      "omar": {
+        "name": "Omar Ellaban (Ktlr)",
+        "role": "Backend Engineer",
+        "description": "Builds APIs you actually want to use. Once fixed a critical bug from a moving taxi.",
+        "focus": "Rock-solid foundations"
+      },
+      "omarWaleed": {
+        "name": "Omar Waleed",
+        "role": "AI Engineer",
+        "description": "Teaches machines empathy. Writes algorithms that actually understand context.",
+        "focus": "Humanizing artificial intelligence"
+      }
+    }
+  },
+  "ContactPage": {
+    "heroHeadlineStart": "Let's Start a",
+    "heroHeadlineSerif": "Conversation",
+    "heroDescription1": "Got an idea that needs building? A problem that needs solving? Or just want to chat about what's possible?",
+    "heroDescription2": "We believe the best projects start with genuine conversations. No pitch decks, no lengthy proposals—just real talk about real solutions.",
+    "contactMethodsHeadlineStart": "Ways To",
+    "contactMethodsHeadlineSerif": "Connect",
+    "contactMethods": {
+      "email": {
+        "title": "Email Us",
+        "description": "Drop us a line anytime. We read every message personally.",
+        "action": "wearemasonsteam@gmail.com"
+      },
+      "chat": {
+        "title": "Quick Chat",
+        "description": "Schedule a 15-minute call to discuss your project.",
+        "action": "Book a Call"
+      },
+      "visit": {
+        "title": "Visit Us",
+        "description": "We're based in Cairo, but work with teams globally.",
+        "action": "Get Directions"
+      }
+    },
+    "formHeadlineStart": "Tell Is About Your",
+    "formHeadlineSerif": "Project",
+    "form": {
+      "nameLabel": "Name *",
+      "namePlaceholder": "Your name",
+      "emailLabel": "Email *",
+      "emailPlaceholder": "your@email.com",
+      "companyLabel": "Company",
+      "companyPlaceholder": "Your company (optional)",
+      "projectTypeLabel": "Project Type",
+      "projectTypePlaceholder": "Select project type",
+      "projectTypes": {
+        "webDevelopment": "Web Development",
+        "aiIntegration": "AI Integration",
+        "systemArchitecture": "System Architecture",
+        "productDesign": "Product Design",
+        "consulting": "Consulting",
+        "other": "Other"
+      },
+      "messageLabel": "Message *",
+      "messagePlaceholder": "Tell us about your project, timeline, and what you're hoping to achieve...",
+      "submitButton": "Start the Conversation",
+      "submittingButton": "Sending...",
+      "disclaimer": "We typically respond within 24 hours. No spam, no pushy sales calls.",
+      "successTitle": "✅ Email Sent!",
+      "successDescription": "We'll get back to you within 24 hours.",
+      "errorTitle": "❌ Failed to Send",
+      "networkErrorTitle": "🚨 Error",
+      "networkErrorDescription": "Check your network or try again later."
+    },
+    "projectTypesHeadline": "How we typically help",
+    "projectTypes": {
+      "newProduct": {
+        "title": "New Product Development",
+        "description": "From concept to launch, we help bring your ideas to life with thoughtful technology choices."
+      },
+      "teamAugmentation": {
+        "title": "Team Augmentation",
+        "description": "Need extra hands? We integrate seamlessly with your existing team and processes."
+      },
+      "consulting": {
+        "title": "Technical Consulting",
+        "description": "Architecture reviews, technology audits, and strategic guidance for your tech decisions."
+      }
+    },
+    "faqHeadlineStart": "Common",
+    "faqHeadlineSerif": "Questions",
+    "faq": {
+      "q1": {
+        "question": "How do you typically work with clients?",
+        "answer": "We start with a discovery conversation to understand your goals, then propose a collaborative approach. We believe in transparent communication, regular check-ins, and building solutions together rather than in isolation."
+      },
+      "q2": {
+        "question": "What's your typical project timeline?",
+        "answer": "It depends on scope, but most projects range from 6-16 weeks. We prefer working in focused sprints so you can see progress quickly and provide feedback along the way."
+      },
+      "q3": {
+        "question": "Do you work with early-stage startups?",
+        "answer": "Absolutely. We love working with founders who are solving real problems. We can help validate ideas, build MVPs, and scale when you're ready to grow."
+      }
     }
   },
   "Footer": {

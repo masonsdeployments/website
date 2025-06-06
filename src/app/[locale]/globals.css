@@ -189,17 +189,46 @@
   --shadow-2xl: 0px 4px 8px -1px hsl(0 0% 0% / 0.25);
 }
 
+body[data-rtl="true"] {
+  direction: rtl;
+  text-align: right;
+  font-family: var(--font-arabic), sans-serif !important;
+}
+
+body[data-rtl="true"] .font-sans,
+body[data-rtl="true"] .font-mono,
+body[data-rtl="true"] .font-serif {
+  font-family: var(--font-arabic), sans-serif !important;
+}
+
+.flex-row-reverse {
+  flex-direction: row-reverse !important;
+}
+.space-x-reverse > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-x-reverse: 1;
+}
+
 @layer base {
   * {
     @apply border-border outline-ring/50;
   }
   html {
     scroll-behavior: smooth;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE and Edge */
+  }
+  html::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera */
   }
   body {
     @apply bg-background text-foreground;
     letter-spacing: var(--tracking-normal);
     font-family: var(--font-sans);
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE and Edge */
+  }
+  body::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera */
   }
   .gradient-text {
     @apply bg-gradient-to-r from-[#f59e0b] to-yellow-300 bg-clip-text text-transparent;

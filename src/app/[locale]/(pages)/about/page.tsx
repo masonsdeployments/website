@@ -5,9 +5,31 @@ import Navbar from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import React from "react";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, ArrowLeft } from "lucide-react";
+import Link from "next/link";
+import { useTranslations } from "next-intl";
+
+// RTL utility hook
+const useRTL = () => {
+  const [isRtl, setIsRtl] = useState(false);
+
+  useEffect(() => {
+    setIsRtl(document.body.getAttribute("data-rtl") === "true");
+    const observer = new MutationObserver(() => {
+      setIsRtl(document.body.getAttribute("data-rtl") === "true");
+    });
+    observer.observe(document.body, {
+      attributes: true,
+      attributeFilter: ["data-rtl"],
+    });
+
+    return () => observer.disconnect();
+  }, []);
+
+  return isRtl;
+};
 
 const Avatar = ({
   name,
@@ -51,7 +73,7 @@ const Avatar = ({
 
   if (image && !imageError) {
     // Use regular img tag for external URLs for better compatibility
-    if (image.startsWith('http')) {
+    if (image.startsWith("http")) {
       return (
         <img
           src={image}
@@ -64,14 +86,16 @@ const Avatar = ({
             setIsLoading(false);
             setImageError(true);
           }}
-          className={`w-16 h-16 rounded-full object-cover ${className} ${isLoading ? 'opacity-0' : 'opacity-100'} transition-opacity duration-300`}
+          className={`w-16 h-16 rounded-full object-cover ${className} ${isLoading ? "opacity-0" : "opacity-100"} transition-opacity duration-300`}
         />
       );
     }
 
     // Use Next.js Image for local images
     return (
-      <div className={`relative w-16 h-16 rounded-full overflow-hidden ${className}`}>
+      <div
+        className={`relative w-16 h-16 rounded-full overflow-hidden ${className}`}
+      >
         <Image
           src={image}
           alt={name}
@@ -88,7 +112,9 @@ const Avatar = ({
           sizes="64px"
         />
         {isLoading && (
-          <div className={`absolute inset-0 rounded-full ${colors[colorIndex]} flex items-center justify-center text-white font-bold text-lg animate-pulse`}>
+          <div
+            className={`absolute inset-0 rounded-full ${colors[colorIndex]} flex items-center justify-center text-white font-bold text-lg animate-pulse`}
+          >
             {initials}
           </div>
         )}
@@ -118,198 +144,252 @@ interface TeamMember {
   x?: string;
 }
 
-const TeamMemberCard = ({ member }: { member: TeamMember }) => (
-  <Card className="p-8 transition-all duration-300 hover:scale-[1.02] hover:shadow-lg h-full min-h-[400px] md:min-h-auto">
-    <CardContent className="p-0 space-y-4">
-      <div className="flex items-center space-x-4">
-        <Avatar name={member.name} image={member.image} />
-        <div>
-          <h3 className="text-xl font-bold">{member.name}</h3>
-          <p className="text-primary">{member.role}</p>
+const TeamMemberCard = ({
+  member,
+  portfolioText,
+}: {
+  member: TeamMember;
+  portfolioText: string;
+}) => {
+  const isRtl = useRTL();
+
+  return (
+    <Card className="p-6 transition-all duration-300 hover:opacity-80 hover:shadow-lg h-full min-h-[400px] md:min-h-auto">
+      <CardContent className="p-0 space-y-4">
+        <div className={`flex items-center space-x-4 ml-2`}>
+          <Avatar name={member.name} image={member.image} />
+          <div className={isRtl ? "text-right" : "text-left"}>
+            <h3 className={`text-xl font-bold ${isRtl ? "font-arabic" : ""}`}>
+              {member.name}
+            </h3>
+            <p className={`text-primary ${isRtl ? "font-arabic" : ""}`}>
+              {member.role}
+            </p>
+          </div>
         </div>
-      </div>
-      <p className="text-muted-foreground">{member.description}</p>
-      <p className="text-sm border-l-2 border-primary pl-4 mt-4 bg-primary/5 py-2">
-        {member.focus}
-      </p>
-      {member.href && (
-        <Button
-          variant="outline"
-          className="group w-fit hover:cursor-pointer" // bug here: cursor is not pointing...
-          asChild
+        <p
+          className={`text-muted-foreground ${isRtl ? "text-right font-arabic" : "text-left"}`}
         >
-          <a href={member.href}>
-            Visit Portfolio
-            <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-          </a>
-        </Button>
-      )}
-    </CardContent>
-  </Card>
-);
+          {member.description}
+        </p>
+        <p
+          className={`text-sm mt-4 bg-primary/5 py-3 px-4 rounded-md ${isRtl ? "border-r-4 border-primary text-right font-arabic" : "border-l-4 border-primary text-left"}`}
+        >
+          {member.focus}
+        </p>
+        {member.href && (
+          <Button
+            variant="outline"
+            className={`group w-fit hover:cursor-pointer ${isRtl ? "font-arabic" : ""}`}
+            asChild
+          >
+            <a href={member.href} className="flex items-center">
+              {isRtl ? (
+                <>
+                  {portfolioText}
+                  <ArrowLeft className="ml-2 h-4 w-4 group-hover:-translate-x-1 transition-transform" />
+                </>
+              ) : (
+                <>
+                  {portfolioText}
+                  <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                </>
+              )}
+            </a>
+          </Button>
+        )}
+      </CardContent>
+    </Card>
+  );
+};
 
-const HeroSection = () => (
-  <section className="flex flex-col items-center justify-center text-center max-w-4xl mx-auto">
-    <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed mb-8">
-      Masons started in a coffee shop at 2AM. Three teenage devs sat huddled
-      over half-dead laptops, half-full cups of bitter Turkish coffee, and fully
-      charged dreams.
-    </p>
-    <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed mb-8">
-      Back then, they were barely 16. Still figuring out what a for loop was,
-      still learning to walk in the dev world without tripping over syntax
-      errors. They had an idea: an app that could actually help people. So they
-      mapped it out, picked a stack they barely knew, and dove in headfirst. For
-      three months, they learned, built, dreamed. Everything felt like it was
-      lining up.
-    </p>
-    <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed mb-8">
-      Then one random day, just opening the Play Store to update Clash of Clans
-      like any other normal teenager... bam. There it was. The exact same app.
-      Built by someone else. Shipped. Polished. Everywhere. And it was good.
-      Like, damn, hats-off kind of good. It crushed in Egypt. That sting? Yeah,
-      it hurt. But respect where it&apos;s due. They got beat fair and square.
-    </p>
-    <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed mb-8">
-      After that, life kicked in. One dev dipped. School got hectic. The dream
-      went into deep freeze for a while. Third secondary, finals, the chaos of
-      teenhood. Masons went quiet.
-    </p>
-    <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed mb-8">
-      But legends don&apos;t stay dormant forever.
-    </p>
-    <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed mb-8">
-      They graduated highschool. Life shifted. Seif crossed paths with two
-      powerhouses: Ahmed Khalid, better known as Z3ln, and Sherif Lotfy, aka
-      Sizif. Meanwhile, Abdelaziz met Omar Waleed in a different corner of the
-      college cosmos. And just like that, the universe tossed a new challenge
-      their way: NASA Space Apps Cairo 2023. That was the spark.
-    </p>
-    <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed mb-8">
-      Seif called in the cavalry: his cousin Omar Ellaban. The puzzle pieces
-      locked in. Six minds, six stories, one wild idea. For the first time, the
-      Mighty Founding Six stood assembled.
-    </p>
-    <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed mb-8">
-      When Rafiqi came into view, something shifted. The mission got real. They
-      searched, reached out, brought new people into the fold. Each one brought
-      a different background, a new way of thinking, skills the OGs didn&apos;t
-      have. And that&apos;s what made the team powerful as hell. Not clones, but
-      a crew of misfits with heart, grit, and range. Every one of them unique as
-      hell.
-    </p>
-    <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed mb-8">
-      From there, it was never about the hype. Not about slapping
-      &quot;AI-powered&quot; on a landing page just to raise eyebrows. They
-      weren&apos;t here for billion-dollar nothings.
-    </p>
-    <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed mb-8">
-      They were here to build real stuff that mattered. Sometimes that meant AI
-      that actually understood the context of a conversation, not just spit out
-      buzzwords. Other times it was about infrastructure that didn&apos;t fall
-      apart when 50,000 users showed up at once. Always, always, it was about
-      putting people before ego.
-    </p>
-    <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed">
-      This wasn&apos;t just a startup. This was Masons.
-    </p>
-  </section>
-);
+const HeroSection = () => {
+  const t = useTranslations("About");
+  const isRtl = useRTL();
 
-const TeamSection = ({ teamMembers }: { teamMembers: TeamMember[] }) => (
-  <section className="flex flex-col items-center">
-    <h2 className="text-3xl md:text-5xl font-bold mb-12 text-center">
-      Meet the{" "}
-      <span className="gradient-text font-serif not-italic">builders</span>
-    </h2>
-
-    <div className="grid md:grid-cols-2 gap-8 w-full max-w-6xl mx-auto">
-      {teamMembers.map((member, i) => (
-        <TeamMemberCard key={i} member={member} />
-      ))}
-    </div>
-  </section>
-);
-
-const CallToActionSection = () => (
-  <section className="max-w-4xl mx-auto text-center">
-    <h2 className="text-3xl md:text-5xl font-bold mb-8">
-      Let&apos;s build something that{" "}
-      <span className="gradient-text font-serif not-italic">matters</span>
-    </h2>
-
-    <p className="text-xl text-muted-foreground mb-12">
-      Whether you need help bringing an idea to life, or want to join a team
-      that gives a damn — we&apos;d love to talk. No pitch decks needed. Just
-      real conversations about real problems worth solving.
-    </p>
-
-    <Button
-      asChild
-      size="lg"
-      className="text-lg hover:scale-[1.02] transition-transform"
+  return (
+    <section
+      className={`flex flex-col items-center justify-center max-w-4xl mx-auto ${isRtl ? "text-center font-arabic" : "text-center"}`}
+      dir={isRtl ? "rtl" : "ltr"}
     >
-      <a href="/contact">Start a Conversation</a>
-    </Button>
-  </section>
-);
+      <p
+        className={`text-xl md:text-2xl text-muted-foreground leading-relaxed mb-8 ${isRtl ? "font-arabic" : ""}`}
+      >
+        {t("heroIntro")}
+      </p>
+      <p
+        className={`text-xl md:text-2xl text-muted-foreground leading-relaxed mb-8 ${isRtl ? "font-arabic" : ""}`}
+      >
+        {t("heroStory1")}
+      </p>
+      <p
+        className={`text-xl md:text-2xl text-muted-foreground leading-relaxed mb-8 ${isRtl ? "font-arabic" : ""}`}
+      >
+        {t("heroStory2")}
+      </p>
+      <p
+        className={`text-xl md:text-2xl text-muted-foreground leading-relaxed mb-8 ${isRtl ? "font-arabic" : ""}`}
+      >
+        {t("heroStory3")}
+      </p>
+      <p
+        className={`text-xl md:text-2xl text-muted-foreground leading-relaxed mb-8 ${isRtl ? "font-arabic" : ""}`}
+      >
+        {t("heroStory4")}
+      </p>
+      <p
+        className={`text-xl md:text-2xl text-muted-foreground leading-relaxed mb-8 ${isRtl ? "font-arabic" : ""}`}
+      >
+        {t("heroStory5")}
+      </p>
+      <p
+        className={`text-xl md:text-2xl text-muted-foreground leading-relaxed mb-8 ${isRtl ? "font-arabic" : ""}`}
+      >
+        {t("heroStory6")}
+      </p>
+      <p
+        className={`text-xl md:text-2xl text-muted-foreground leading-relaxed mb-8 ${isRtl ? "font-arabic" : ""}`}
+      >
+        {t("heroStory7")}
+      </p>
+      <p
+        className={`text-xl md:text-2xl text-muted-foreground leading-relaxed mb-8 ${isRtl ? "font-arabic" : ""}`}
+      >
+        {t("heroStory8")}
+      </p>
+      <p
+        className={`text-xl md:text-2xl text-muted-foreground leading-relaxed mb-8 ${isRtl ? "font-arabic" : ""}`}
+      >
+        {t("heroStory9")}
+      </p>
+      <p
+        className={`text-xl md:text-2xl text-muted-foreground leading-relaxed ${isRtl ? "font-arabic" : ""}`}
+      >
+        {t("heroStory10")}
+      </p>
+    </section>
+  );
+};
 
-const teamMembers: TeamMember[] = [
-  {
-    name: "Seif Zakaria",
-    role: "Founder & CEO of Masons",
-    description:
-      "Just a guy who loves shipping apps that actually works. Deep in code, big on clarity, always chasing better systems.",
-    focus: "Pretending it's simple until it actually is",
-    image: "/images/team/seif.jpeg",
-    href: "https://seifzellaban.work/",
-  },
-  {
-    name: "Abdelaziz Amr",
-    role: "Backend Dev & Co-Founder of Masons",
-    description:
-      "Turns user pain into elegant solutions. Has strong opinions about whitespace.",
-    focus: "Design that respects humans",
-    image: "/images/team/abdelaziz.jpeg",
-  },
-  {
-    name: "Ahmed Khaled (Z3ln)",
-    role: "Fullstack Dev & CTO of Masons",
-    description:
-      "Turns user pain into elegant solutions. Has strong opinions about whitespace.",
-    focus: "Design that respects humans",
-    image: "https://avatar.iran.liara.run/public/boy?username=Z3ln",
-  },
-  {
-    name: "Sherif Lotfy (Sizif)",
-    role: "Fullstack Dev & VP of Frontend Team",
-    description:
-      "Turns user pain into elegant solutions. Has strong opinions about whitespace.",
-    focus: "Design that respects humans",
-    image: "https://avatar.iran.liara.run/public/boy?username=Sizif",
-    href: "https://sizif.wearemasons.com/",
-  },
-  {
-    name: "Omar Ellaban (Ktlr)",
-    role: "Backend Engineer",
-    description:
-      "Builds APIs you actually want to use. Once fixed a critical bug from a moving taxi.",
-    focus: "Rock-solid foundations",
-    image: "https://avatar.iran.liara.run/public/boy?username=Ktlr",
-  },
-  {
-    name: "Omar Waleed",
-    role: "AI Engineer",
-    description:
-      "Teaches machines empathy. Writes algorithms that actually understand context.",
-    focus: "Humanizing artificial intelligence",
-    image: "https://avatar.iran.liara.run/public/boy?username=y3gob",
-  },
-];
+const TeamSection = ({ teamMembers }: { teamMembers: TeamMember[] }) => {
+  const t = useTranslations("About");
+  const isRtl = useRTL();
+
+  return (
+    <section className="flex flex-col items-center" dir={isRtl ? "rtl" : "ltr"}>
+      <h2
+        className={`text-3xl md:text-5xl font-bold mb-12 text-center ${isRtl ? "font-arabic" : ""}`}
+      >
+        {t("teamHeadlineStart")}{" "}
+        <span className="gradient-text font-serif not-italic">
+          {t("teamHeadlineSerif")}
+        </span>
+      </h2>
+
+      <div className="grid md:grid-cols-2 gap-8 w-full max-w-6xl mx-auto">
+        {teamMembers.map((member, i) => (
+          <TeamMemberCard
+            key={i}
+            member={member}
+            portfolioText={t("team.seif.portfolioButton")}
+          />
+        ))}
+      </div>
+    </section>
+  );
+};
+
+const CallToActionSection = () => {
+  const t = useTranslations("About");
+  const isRtl = useRTL();
+
+  return (
+    <section
+      className="max-w-4xl mx-auto text-center"
+      dir={isRtl ? "rtl" : "ltr"}
+    >
+      <h2
+        className={`text-3xl md:text-5xl font-bold mb-8 ${isRtl ? "font-arabic" : ""}`}
+      >
+        {t("ctaHeadlineStart")}{" "}
+        <span className="gradient-text font-serif not-italic">
+          {t("ctaHeadlineSerif")}
+        </span>
+      </h2>
+
+      <p
+        className={`text-xl text-muted-foreground mb-12 ${isRtl ? "font-arabic" : ""}`}
+      >
+        {t("ctaDescription")}
+      </p>
+
+      <Button
+        asChild
+        size="lg"
+        className={`text-lg hover:scale-[1.02] transition-transform ${isRtl ? "font-arabic" : ""}`}
+      >
+        <Link href="/contact">{t("ctaButton")}</Link>
+      </Button>
+    </section>
+  );
+};
 
 export default function AboutPage() {
+  const t = useTranslations("About");
+  const isRtl = useRTL();
+
+  const teamMembers: TeamMember[] = [
+    {
+      name: t("team.seif.name"),
+      role: t("team.seif.role"),
+      description: t("team.seif.description"),
+      focus: t("team.seif.focus"),
+      image: "/images/team/seif.jpeg",
+      href: "https://seifzellaban.work/",
+    },
+    {
+      name: t("team.abdelaziz.name"),
+      role: t("team.abdelaziz.role"),
+      description: t("team.abdelaziz.description"),
+      focus: t("team.abdelaziz.focus"),
+      image: "/images/team/abdelaziz.jpeg",
+    },
+    {
+      name: t("team.ahmed.name"),
+      role: t("team.ahmed.role"),
+      description: t("team.ahmed.description"),
+      focus: t("team.ahmed.focus"),
+      image: "https://avatar.iran.liara.run/public/boy?username=Z3ln",
+    },
+    {
+      name: t("team.sherif.name"),
+      role: t("team.sherif.role"),
+      description: t("team.sherif.description"),
+      focus: t("team.sherif.focus"),
+      image: "https://avatar.iran.liara.run/public/boy?username=Sizif",
+      href: "https://sizif.wearemasons.com/",
+    },
+    {
+      name: t("team.omar.name"),
+      role: t("team.omar.role"),
+      description: t("team.omar.description"),
+      focus: t("team.omar.focus"),
+      image: "https://avatar.iran.liara.run/public/boy?username=Ktlr",
+    },
+    {
+      name: t("team.omarWaleed.name"),
+      role: t("team.omarWaleed.role"),
+      description: t("team.omarWaleed.description"),
+      focus: t("team.omarWaleed.focus"),
+      image: "https://avatar.iran.liara.run/public/boy?username=y3gob",
+    },
+  ];
+
   return (
-    <div className="min-h-screen bg-background text-foreground mt-24">
+    <div
+      className="min-h-screen bg-background text-foreground mt-24"
+      dir={isRtl ? "rtl" : "ltr"}
+    >
       <Navbar />
       <main className="container mx-auto px-6 py-12 md:py-20 space-y-16 md:space-y-24">
         <HeroSection />

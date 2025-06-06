@@ -1,5 +1,10 @@
 import type { Metadata } from "next";
-import { Space_Grotesk, Space_Mono, Crimson_Pro } from "next/font/google";
+import {
+  Space_Grotesk,
+  Space_Mono,
+  Crimson_Pro,
+  IBM_Plex_Sans_Arabic,
+} from "next/font/google";
 import "./globals.css";
 import "@/styles/gruvbox-dark-hard.css";
 import { ThemeProvider } from "../../components/layout/ThemeProvider";
@@ -25,6 +30,12 @@ const crimsonPro = Crimson_Pro({
   variable: "--font-serif",
 });
 
+const ibmPlexSansArabic = IBM_Plex_Sans_Arabic({
+  subsets: ["arabic"],
+  weight: ["400", "700"],
+  variable: "--font-arabic",
+});
+
 export const metadata: Metadata = {
   title: "Masons",
   description:
@@ -45,14 +56,22 @@ export default async function LocaleLayout({
   if (!hasLocale(routing.locales, locale)) {
     notFound();
   }
+  const isArabic = locale === "ar";
   return (
-    <html lang="en">
+    <html lang={isArabic ? "ar" : "en"} dir={isArabic ? "rtl" : "ltr"}>
       <body
-        className={`${spaceGrotesk.variable} ${spaceMono.variable} ${crimsonPro.variable} antialiased`}
+        className={`antialiased no-scrollbar ${
+          isArabic
+            ? `${ibmPlexSansArabic.variable}`
+            : `${spaceGrotesk.variable} ${spaceMono.variable} ${crimsonPro.variable}`
+        }`}
+        data-rtl={isArabic ? "true" : undefined}
       >
         <ThemeProvider>
           <Suspense>
-            <NextIntlClientProvider>{children}</NextIntlClientProvider>
+            <NextIntlClientProvider locale={locale}>
+              {children}
+            </NextIntlClientProvider>
           </Suspense>
         </ThemeProvider>
         <Toaster />

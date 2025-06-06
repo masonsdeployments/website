@@ -88,10 +88,10 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({
     <div
       onClick={() => handleManualMove(position)}
       className={cn(
-        "absolute left-1/2 top-1/2 cursor-pointer border-2 p-8 transition-all duration-500 ease-in-out min-h-[350px]",
+        "absolute left-1/2 top-1/2 cursor-pointer border-2 p-8 transition-all duration-500 ease-in-out min-h-[375px]",
         isCenter
           ? "z-10 bg-primary text-primary-foreground border-primary"
-          : "z-0 bg-card text-card-foreground border-border hover:border-primary/50"
+          : "z-0 bg-card text-card-foreground border-border hover:border-primary/50",
       )}
       style={{
         width: cardSize,
@@ -130,7 +130,7 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({
       <h3
         className={cn(
           "text-base sm:text-xl font-medium",
-          isCenter ? "text-primary-foreground" : "text-foreground"
+          isCenter ? "text-primary-foreground" : "text-foreground",
         )}
       >
         &quot;{t(testimonial.testimonialKey)}&quot;
@@ -138,7 +138,7 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({
       <p
         className={cn(
           "absolute bottom-8 left-8 right-8 mt-2 text-sm italic",
-          isCenter ? "text-primary-foreground/80" : "text-muted-foreground"
+          isCenter ? "text-primary-foreground/80" : "text-muted-foreground",
         )}
       >
         - {t(testimonial.byKey)}
@@ -148,13 +148,13 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({
 };
 
 export const StaggerTestimonials: React.FC = () => {
-  const t = useTranslations("Testimonials");
   const [cardSize, setCardSize] = useState(365);
   const [testimonialsList, setTestimonialsList] =
     useState<Testimonial[]>(testimonials);
   const [isAutoPlay, setIsAutoPlay] = useState(true);
   const [isHovered, setIsHovered] = useState(false);
   const [screenWidth, setScreenWidth] = useState(1200);
+  const [isRtl, setIsRtl] = useState(false);
 
   // Create extended testimonials list for infinite scroll
   const createExtendedTestimonials = useCallback(
@@ -176,7 +176,7 @@ export const StaggerTestimonials: React.FC = () => {
       }
       return extended;
     },
-    []
+    [],
   );
 
   const handleMove = useCallback(
@@ -197,7 +197,7 @@ export const StaggerTestimonials: React.FC = () => {
       }
       setTestimonialsList(newList);
     },
-    [testimonialsList]
+    [testimonialsList],
   );
 
   const handleManualMove = (steps: number) => {
@@ -237,6 +237,18 @@ export const StaggerTestimonials: React.FC = () => {
     return () => clearInterval(interval);
   }, [isAutoPlay, isHovered, handleMove]);
 
+  useEffect(() => {
+    // RTL detection
+    setIsRtl(document.body.getAttribute("data-rtl") === "true");
+    const observer = new MutationObserver(() => {
+      setIsRtl(document.body.getAttribute("data-rtl") === "true");
+    });
+    observer.observe(document.body, {
+      attributes: true,
+      attributeFilter: ["data-rtl"],
+    });
+  }, []);
+
   return (
     <div
       className="relative w-full overflow-hidden bg-background"
@@ -263,14 +275,16 @@ export const StaggerTestimonials: React.FC = () => {
           />
         );
       })}
-      <div className="absolute bottom-4 left-1/2 flex -translate-x-1/2 gap-2">
+      <div
+        className={`absolute bottom-4 left-1/2 flex -translate-x-1/2 gap-2 ${isRtl ? "flex-row-reverse" : ""}`}
+      >
         <Button
           onClick={() => handleManualMove(-1)}
           variant="outline"
           className={cn(
             "flex h-14 w-14 items-center justify-center text-2xl transition-colors",
             "bg-background border-2 border-border",
-            "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 rounded-lg cursor-pointer"
+            "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 rounded-lg cursor-pointer",
           )}
           aria-label="Previous testimonial"
         >
@@ -282,7 +296,7 @@ export const StaggerTestimonials: React.FC = () => {
           className={cn(
             "flex h-14 w-14 items-center justify-center text-2xl transition-colors",
             "bg-background border-2 border-border",
-            "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 rounded-lg cursor-pointer"
+            "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 rounded-lg cursor-pointer",
           )}
           aria-label="Next testimonial"
         >

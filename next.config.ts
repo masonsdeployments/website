@@ -10,8 +10,11 @@ const nextConfig: NextConfig = {
         protocol: "https",
         hostname: "avatar.iran.liara.run",
       },
+      {
+        protocol: "https",
+        hostname: "wearemasons.com",
+      },
     ],
-    domains: ["wearemasons.com"],
   },
 };
 
@@ -22,4 +25,3 @@ const withMDX = createMDX({
 const withNextIntl = createNextIntlPlugin();
 
 module.exports = withNextIntl(withMDX(nextConfig));
-

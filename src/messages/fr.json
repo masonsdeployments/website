@@ -1,0 +1,274 @@
+{
+  "Navbar": {
+    "home": "Accueil",
+    "mission": "Mission",
+    "projects": "Nos Projets",
+    "approach": "Approche",
+    "about": "À Propos",
+    "contact": "Contact"
+  },
+  "Hero": {
+    "tagline": "Impact Sans Compromis",
+    "titleStart": "Nous Transformons Les Problèmes",
+    "titleBr": "En",
+    "titleSerif": "Possibilités",
+    "description": "Nous sommes le collectif derrière des systèmes d'IA qui comprennent les émotions, des plateformes qui préviennent les catastrophes, et des outils qui transforment le recyclage en profit. Pas de métriques bidons. Pas de promesses en l'air. Juste de la tech qui résout des vrais problèmes.",
+    "seeImpact": "Voir Notre Impact",
+    "startProject": "Lancer Votre Projet"
+  },
+  "Mission": {
+    "headlineStart": "Pendant Que Les Autres Construisent Des Fonctionnalités,",
+    "headlineSerif": "Nous Construisons Des Avenirs",
+    "description": "Nous pensons que les meilleurs produits commencent par la compréhension des gens. L'empathie est le socle de tout ce que nous faisons, du développement à l'UX, en passant par l'architecture système.",
+    "humanFirstTitle": "Ingénierie Centrée Humain",
+    "humanFirstDesc": "On commence avec l'empathie, pas les algos. Chaque système qu'on conçoit part de recherches utilisateur approfondies et finit par un impact humain mesurable.",
+    "zeroWasteTitle": "Développement Zéro Gâchis",
+    "zeroWasteDesc": "Pas de features gonflées. Pas de dette technique. On construit des systèmes efficaces et puissants qui règlent des vrais problèmes, pas des trucs imaginaires.",
+    "collectiveTitle": "Intelligence Collective",
+    "collectiveDesc": "Notre équipe distribuée pense comme un seul esprit brillant. On combine des perspectives diverses pour créer des solutions qu'aucun individu ne pourrait imaginer seul."
+  },
+  "Approach": {
+    "headlineStart": "Notre",
+    "headlineSerif": "approche",
+    "step1Title": "Écouter D'abord",
+    "step1Desc": "On ne demande pas juste ce que vous voulez, on découvre ce dont vous avez réellement besoin. Interviews utilisateurs, analyse de marché, archéologie de problème — on trouve le vrai défi caché derrière l'évident.",
+    "step2Title": "Concevoir Avec Intention",
+    "step2Desc": "Chaque feature a une raison d'être. On conçoit des systèmes qui résolvent de vrais problèmes, pas juste pour montrer une tech cool. Le but guide chaque décision.",
+    "step3Title": "Construire Pour Durer",
+    "step3Desc": "On construit comme si la vie de vos utilisateurs en dépendait ; parce que parfois, c'est le cas. Chaque interaction est peaufinée, chaque cas limite considéré, chaque détail affiné jusqu'à ce que ce soit pas juste fonctionnel, mais significatif.",
+    "step4Title": "Amplification D'impact",
+    "step4Desc": "Le lancement n'est que le début. On mesure ce qui compte, on itère selon l'usage réel, et on améliore en continu jusqu'à ce que votre solution ne marche pas juste... mais transforme des vies."
+  },
+  "Projects": {
+    "card": {
+      "award": "Gagnant",
+      "cta1": "Voir L'impact",
+      "cta2": "Démo En Direct",
+      "cta3": "Code Source"
+    },
+    "headlineStart": "Ce Qu'on A",
+    "headlineSerif": "Construit",
+    "description": "Vrais Problèmes. Vraies Solutions. Vrai Impact.",
+    "rafiqi": {
+      "badge": "IA + Santé Mentale",
+      "title": "Rafiqi",
+      "story": "Le soutien en santé mentale ne devrait pas ressembler à parler à un robot. On a construit Rafiqi comme un compagnon IA qui comprend vraiment le contexte, lit les nuances émotionnelles, et s'adapte aux parcours de guérison individuels. Le résultat ? Un soutien qui semble authentiquement humain, disponible quand quelqu'un en a le plus besoin — transformant la technologie en pont vers une meilleure santé mentale."
+    },
+    "repai": {
+      "badge": "IA + Fintech",
+      "title": "repAI",
+      "story": "Et si recycler pouvait payer vos factures ? RepAI transforme la responsabilité environnementale en profit personnel en fournissant des prix en temps réel pour les matériaux recyclables, connectant les utilisateurs avec des collecteurs, et livrant des récompenses cashback instantanées. On a transformé l'économie circulaire en jeu gagnant-gagnant où faire du bien à la planète paie littéralement.",
+      "achievement": "Finaliste Top 7 Hackathon IA GDGC"
+    },
+    "orbit": {
+      "badge": "Visualisation 3D",
+      "title": "Orbit",
+      "story": "L'espace ne devrait pas sembler distant et incompréhensible. Orbit amène le cosmos sur votre écran grâce à un système solaire 3D interactif qui suit les objets géocroiseurs en temps réel. On a rendu la sensibilisation aux astéroïdes et l'exploration spatiale accessibles à tous, transformant des données astronomiques complexes en expérience engageante et éducative qui éveille la curiosité sur notre univers.",
+      "achievement": "Soumission NASA Space Apps Cairo 2024",
+      "metrics": [
+        { "label": "OGCs Suivis", "value": "100+" },
+        { "label": "Portée Potentielle", "value": "10K+" }
+      ]
+    },
+    "naveris": {
+      "badge": "Alerte Précoce Catastrophes",
+      "title": "NAVERIS",
+      "story": "Chaque seconde compte quand la catastrophe frappe. NAVERIS est notre système d'alerte précoce alimenté par IA qui prédit les catastrophes naturelles avec une précision remarquable — 91% pour les tornades, 87% pour les tempêtes. En analysant des patterns environnementaux invisibles à l'œil humain, on donne aux communautés un temps précieux pour se préparer, sauvant potentiellement des milliers de vies à chaque alerte.",
+      "achievement": "Soumission NASA Space Apps Cairo 2023",
+      "metrics": [
+        { "label": "Précision Tornades", "value": "91%" },
+        { "label": "Détection Tempêtes", "value": "87%" }
+      ]
+    }
+  },
+  "Contact": {
+    "headlineStart": "Prêt à construire quelque chose qui",
+    "headlineSerif": "compte ?",
+    "description": "Que vous ayez une vision claire ou juste un problème brûlant qui nécessite une solution, on aimerait vous entendre. Créons ensemble de la technologie qui fait la différence.",
+    "startConversation": "Commencer Une Conversation",
+    "meetTeam": "Rencontrer l'équipe",
+    "footer": "wearemasonsteam@gmail.com • Juste une conversation sur comment notre technologie peut amplifier votre impact."
+  },
+  "Testimonials": {
+    "t0": {
+      "text": "En jugeant le hackathon GDG Cairo, Masons s'est distingué pas juste pour leur tech mais pour leur incroyable énergie d'équipe. Top 7 bien mérité !",
+      "by": "Mohamed, Développeur Android Senior @ Yassir & Juge Hackathon GDG"
+    },
+    "t1": {
+      "text": "En tant que juge hackathon, je vois rarement des équipes avec une passion si genuine. Masons crée un environnement où la créativité prospère.",
+      "by": "Mohamed, CTO @ Electro Pi & Juge Hackathon GDG"
+    },
+    "t2": {
+      "text": "Masons a apporté une énergie si positive au hackathon. Leur approche de résolution de problèmes est à la fois technique et profondément humaine.",
+      "by": "Qamar, Développeur Android @ Yassir & Juge Hackathon GDG"
+    },
+    "t3": {
+      "text": "L'esprit collaboratif chez Masons est inégalé. on s'est senti comme partie de la famille dès le premier jour.",
+      "by": "Collectif de Stagiaires @ Masons"
+    },
+    "t4": {
+      "text": "En jugeant leur projet NASA, j'ai été impressionné par leurs compétences techniques mais époustouflé par leur dynamique d'équipe. Culture spéciale.",
+      "by": "Ayman, CTO @ North West Africa Nokia"
+    },
+    "t5": {
+      "text": "Masons crée un environnement où l'apprentissage ne s'arrête jamais. L'état d'esprit de croissance ici est absolument contagieux.",
+      "by": "Abdelaziz, Co-Fondateur @ Masons"
+    },
+    "t6": {
+      "text": "Chez Masons, on se concentre sur construire une culture de confiance, curiosité, et amélioration continue. Chaque étape est le reflet du dévouement et de la vision partagée de l'équipe.",
+      "by": "Seif, Fondateur & PDG @ Masons"
+    },
+    "t7": {
+      "text": "Seif a montré une excellente profondeur technique et leadership à DEPI. Il dirige par l'exemple et comprend comment faire avancer les équipes avec clarté et focus.",
+      "by": "Sayed Safwet, Ingénieur Full Stack Senior @ _VOIS & Mentor @ DEPI"
+    }
+  },
+  "About": {
+    "heroIntro": "Masons a commencé dans un café à 2h du matin. Trois devs ados assis recroquevillés sur des laptops à moitié morts, des tasses à moitié pleines de café turc amer, et des rêves pleinement chargés.",
+    "heroStory1": "À l'époque, ils avaient à peine 16 ans. Encore en train de comprendre ce qu'était une boucle for, encore en train d'apprendre à marcher dans le monde dev sans trébucher sur des erreurs de syntaxe. Ils avaient une idée : une app qui pouvait vraiment aider les gens. Alors ils l'ont mappée, choisi une stack qu'ils connaissaient à peine, et plongé tête la première. Pendant trois mois, ils ont appris, construit, rêvé. Tout semblait s'aligner.",
+    "heroStory2": "Puis un jour au hasard, juste en ouvrant le Play Store pour mettre à jour Clash of Clans comme n'importe quel autre ado normal... bam. C'était là. La même app exacte. Construite par quelqu'un d'autre. Livrée. Polie. Partout. Et c'était bien. Genre, putain, chapeau bas bien. Ça a écrasé en Égypte. Cette piqûre ? Ouais, ça faisait mal. Mais respect où il faut. Ils se sont fait battre loyalement.",
+    "heroStory3": "Après ça, la vie a donné des coups. Un dev s'est barré. L'école est devenue chaotique. Le rêve est parti en congélation profonde pendant un moment. Troisième secondaire, examens finaux, le chaos de l'adolescence. Masons s'est tu.",
+    "heroStory4": "Mais les légendes ne restent pas dormantes pour toujours.",
+    "heroStory5": "Ils ont obtenu leur diplôme de lycée. La vie a changé. Seif a croisé le chemin de deux forces : Ahmed Khalid, mieux connu sous le nom de Z3ln, et Sherif Lotfy, alias Sizif. Pendant ce temps, Abdelaziz a rencontré Omar Waleed dans un autre coin du cosmos universitaire. Et comme ça, l'univers leur a lancé un nouveau défi : NASA Space Apps Cairo 2023. C'était l'étincelle.",
+    "heroStory6": "Seif a appelé la cavalerie : son cousin Omar Ellaban. Les pièces du puzzle se sont verrouillées. Six esprits, six histoires, une idée folle. Pour la première fois, les Puissants Six Fondateurs se sont assemblés.",
+    "heroStory7": "Quand Rafiqi est entré en vue, quelque chose a changé. La mission est devenue réelle. Ils ont cherché, tendu la main, amené de nouvelles personnes dans le groupe. Chacune a apporté un background différent, une nouvelle façon de penser, des compétences que les OG n'avaient pas. Et c'est ce qui a rendu l'équipe puissante comme l'enfer. Pas des clones, mais un équipage d'inadaptés avec du cœur, du cran, et de la portée. Chacun d'eux unique comme l'enfer.",
+    "heroStory8": "À partir de là, ce n'était jamais à propos du hype. Pas à propos de coller « alimenté par IA » sur une landing page juste pour lever les sourcils. Ils n'étaient pas là pour des milliards de dollars de rien.",
+    "heroStory9": "Ils étaient là pour construire des trucs réels qui comptaient. Parfois ça signifiait de l'IA qui comprenait vraiment le contexte d'une conversation, pas juste cracher des mots à la mode. D'autres fois c'était à propos d'infrastructure qui ne s'effondrait pas quand 50 000 utilisateurs se pointaient en même temps. Toujours, toujours, c'était à propos de mettre les gens avant l'ego.",
+    "heroStory10": "Ce n'était pas juste une startup. C'était Masons.",
+    "teamHeadlineStart": "Rencontrez Les",
+    "teamHeadlineSerif": "Constructeurs",
+    "ctaHeadlineStart": "Construisons Quelque Chose Qui",
+    "ctaHeadlineSerif": "Compte",
+    "ctaDescription": "Que vous ayez besoin d'aide pour donner vie à une idée, ou que vous vouliez rejoindre une équipe qui s'en fout — on aimerait parler. Pas besoin de pitch decks. Juste de vraies conversations sur de vrais problèmes qui valent la peine d'être résolus.",
+    "ctaButton": "Commencer Une Conversation",
+    "team": {
+      "seif": {
+        "name": "Seif Zakaria",
+        "role": "Fondateur & PDG de Masons",
+        "description": "Juste un mec qui aime livrer des apps qui marchent vraiment. Profond dans le code, grand sur la clarté, toujours à chasser de meilleurs systèmes.",
+        "focus": "Faire semblant que c'est simple jusqu'à ce que ça le soit vraiment",
+        "portfolioButton": "Visiter Le Portfolio"
+      },
+      "abdelaziz": {
+        "name": "Abdelaziz Amr",
+        "role": "Dev Backend & Co-Fondateur de Masons",
+        "description": "Transforme la douleur utilisateur en solutions élégantes. A des opinions fortes sur les espaces blancs.",
+        "focus": "Design qui respecte les humains"
+      },
+      "ahmed": {
+        "name": "Ahmed Khaled (Z3ln)",
+        "role": "Dev Fullstack & CTO de Masons",
+        "description": "Transforme la douleur utilisateur en solutions élégantes. A des opinions fortes sur les espaces blancs.",
+        "focus": "Design qui respecte les humains"
+      },
+      "sherif": {
+        "name": "Sherif Lotfy (Sizif)",
+        "role": "Dev Fullstack & VP de l'Équipe Frontend",
+        "description": "Transforme la douleur utilisateur en solutions élégantes. A des opinions fortes sur les espaces blancs.",
+        "focus": "Design qui respecte les humains",
+        "portfolioButton": "Visiter Le Portfolio"
+      },
+      "omar": {
+        "name": "Omar Ellaban (Ktlr)",
+        "role": "Ingénieur Backend",
+        "description": "Construit des APIs que vous voulez vraiment utiliser. A une fois corrigé un bug critique depuis un taxi en mouvement.",
+        "focus": "Fondations solides comme le roc"
+      },
+      "omarWaleed": {
+        "name": "Omar Waleed",
+        "role": "Ingénieur IA",
+        "description": "Enseigne l'empathie aux machines. Écrit des algorithmes qui comprennent vraiment le contexte.",
+        "focus": "Humaniser l'intelligence artificielle"
+      }
+    }
+  },
+  "ContactPage": {
+    "heroHeadlineStart": "Commençons Une",
+    "heroHeadlineSerif": "Conversation",
+    "heroDescription1": "Vous avez une idée qui a besoin d'être construite ? Un problème qui a besoin d'être résolu ? Ou juste envie de discuter de ce qui est possible ?",
+    "heroDescription2": "On croit que les meilleurs projets commencent par de vraies conversations. Pas de pitch decks, pas de propositions longues — juste du vrai talk sur de vraies solutions.",
+    "contactMethodsHeadlineStart": "Façons De",
+    "contactMethodsHeadlineSerif": "Se Connecter",
+    "contactMethods": {
+      "email": {
+        "title": "Nous Envoyer Un Email",
+        "description": "Écrivez-nous à tout moment. On lit chaque message personnellement.",
+        "action": "wearemasonsteam@gmail.com"
+      },
+      "chat": {
+        "title": "Discussion Rapide",
+        "description": "Planifiez un appel de 15 minutes pour discuter de votre projet.",
+        "action": "Réserver Un Appel"
+      },
+      "visit": {
+        "title": "Nous Rendre Visite",
+        "description": "On est basés au Caire, mais on travaille avec des équipes globalement.",
+        "action": "Obtenir Les Directions"
+      }
+    },
+    "formHeadlineStart": "Parlez-Nous De Votre",
+    "formHeadlineSerif": "Projet",
+    "form": {
+      "nameLabel": "Nom *",
+      "namePlaceholder": "Votre nom",
+      "emailLabel": "Email *",
+      "emailPlaceholder": "votre@email.com",
+      "companyLabel": "Entreprise",
+      "companyPlaceholder": "Votre entreprise (optionnel)",
+      "projectTypeLabel": "Type De Projet",
+      "projectTypePlaceholder": "Sélectionner le type de projet",
+      "projectTypes": {
+        "webDevelopment": "Développement Web",
+        "aiIntegration": "Intégration IA",
+        "systemArchitecture": "Architecture Système",
+        "productDesign": "Design Produit",
+        "consulting": "Consulting",
+        "other": "Autre"
+      },
+      "messageLabel": "Message *",
+      "messagePlaceholder": "Parlez-nous de votre projet, timeline, et ce que vous espérez accomplir...",
+      "submitButton": "Commencer La Conversation",
+      "submittingButton": "Envoi...",
+      "disclaimer": "On répond typiquement dans les 24 heures. Pas de spam, pas d'appels de vente insistants.",
+      "successTitle": "✅ Email Envoyé !",
+      "successDescription": "On vous recontactera dans les 24 heures.",
+      "errorTitle": "❌ Échec D'envoi",
+      "networkErrorTitle": "🚨 Erreur",
+      "networkErrorDescription": "Vérifiez votre réseau ou réessayez plus tard."
+    },
+    "projectTypesHeadline": "Comment on aide typiquement",
+    "projectTypes": {
+      "newProduct": {
+        "title": "Développement De Nouveau Produit",
+        "description": "Du concept au lancement, on aide à donner vie à vos idées avec des choix technologiques réfléchis."
+      },
+      "teamAugmentation": {
+        "title": "Augmentation D'équipe",
+        "description": "Besoin de mains supplémentaires ? On s'intègre parfaitement avec votre équipe et processus existants."
+      },
+      "consulting": {
+        "title": "Consulting Technique",
+        "description": "Revues d'architecture, audits technologiques, et guidance stratégique pour vos décisions tech."
+      }
+    },
+    "faqHeadlineStart": "Questions",
+    "faqHeadlineSerif": "Communes",
+    "faq": {
+      "q1": {
+        "question": "Comment travaillez-vous typiquement avec les clients ?",
+        "answer": "On commence par une conversation de découverte pour comprendre vos objectifs, puis on propose une approche collaborative. On croit en communication transparente, check-ins réguliers, et construire des solutions ensemble plutôt qu'en isolation."
+      },
+      "q2": {
+        "question": "Quelle est votre timeline de projet typique ?",
+        "answer": "Ça dépend de la portée, mais la plupart des projets vont de 6-16 semaines. On préfère travailler en sprints focalisés pour que vous puissiez voir le progrès rapidement et donner des retours en cours de route."
+      },
+      "q3": {
+        "question": "Travaillez-vous avec des startups en phase précoce ?",
+        "answer": "Absolument. On adore travailler avec des fondateurs qui résolvent de vrais problèmes. On peut aider à valider des idées, construire des MVPs, et scaler quand vous êtes prêts à grandir."
+      }
+    }
+  },
+  "Footer": {
+    "text": "© 2025 Masons. Façonnant les solutions de demain aujourd'hui."
+  }
+}

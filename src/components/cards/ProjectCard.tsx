@@ -1,9 +1,10 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Award, TrendingUp, Users } from "lucide-react";
+import { ArrowLeft, ArrowRight, Award, TrendingUp, Users } from "lucide-react";
 import Link from "next/link";
 import { useTranslations } from "next-intl";
+import { useEffect, useState } from "react";
 
 type ProjectCardProps = {
   badge: string;
@@ -38,6 +39,19 @@ export const ProjectCard = ({
   caseStudyHref,
 }: ProjectCardProps) => {
   const t = useTranslations("Projects.card");
+  const [isRtl, setIsRtl] = useState(false);
+
+  useEffect(() => {
+    // RTL detection
+    setIsRtl(document.body.getAttribute("data-rtl") === "true");
+    const observer = new MutationObserver(() => {
+      setIsRtl(document.body.getAttribute("data-rtl") === "true");
+    });
+    observer.observe(document.body, {
+      attributes: true,
+      attributeFilter: ["data-rtl"],
+    });
+  }, []);
   return (
     <Card className="glass-card hover:bg-card/70 transition-all duration-500 h-full group hover:shadow-2xl min-h-[500px] md:min-h-auto">
       <CardContent className="py-2 px-6 flex flex-col justify-between h-full">
@@ -123,7 +137,11 @@ export const ProjectCard = ({
               <Link href={caseStudyHref}>
                 <Users className="mr-2 h-4 w-4" />
                 {t("cta1")}
-                <ArrowRight className="ml-2 h-4 w-4 group-hover/btn:translate-x-1 transition-transform" />
+                {isRtl ? (
+                  <ArrowLeft className="ml-2 h-4 w-4 group-hover/btn:translate-x-1 transition-transform" />
+                ) : (
+                  <ArrowRight className="ml-2 h-4 w-4 group-hover/btn:translate-x-1 transition-transform" />
+                )}
               </Link>
             </Button>
           )}

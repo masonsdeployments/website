@@ -7,7 +7,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import Navbar from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
   Mail,
   MapPin,
@@ -24,6 +24,27 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { toast } from "sonner";
+import { useTranslations } from "next-intl";
+
+// RTL utility hook
+const useRTL = () => {
+  const [isRtl, setIsRtl] = useState(false);
+
+  useEffect(() => {
+    setIsRtl(document.body.getAttribute("data-rtl") === "true");
+    const observer = new MutationObserver(() => {
+      setIsRtl(document.body.getAttribute("data-rtl") === "true");
+    });
+    observer.observe(document.body, {
+      attributes: true,
+      attributeFilter: ["data-rtl"],
+    });
+
+    return () => observer.disconnect();
+  }, []);
+
+  return isRtl;
+};
 
 interface ContactMethod {
   icon: React.ReactNode;
@@ -33,28 +54,34 @@ interface ContactMethod {
   href?: string;
 }
 
-const ContactMethodCard = ({ method }: { method: ContactMethod }) => (
+const ContactMethodCard = ({ method }: { method: ContactMethod }) => {
+  const isRtl = useRTL();
+  
+  return (
   <Card className="p-6 transition-all duration-300 hover:scale-[1.02] hover:shadow-lg h-full min-h-[250px] md:min-h-auto">
     <CardContent className="p-0 space-y-4 text-center">
       <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mx-auto">
         {method.icon}
       </div>
-      <h3 className="text-xl font-bold">{method.title}</h3>
-      <p className="text-muted-foreground">{method.description}</p>
+      <h3 className={`text-xl font-bold ${isRtl ? 'font-arabic' : ''}`}>{method.title}</h3>
+      <p className={`text-muted-foreground ${isRtl ? 'font-arabic' : ''}`}>{method.description}</p>
       {method.href ? (
-        <Button asChild variant="outline" className="w-full">
+        <Button asChild variant="outline" className={`w-full ${isRtl ? 'font-arabic' : ''}`}>
           <a href={method.href}>{method.action}</a>
         </Button>
       ) : (
-        <Button variant="outline" className="w-full">
+        <Button variant="outline" className={`w-full ${isRtl ? 'font-arabic' : ''}`}>
           {method.action}
         </Button>
       )}
     </CardContent>
   </Card>
-);
+  );
+};
 
 const ContactForm = () => {
+  const t = useTranslations("ContactPage.form");
+  const isRtl = useRTL();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -89,8 +116,8 @@ const ContactForm = () => {
       const data = await res.json();
 
       if (res.ok) {
-        toast.success("✅ Email Sent!", {
-          description: "We'll get back to you within 24 hours.",
+        toast.success(t("successTitle"), {
+          description: t("successDescription"),
         });
         setFormData({
           name: "",
@@ -100,13 +127,13 @@ const ContactForm = () => {
           message: "",
         });
       } else {
-        toast.error("❌ Failed to Send", {
+        toast.error(t("errorTitle"), {
           description: data.error || "Something went wrong.",
         });
       }
     } catch (error) {
-      toast.error("🚨 Error", {
-        description: "Check your network or try again later.",
+      toast.error(t("networkErrorTitle"), {
+        description: t("networkErrorDescription"),
       });
       console.error(error);
     }
@@ -115,30 +142,32 @@ const ContactForm = () => {
   };
 
   return (
-    <Card className="p-8">
+    <Card className="p-8" dir={isRtl ? "rtl" : "ltr"}>
       <CardContent className="p-0">
         <form onSubmit={handleSubmit} className="space-y-6">
           <div className="grid md:grid-cols-2 gap-4">
             <div className="space-y-2">
-              <Label htmlFor="name">Name *</Label>
+              <Label htmlFor="name" className={`${isRtl ? 'font-arabic text-right' : 'text-left'}`}>{t("nameLabel")}</Label>
               <Input
                 id="name"
                 name="name"
                 value={formData.name}
                 onChange={handleInputChange}
-                placeholder="Your name"
+                placeholder={t("namePlaceholder")}
+                className={`${isRtl ? 'font-arabic text-right' : 'text-left'}`}
                 required
               />
             </div>
             <div className="space-y-2">
-              <Label htmlFor="email">Email *</Label>
+              <Label htmlFor="email" className={`${isRtl ? 'font-arabic text-right' : 'text-left'}`}>{t("emailLabel")}</Label>
               <Input
                 id="email"
                 name="email"
                 type="email"
                 value={formData.email}
                 onChange={handleInputChange}
-                placeholder="your@email.com"
+                placeholder={t("emailPlaceholder")}
+                className={`${isRtl ? 'font-arabic text-right' : 'text-left'}`}
                 required
               />
             </div>
@@ -146,59 +175,60 @@ const ContactForm = () => {
 
           <div className="grid md:grid-cols-2 gap-4">
             <div className="space-y-2">
-              <Label htmlFor="company">Company</Label>
+              <Label htmlFor="company" className={`${isRtl ? 'font-arabic text-right' : 'text-left'}`}>{t("companyLabel")}</Label>
               <Input
                 id="company"
                 name="company"
                 value={formData.company}
                 onChange={handleInputChange}
-                placeholder="Your company (optional)"
+                placeholder={t("companyPlaceholder")}
+                className={`${isRtl ? 'font-arabic text-right' : 'text-left'}`}
               />
             </div>
             <div className="space-y-2">
-              <Label htmlFor="projectType">Project Type</Label>
+              <Label htmlFor="projectType" className={`${isRtl ? 'font-arabic text-right' : 'text-left'}`}>{t("projectTypeLabel")}</Label>
               <Select
                 value={formData.projectType}
                 onValueChange={handleSelectChange}
               >
-                <SelectTrigger className="w-full">
-                  <SelectValue placeholder="Select project type" />
+                <SelectTrigger className={`w-full ${isRtl ? 'font-arabic text-right' : 'text-left'}`}>
+                  <SelectValue placeholder={t("projectTypePlaceholder")} />
                 </SelectTrigger>
-                <SelectContent className="z-[100]">
+                <SelectContent className={`z-[100] ${isRtl ? 'font-arabic' : ''}`}>
                   <SelectItem value="web-development">
-                    Web Development
+                    {t("projectTypes.webDevelopment")}
                   </SelectItem>
-                  <SelectItem value="ai-integration">AI Integration</SelectItem>
+                  <SelectItem value="ai-integration">{t("projectTypes.aiIntegration")}</SelectItem>
                   <SelectItem value="system-architecture">
-                    System Architecture
+                    {t("projectTypes.systemArchitecture")}
                   </SelectItem>
-                  <SelectItem value="product-design">Product Design</SelectItem>
-                  <SelectItem value="consulting">Consulting</SelectItem>
-                  <SelectItem value="other">Other</SelectItem>
+                  <SelectItem value="product-design">{t("projectTypes.productDesign")}</SelectItem>
+                  <SelectItem value="consulting">{t("projectTypes.consulting")}</SelectItem>
+                  <SelectItem value="other">{t("projectTypes.other")}</SelectItem>
                 </SelectContent>
               </Select>
             </div>
           </div>
 
           <div className="space-y-2">
-            <Label htmlFor="message">Message *</Label>
+            <Label htmlFor="message" className={`${isRtl ? 'font-arabic text-right' : 'text-left'}`}>{t("messageLabel")}</Label>
             <Textarea
               id="message"
               name="message"
               value={formData.message}
               onChange={handleInputChange}
-              placeholder="Tell us about your project, timeline, and what you're hoping to achieve..."
-              className="min-h-[120px]"
+              placeholder={t("messagePlaceholder")}
+              className={`min-h-[120px] ${isRtl ? 'font-arabic text-right' : 'text-left'}`}
               required
             />
           </div>
 
-          <Button type="submit" size="lg" className="w-full" disabled={true}>
-            {loading ? "Sending..." : "Start the Conversation"}
+          <Button type="submit" size="lg" className={`w-full ${isRtl ? 'font-arabic' : ''}`} disabled={true}>
+            {loading ? t("submittingButton") : t("submitButton")}
           </Button>
 
-          <p className="text-sm text-muted-foreground text-center">
-            We typically respond within 24 hours. No spam, no pushy sales calls.
+          <p className={`text-sm text-muted-foreground text-center ${isRtl ? 'font-arabic' : ''}`}>
+            {t("disclaimer")}
           </p>
         </form>
       </CardContent>
@@ -207,54 +237,60 @@ const ContactForm = () => {
 };
 
 // Hero section component
-const HeroSection = () => (
-  <section className="flex flex-col items-center justify-center text-center max-w-4xl mx-auto">
-    <h1 className="text-4xl md:text-6xl font-bold mb-12">
-      Let&apos;s start a{" "}
-      <span className="gradient-text font-serif not-italic">conversation</span>
-    </h1>
+const HeroSection = () => {
+  const t = useTranslations("ContactPage");
+  const isRtl = useRTL();
+  
+  return (
+    <section className="flex flex-col items-center justify-center text-center max-w-4xl mx-auto" dir={isRtl ? "rtl" : "ltr"}>
+      <h1 className={`text-4xl md:text-6xl font-bold mb-12 ${isRtl ? 'font-arabic' : ''}`}>
+        {t("heroHeadlineStart")}{" "}
+        <span className="gradient-text font-serif not-italic">{t("heroHeadlineSerif")}</span>
+      </h1>
 
-    <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed mb-8">
-      Got an idea that needs building? A problem that needs solving? Or just
-      want to chat about what&apos;s possible?
-    </p>
+      <p className={`text-xl md:text-2xl text-muted-foreground leading-relaxed mb-8 ${isRtl ? 'font-arabic' : ''}`}>
+        {t("heroDescription1")}
+      </p>
 
-    <p className="text-lg text-muted-foreground leading-relaxed">
-      We believe the best projects start with genuine conversations. No pitch
-      decks, no lengthy proposals—just real talk about real solutions.
-    </p>
-  </section>
-);
+      <p className={`text-lg text-muted-foreground leading-relaxed ${isRtl ? 'font-arabic' : ''}`}>
+        {t("heroDescription2")}
+      </p>
+    </section>
+  );
+};
 
 // Contact methods section
 const ContactMethodsSection = () => {
+  const t = useTranslations("ContactPage");
+  const isRtl = useRTL();
+  
   const contactMethods: ContactMethod[] = [
     {
       icon: <Mail className="w-6 h-6 text-primary" />,
-      title: "Email Us",
-      description: "Drop us a line anytime. We read every message personally.",
-      action: "wearemasonsteam@gmail.com",
+      title: t("contactMethods.email.title"),
+      description: t("contactMethods.email.description"),
+      action: t("contactMethods.email.action"),
       href: "mailto:wearemasonsteam@gmail.com",
     },
     {
       icon: <MessageCircle className="w-6 h-6 text-primary" />,
-      title: "Quick Chat",
-      description: "Schedule a 15-minute call to discuss your project.",
-      action: "Book a Call",
+      title: t("contactMethods.chat.title"),
+      description: t("contactMethods.chat.description"),
+      action: t("contactMethods.chat.action"),
     },
     {
       icon: <MapPin className="w-6 h-6 text-primary" />,
-      title: "Visit Us",
-      description: "We're based in Cairo, but work with teams globally.",
-      action: "Get Directions",
+      title: t("contactMethods.visit.title"),
+      description: t("contactMethods.visit.description"),
+      action: t("contactMethods.visit.action"),
     },
   ];
 
   return (
-    <section className="flex flex-col items-center">
-      <h2 className="text-3xl md:text-5xl font-bold mb-12 text-center">
-        Ways to{" "}
-        <span className="gradient-text font-serif not-italic">connect</span>
+    <section className="flex flex-col items-center" dir={isRtl ? "rtl" : "ltr"}>
+      <h2 className={`text-3xl md:text-5xl font-bold mb-12 text-center ${isRtl ? 'font-arabic' : ''}`}>
+        {t("contactMethodsHeadlineStart")}{" "}
+        <span className="gradient-text font-serif not-italic">{t("contactMethodsHeadlineSerif")}</span>
       </h2>
 
       <div className="grid md:grid-cols-3 gap-8 w-full max-w-6xl mx-auto mb-16">
@@ -268,31 +304,31 @@ const ContactMethodsSection = () => {
 
 // Project types section
 const ProjectTypesSection = () => {
+  const t = useTranslations("ContactPage");
+  const isRtl = useRTL();
+  
   const projectTypes = [
     {
       icon: <Briefcase className="w-6 h-6 text-primary" />,
-      title: "New Product Development",
-      description:
-        "From concept to launch, we help bring your ideas to life with thoughtful technology choices.",
+      title: t("projectTypes.newProduct.title"),
+      description: t("projectTypes.newProduct.description"),
     },
     {
       icon: <Users className="w-6 h-6 text-primary" />,
-      title: "Team Augmentation",
-      description:
-        "Need extra hands? We integrate seamlessly with your existing team and processes.",
+      title: t("projectTypes.teamAugmentation.title"),
+      description: t("projectTypes.teamAugmentation.description"),
     },
     {
       icon: <MessageCircle className="w-6 h-6 text-primary" />,
-      title: "Technical Consulting",
-      description:
-        "Architecture reviews, technology audits, and strategic guidance for your tech decisions.",
+      title: t("projectTypes.consulting.title"),
+      description: t("projectTypes.consulting.description"),
     },
   ];
 
   return (
-    <section className="bg-muted/30 rounded-2xl p-8 md:p-12">
-      <h2 className="text-2xl md:text-3xl font-bold mb-8 text-center">
-        How we typically help
+    <section className="bg-muted/30 rounded-2xl p-8 md:p-12" dir={isRtl ? "rtl" : "ltr"}>
+      <h2 className={`text-2xl md:text-3xl font-bold mb-8 text-center ${isRtl ? 'font-arabic' : ''}`}>
+        {t("projectTypesHeadline")}
       </h2>
 
       <div className="grid md:grid-cols-3 gap-6">
@@ -301,8 +337,8 @@ const ProjectTypesSection = () => {
             <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mx-auto">
               {type.icon}
             </div>
-            <h3 className="font-semibold">{type.title}</h3>
-            <p className="text-sm text-muted-foreground">{type.description}</p>
+            <h3 className={`font-semibold ${isRtl ? 'font-arabic' : ''}`}>{type.title}</h3>
+            <p className={`text-sm text-muted-foreground ${isRtl ? 'font-arabic' : ''}`}>{type.description}</p>
           </div>
         ))}
       </div>
@@ -310,20 +346,86 @@ const ProjectTypesSection = () => {
   );
 };
 
+// Form headline component
+const FormHeadline = () => {
+  const t = useTranslations("ContactPage");
+  const isRtl = useRTL();
+  
+  return (
+    <span className={isRtl ? 'font-arabic' : ''}>
+      {t("formHeadlineStart")}{" "}
+      <span className="gradient-text font-serif not-italic">{t("formHeadlineSerif")}</span>
+    </span>
+  );
+};
+
+// FAQ Section component
+const FAQSection = () => {
+  const t = useTranslations("ContactPage");
+  const isRtl = useRTL();
+  
+  return (
+    <section className="max-w-4xl mx-auto" dir={isRtl ? "rtl" : "ltr"}>
+      <h2 className={`text-3xl md:text-4xl font-bold mb-12 text-center ${isRtl ? 'font-arabic' : ''}`}>
+        {t("faqHeadlineStart")}{" "}
+        <span className="gradient-text font-serif not-italic">
+          {t("faqHeadlineSerif")}
+        </span>
+      </h2>
+
+      <div className="space-y-6">
+        <Card className="p-6 min-h-[200px] md:min-h-auto">
+          <CardContent className="p-0">
+            <h3 className={`font-semibold mb-3 ${isRtl ? 'font-arabic text-right' : 'text-left'}`}>
+              {t("faq.q1.question")}
+            </h3>
+            <p className={`text-muted-foreground ${isRtl ? 'font-arabic text-right' : 'text-left'}`}>
+              {t("faq.q1.answer")}
+            </p>
+          </CardContent>
+        </Card>
+
+        <Card className="p-6 min-h-[200px] md:min-h-auto">
+          <CardContent className="p-0">
+            <h3 className={`font-semibold mb-3 ${isRtl ? 'font-arabic text-right' : 'text-left'}`}>
+              {t("faq.q2.question")}
+            </h3>
+            <p className={`text-muted-foreground ${isRtl ? 'font-arabic text-right' : 'text-left'}`}>
+              {t("faq.q2.answer")}
+            </p>
+          </CardContent>
+        </Card>
+
+        <Card className="p-6 min-h-[200px] md:min-h-auto">
+          <CardContent className="p-0">
+            <h3 className={`font-semibold mb-3 ${isRtl ? 'font-arabic text-right' : 'text-left'}`}>
+              {t("faq.q3.question")}
+            </h3>
+            <p className={`text-muted-foreground ${isRtl ? 'font-arabic text-right' : 'text-left'}`}>
+              {t("faq.q3.answer")}
+            </p>
+          </CardContent>
+        </Card>
+      </div>
+    </section>
+  );
+};
+
 // Main contact page component
 export default function ContactPage() {
+  const isRtl = useRTL();
+
   return (
-    <div className="min-h-screen bg-background text-foreground mt-24">
+    <div className="min-h-screen bg-background text-foreground mt-24" dir={isRtl ? "rtl" : "ltr"}>
       <Navbar />
 
       <main className="container mx-auto px-6 py-12 md:py-20 space-y-16 md:space-y-24">
         <HeroSection />
         <ContactMethodsSection />
 
-        <section className="max-w-4xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold mb-8 text-center">
-            Tell us about your{" "}
-            <span className="gradient-text font-serif not-italic">project</span>
+        <section className="max-w-4xl mx-auto" dir={isRtl ? "rtl" : "ltr"}>
+          <h2 className={`text-3xl md:text-4xl font-bold mb-8 text-center ${isRtl ? 'font-arabic' : ''}`}>
+            <FormHeadline />
           </h2>
           <ContactForm />
         </section>
@@ -331,56 +433,7 @@ export default function ContactPage() {
         <ProjectTypesSection />
 
         {/* FAQ Section */}
-        <section className="max-w-4xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">
-            Common{" "}
-            <span className="gradient-text font-serif not-italic">
-              questions
-            </span>
-          </h2>
-
-          <div className="space-y-6">
-            <Card className="p-6 min-h-[200px] md:min-h-auto">
-              <CardContent className="p-0">
-                <h3 className="font-semibold mb-3">
-                  How do you typically work with clients?
-                </h3>
-                <p className="text-muted-foreground">
-                  We start with a discovery conversation to understand your
-                  goals, then propose a collaborative approach. We believe in
-                  transparent communication, regular check-ins, and building
-                  solutions together rather than in isolation.
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="p-6 min-h-[200px] md:min-h-auto">
-              <CardContent className="p-0">
-                <h3 className="font-semibold mb-3">
-                  What&apos;s your typical project timeline?
-                </h3>
-                <p className="text-muted-foreground">
-                  It depends on scope, but most projects range from 6-16 weeks.
-                  We prefer working in focused sprints so you can see progress
-                  quickly and provide feedback along the way.
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="p-6 min-h-[200px] md:min-h-auto">
-              <CardContent className="p-0">
-                <h3 className="font-semibold mb-3">
-                  Do you work with early-stage startups?
-                </h3>
-                <p className="text-muted-foreground">
-                  Absolutely. We love working with founders who are solving real
-                  problems. We can help validate ideas, build MVPs, and scale
-                  when you&apos;re ready to grow.
-                </p>
-              </CardContent>
-            </Card>
-          </div>
-        </section>
+        <FAQSection />
       </main>
 
       <Footer />
