@@ -5,7 +5,7 @@ import {
   Crimson_Pro,
   IBM_Plex_Sans_Arabic,
 } from "next/font/google";
-import "./globals.css";
+import "@/styles/globals.css";
 import "@/styles/gruvbox-dark-hard.css";
 import { ThemeProvider } from "../../components/layout/ThemeProvider";
 import { Toaster } from "@/components/ui/sonner";
