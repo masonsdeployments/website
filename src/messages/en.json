@@ -269,6 +269,11 @@
       }
     }
   },
+  "NotFound": {
+    "line1": "Oops. This page doesn't exist. Maybe it's hiding with the secrets of the universe.",
+    "line2": "Or maybe you just took a wrong turn. No shame in that. Happens to the best of us.",
+    "cta": "Back to Home"
+  },
   "Footer": {
     "text": "© 2025 Masons. Crafting tomorrow's solutions today."
   }

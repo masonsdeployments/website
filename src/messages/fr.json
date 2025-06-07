@@ -269,6 +269,11 @@
       }
     }
   },
+  "NotFound": {
+    "line1": "Merde. Cette page n'existe pas. Elle est peut-être planquée avec les secrets de l'univers.",
+    "line2": "Ou alors t'as juste pris un mauvais tournant. T'inquiète, ça arrive aux meilleurs.",
+    "cta": "Retour à l'accueil"
+  },
   "Footer": {
     "text": "© 2025 Masons. Façonnant les solutions de demain aujourd'hui."
   }
