@@ -1,43 +1,55 @@
 {
   "Navbar": {
     "home": "Home",
-    "mission": "Mission",
-    "projects": "Our Projects",
-    "approach": "Approach",
-    "about": "About Us",
-    "contact": "Contact"
+    "features": "Why Us",
+    "projects": "Work",
+    "howItWorks": "Process",
+    "testimonials": "Reviews",
+    "about": "Team",
+    "cta": "Start a Project",
+    "contact": "Contact Us"
   },
   "Hero": {
-    "tagline": "Impact Without Compromise",
-    "titleStart": "We Turn Problems",
-    "titleBr": "Into",
-    "titleSerif": "Possibilities",
-    "description": "We're the collective behind AI systems that understand emotion, platforms that prevent disasters, and tools that turn recycling into profit. No vanity metrics. No empty promises. Just technology that solves problems that matter.",
-    "seeImpact": "See Our Impact",
-    "startProject": "Start Your Project"
+    "tagline": "Impact-Driven Engineering",
+    "titleLine1": "We Build Products That",
+    "titleHighlight": "Change Lives",
+    "description": "From emotional AI companions to disaster prediction systems, we build technology that saves lives. Real impact, not just vanity metrics.",
+    "ctaPrimary": "Start Building Today",
+    "ctaSecondary": "See Our Work",
+    "socialProof": "Trusted by founders building the future",
+    "previewAlt": "Product Preview"
   },
-  "Mission": {
-    "headlineStart": "While Others Build Features,",
-    "headlineSerif": "We Build Futures",
-    "description": "We believe great products start with understanding people. Empathy is the foundation that underlies all we do, including development, interface design, and system architecture.",
-    "humanFirstTitle": "Human-First Engineering",
-    "humanFirstDesc": "We start with empathy, not algorithms. Every system we design begins with deep user research and ends with measurable human impact.",
-    "zeroWasteTitle": "Zero-Waste Development",
-    "zeroWasteDesc": "No bloated features. No technical debt. We build lean, powerful systems that solve actual problems, not imaginary ones.",
-    "collectiveTitle": "Collective Intelligence",
-    "collectiveDesc": "Our distributed team thinks like a single, brilliant mind. We combine diverse perspectives to create solutions no individual could imagine alone."
+  "TrustedBy": {
+    "title": "Building with bleeding edge technologies"
   },
-  "Approach": {
-    "headlineStart": "Our",
-    "headlineSerif": "Approach",
-    "step1Title": "Listen First",
-    "step1Desc": "We don't just ask what you want, we uncover what you actually need. Through user interviews, market analysis, and problem archaeology, we find the real challenge hiding behind the obvious one.",
-    "step2Title": "Design with Intent",
-    "step2Desc": "Every feature exists for a reason. We design systems that solve real problems, not just showcase cool technology. Purpose drives every decision.",
-    "step3Title": "Build to Last",
-    "step3Desc": "We build like your users' lives depend on it; because sometimes they do. Every interaction is crafted, every edge case considered, every detail refined until it's not just functional, but meaningful.",
-    "step4Title": "Impact Amplification",
-    "step4Desc": "Launch is just the beginning. We measure what matters, iterate based on real usage, and continuously enhance until your solution doesn't just work.. it transforms lives."
+  "Features": {
+    "headlineStart": "Why Teams",
+    "headlineSerif": "Choose Us",
+    "description": "We don't just write code. We solve meaningful problems with technology that actually works.",
+    "f1": {
+      "title": "Human-First Engineering",
+      "desc": "Great systems start with empathy. We design for humans first, ensuring technology serves people, not just algorithms."
+    },
+    "f2": {
+      "title": "Zero-Waste Development",
+      "desc": "No bloated features. No technical debt. We build lean, powerful systems that solve actual problems."
+    },
+    "f3": {
+      "title": "Collective Intelligence",
+      "desc": "Our distributed team operates as a single unit, combining diverse perspectives to create solutions no individual could imagine."
+    },
+    "f4": {
+      "title": "Battle-Tested Systems",
+      "desc": "We build software as if lives depend on it. Because sometimes, they do. Robust, reliable, and ready for anything."
+    },
+    "f5": {
+      "title": "Rapid Iteration",
+      "desc": "See progress in days, not months. We ship fast, gather feedback, and iterate until it's exceptional."
+    },
+    "f6": {
+      "title": "Long-Term Partnership",
+      "desc": "Launch is just the beginning. We measure what matters and continuously enhance your solution."
+    }
   },
   "Projects": {
     "card": {
@@ -46,25 +58,25 @@
       "cta2": "Live Demo",
       "cta3": "Code Base"
     },
-    "headlineStart": "What We've",
-    "headlineSerif": "Built",
-    "description": "Real Problems. Real Solutions. Real Impact.",
+    "headlineStart": "Real Problems,",
+    "headlineSerif": "Real Impact",
+    "description": "Technology that changes lives, not just chases metrics.",
     "rafiqi": {
       "badge": "AI + Mental Health",
       "title": "Rafiqi",
-      "story": "Mental health support shouldn't feel like talking to a robot. We built Rafiqi as an AI companion that genuinely understands context, reads emotional nuance, and adapts to individual healing journeys. The result? Support that feels authentically human, available whenever someone needs it most—turning technology into a bridge to better mental health."
+      "story": "Mental health support that feels genuinely human. We built an AI companion that understands context, reads emotional nuance, and adapts to individual healing journeys. Support that is available whenever it is needed most."
     },
     "repai": {
       "badge": "AI + Fintech",
       "title": "repAI",
-      "story": "What if recycling could pay your bills? RepAI transforms environmental responsibility into personal profit by providing real-time pricing for recyclable materials, connecting users with collectors, and delivering instant cashback rewards. We've turned the circular economy into a win-win game where doing good for the planet literally pays off.",
-      "achievement": "GDGC AI Hackathon Top 7 Finalist"
+      "story": "What if recycling could pay your bills? RepAI transforms environmental responsibility into personal profit with real-time pricing, collector connections, and instant cashback rewards.",
+      "achievement": "GDG Cairo AI Hackathon Top 7"
     },
     "orbit": {
       "badge": "3D Visualization",
       "title": "Orbit",
-      "story": "Space shouldn't feel distant and incomprehensible. Orbit brings the cosmos to your screen through an interactive 3D solar system that tracks Near-Earth Objects in real-time. We've made asteroid awareness and space exploration accessible to everyone, turning complex astronomical data into an engaging, educational experience that sparks curiosity about our universe.",
-      "achievement": "NASA Space Apps Cairo 2024 Submission",
+      "story": "Space made accessible. An interactive 3D solar system tracking Near-Earth Objects in real-time. We turn complex astronomical data into engaging education.",
+      "achievement": "NASA Space Apps Cairo 2024",
       "metrics": [
         { "label": "NEOs Tracked", "value": "100+" },
         { "label": "Potential Reach", "value": "10K+" }
@@ -73,22 +85,34 @@
     "naveris": {
       "badge": "Disaster Early Warning",
       "title": "NAVERIS",
-      "story": "Seconds matter when disaster strikes. NAVERIS is our AI-powered early warning system that predicts natural disasters with remarkable accuracy—91% for tornadoes, 87% for storms. By analyzing environmental patterns invisible to the human eye, we're giving communities precious time to prepare, potentially saving thousands of lives with each alert.",
-      "achievement": "NASA Space Apps Cairo 2023 Submission",
+      "story": "Seconds matter when disaster strikes. Our AI predicts natural disasters with 91% tornado accuracy. This gives communities precious time to prepare and save lives.",
+      "achievement": "NASA Space Apps Cairo 2023",
       "metrics": [
         { "label": "Tornado Accuracy", "value": "91%" },
         { "label": "Storm Detection", "value": "87%" }
       ]
     }
   },
-  "Contact": {
-    "headlineStart": "Ready to Build Something",
-    "headlineBr": "That",
-    "headlineSerif": "Matters?",
-    "description": "Whether you have a clear vision or just a burning problem that needs solving, we'd love to hear from you. Let's create technology that makes a difference.",
-    "startConversation": "Start a Conversation",
-    "meetTeam": "Meet the team",
-    "footer": "wearemasonsteam@gmail.com • Just a conversation about how our technology can amplify your impact."
+  "HowItWorks": {
+    "headlineStart": "Our",
+    "headlineSerif": "Process",
+    "description": "From the first conversation to launch, here is how we turn your vision into reality.",
+    "s1": {
+      "title": "Discovery",
+      "desc": "We don't just ask what you want, we uncover what you actually need. Deep conversations reveal the real challenge hiding behind the obvious one."
+    },
+    "s2": {
+      "title": "Design",
+      "desc": "Every feature exists for a reason. We design systems that solve real problems with intentional choices and user-centered thinking."
+    },
+    "s3": {
+      "title": "Build",
+      "desc": "We build like your users' lives depend on it. Every interaction is crafted, every edge case considered, and every detail refined until it is both functional and meaningful."
+    },
+    "s4": {
+      "title": "Launch & Grow",
+      "desc": "Launch is just the beginning. We measure what matters, iterate based on real usage, and continuously enhance until your solution transforms lives."
+    }
   },
   "Testimonials": {
     "t0": {
@@ -123,6 +147,54 @@
       "text": "Seif showed excellent technical depth and leadership at DEPI. He leads by example and understands how to move teams with clarity and focus.",
       "by": "Sayed Safwet, Senior Full Stack Engineer @ _VOIS & Mentor @ DEPI"
     }
+  },
+  "FAQ": {
+    "headlineStart": "Common",
+    "headlineSerif": "Questions",
+    "description": "Everything you need to know before we start building together.",
+    "q1": {
+      "question": "How do you typically work with clients?",
+      "answer": "We start with a discovery conversation to understand your goals, then propose a collaborative approach. We believe in transparent communication, regular check-ins, and building solutions together rather than in isolation."
+    },
+    "q2": {
+      "question": "What's your typical project timeline?",
+      "answer": "Most projects range from 6-16 weeks depending on scope. We work in focused sprints so you see progress quickly and can provide feedback along the way."
+    },
+    "q3": {
+      "question": "Do you work with early-stage startups?",
+      "answer": "Absolutely. We love working with founders solving real problems. We can help validate ideas, build MVPs, and scale when you're ready to grow."
+    },
+    "q4": {
+      "question": "What makes Masons different?",
+      "answer": "We are problem solvers, not just developers. From emotional AI to disaster prediction, we build technology that matters."
+    }
+  },
+  "CTA": {
+    "headlineStart": "Ready to Build Something",
+    "headlineSerif": "That Matters?",
+    "description": "Whether you have a clear vision or just a burning problem that needs solving, let's talk. No pitch decks required. Just real conversations about real solutions.",
+    "button": "Start a Conversation",
+    "trustNote": "Typically respond within 24 hours. No spam, no pushy sales."
+  },
+  "Footer": {
+    "tagline": "We build technology that changes lives and drives real impact.",
+    "menuTitle": "Menu",
+    "legalTitle": "Legal",
+    "newsletterTitle": "Stay Updated",
+    "newsletterDesc": "Get occasional updates on our projects and insights.",
+    "newsletterPlaceholder": "your@email.com",
+    "links": {
+      "features": "Why Us",
+      "projects": "Our Work",
+      "about": "The Team",
+      "contact": "Contact"
+    },
+    "legal": {
+      "privacy": "Privacy Policy",
+      "terms": "Terms of Service"
+    },
+    "copyright": "© 2026 Masons. Crafting tomorrow's solutions today.",
+    "madeWith": "Based in Cairo, Egypt"
   },
   "About": {
     "heroIntro": "Masons started in a coffee shop at 2AM. Three teenage devs sat huddled over half-dead laptops, half-full cups of bitter Turkish coffee, and fully charged dreams.",
@@ -187,7 +259,7 @@
     "heroHeadlineStart": "Let's Start a",
     "heroHeadlineSerif": "Conversation",
     "heroDescription1": "Got an idea that needs building? A problem that needs solving? Or just want to chat about what's possible?",
-    "heroDescription2": "We believe the best projects start with genuine conversations. No pitch decks, no lengthy proposals—just real talk about real solutions.",
+    "heroDescription2": "We believe the best projects start with genuine conversations. No pitch decks, no lengthy proposals. Just real talk about real solutions.",
     "contactMethodsHeadlineStart": "Ways To",
     "contactMethodsHeadlineSerif": "Connect",
     "contactMethods": {
@@ -273,8 +345,5 @@
     "line1": "Oops. This page doesn't exist. Maybe it's hiding with the secrets of the universe.",
     "line2": "Or maybe you just took a wrong turn. No shame in that. Happens to the best of us.",
     "cta": "Back to Home"
-  },
-  "Footer": {
-    "text": "© 2025 Masons. Crafting tomorrow's solutions today."
   }
 }

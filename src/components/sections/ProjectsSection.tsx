@@ -1,9 +1,28 @@
+"use client";
+
+import { useRef, useEffect, useState } from "react";
 import { TrendingUp, Users } from "lucide-react";
 import { ProjectCard } from "../cards/ProjectCard";
 import { useTranslations } from "next-intl";
+import { useGSAP, gsap } from "@/hooks/useGSAP";
 
 export const ProjectsSection = () => {
   const t = useTranslations("Projects");
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [isRtl, setIsRtl] = useState(false);
+
+  useEffect(() => {
+    setIsRtl(document.body.getAttribute("data-rtl") === "true");
+    const observer = new MutationObserver(() => {
+      setIsRtl(document.body.getAttribute("data-rtl") === "true");
+    });
+    observer.observe(document.body, {
+      attributes: true,
+      attributeFilter: ["data-rtl"],
+    });
+    return () => observer.disconnect();
+  }, []);
+
   const projects = [
     {
       badge: t("rafiqi.badge"),
@@ -63,10 +82,52 @@ export const ProjectsSection = () => {
     },
   ];
 
+  useGSAP(
+    () => {
+      gsap.fromTo(
+        ".projects-header",
+        { opacity: 0, y: 40 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.8,
+          scrollTrigger: {
+            trigger: containerRef.current,
+            start: "top 80%",
+            toggleActions: "play none none reverse",
+          },
+        }
+      );
+
+      gsap.fromTo(
+        ".project-card",
+        { opacity: 0, y: 50, scale: 0.98 },
+        {
+          opacity: 1,
+          y: 0,
+          scale: 1,
+          duration: 0.6,
+          stagger: 0.15,
+          scrollTrigger: {
+            trigger: ".projects-grid",
+            start: "top 85%",
+            toggleActions: "play none none reverse",
+          },
+        }
+      );
+    },
+    { scope: containerRef, dependencies: [] }
+  );
+
   return (
-    <section id="projects" className="py-20 bg-background scroll-mt-24">
+    <section
+      id="projects"
+      ref={containerRef}
+      className="section-padding bg-background scroll-mt-24"
+      dir={isRtl ? "rtl" : "ltr"}
+    >
       <div className="container mx-auto px-6">
-        <div className="text-center mb-16">
+        <div className="projects-header text-center mb-16">
           <h2 className="text-3xl md:text-5xl font-bold mb-6">
             {t("headlineStart")}{" "}
             <span className="gradient-text font-serif not-italic">
@@ -78,9 +139,11 @@ export const ProjectsSection = () => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+        <div className="projects-grid grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
           {projects.map((project, i) => (
-            <ProjectCard key={i} {...project} />
+            <div key={i} className="project-card">
+              <ProjectCard {...project} />
+            </div>
           ))}
         </div>
       </div>

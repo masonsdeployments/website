@@ -104,22 +104,10 @@ const MobileNav = () => {
               {t("home")}
             </button>
             <button
-              onClick={() => handleNav("mission")}
-              className="text-xl hover:text-accent-hover transition-all"
-            >
-              {t("mission")}
-            </button>
-            <button
               onClick={() => handleNav("projects")}
               className="text-xl hover:text-accent-hover transition-all"
             >
               {t("projects")}
-            </button>
-            <button
-              onClick={() => handleNav("approach")}
-              className="text-xl hover:text-accent-hover transition-all"
-            >
-              {t("approach")}
             </button>
             <button
               onClick={() => handleRouteClick("/about")}

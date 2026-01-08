@@ -345,7 +345,7 @@ export default function AboutPage() {
       description: t("team.seif.description"),
       focus: t("team.seif.focus"),
       image: "/images/team/seif.jpeg",
-      href: "https://seifzellaban.work/",
+      href: "https://seifzellaban.wiki/",
     },
     {
       name: t("team.abdelaziz.name"),
@@ -376,13 +376,13 @@ export default function AboutPage() {
       focus: t("team.omar.focus"),
       image: "https://avatar.iran.liara.run/public/boy?username=Ktlr",
     },
-    {
-      name: t("team.omarWaleed.name"),
-      role: t("team.omarWaleed.role"),
-      description: t("team.omarWaleed.description"),
-      focus: t("team.omarWaleed.focus"),
-      image: "https://avatar.iran.liara.run/public/boy?username=y3gob",
-    },
+    // {
+    //   name: t("team.omarWaleed.name"),
+    //   role: t("team.omarWaleed.role"),
+    //   description: t("team.omarWaleed.description"),
+    //   focus: t("team.omarWaleed.focus"),
+    //   image: "https://avatar.iran.liara.run/public/boy?username=y3gob",
+    // },
   ];
 
   return (
