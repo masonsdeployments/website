@@ -9,6 +9,7 @@ import { useTranslations } from "next-intl";
 import { useLenis } from "@/components/providers/LenisProvider";
 import { useGSAP, gsap } from "@/hooks/useGSAP";
 import { cn } from "@/lib/utils";
+import Link from "next/link";
 
 export const HeroSection = () => {
   const t = useTranslations("Hero");
@@ -129,13 +130,13 @@ export const HeroSection = () => {
         >
           <Button
             size="lg"
-            onClick={() => handleScrollTo("contact")}
             className={cn(
               "btn-animate bg-primary text-primary-foreground hover:bg-primary/90",
               "text-lg px-8 py-6 font-medium inline-flex items-center gap-2"
             )}
           >
             <span>{t("ctaPrimary")}</span>
+            <Link href="https://studio.wearemasons.com"></Link>
             <ArrowRight className={cn("h-5 w-5", isRtl && "rotate-180")} />
           </Button>
           <Button
