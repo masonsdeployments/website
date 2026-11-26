@@ -25,27 +25,10 @@
     "ctaPrimary": "Découvrir Masons Studio",
     "ctaSecondary": "Voir nos réalisations",
     "ctaQuickBrief": "Brief rapide",
-    "socialProof": "Plus de 10M EGP/mois de volume client sur plus de 20 projets livrés",
-    "previewAlt": "Aperçu de Rafiqi"
-  },
-  "HeroDemo": {
-    "demo1Subnote": "Les ingénieurs fondateurs sur chaque projet. Une architecture pragmatique choisie pour la vitesse produit, la conversion et la fiabilité.",
-    "ledger": {
+    "metrics": {
       "volumeLabel": "EGP/mois de volume client",
-      "volumeNote": "Tableaux de bord commerciaux et opérations en production.",
       "buildsLabel": "Projets livrés",
-      "buildsNote": "Applications web commerciales, outils internes et systèmes IA.",
-      "timelineValue": "6-16 sem.",
-      "timelineLabel": "Du brief au lancement",
-      "timelineNote": "Versions de préproduction livrées chaque semaine.",
-      "replyLabel": "Délai de réponse",
-      "replyNote": "Échange direct avec les ingénieurs qui livrent votre produit."
-    },
-    "capabilities": {
-      "c1": "Applications Web Commerciales",
-      "c2": "Outils Vente & Opérations",
-      "c3": "IA Appliquée & Automatisation",
-      "c4": "Héritage NASA Space Apps & GDG"
+      "replyLabel": "Délai de réponse"
     },
     "buildDeck": {
       "eyebrow": "Ce que nous construisons",

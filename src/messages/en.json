@@ -25,27 +25,10 @@
     "ctaPrimary": "Visit Masons Studio",
     "ctaSecondary": "See our work",
     "ctaQuickBrief": "Quick brief",
-    "socialProof": "10M+ EGP in monthly client volume across 20+ shipped builds",
-    "previewAlt": "Rafiqi product preview"
-  },
-  "HeroDemo": {
-    "demo1Subnote": "Founding engineers on each build. Pragmatic architecture chosen for product speed, conversion, and long-term uptime.",
-    "ledger": {
+    "metrics": {
       "volumeLabel": "EGP/mo client volume",
-      "volumeNote": "Live commercial dashboards and sales operations in production.",
       "buildsLabel": "Shipped builds",
-      "buildsNote": "Commercial web apps, internal systems, and applied AI tools.",
-      "timelineValue": "6-16 wks",
-      "timelineLabel": "Brief to launch",
-      "timelineNote": "Weekly staging releases you can review with customers.",
-      "replyLabel": "Founder reply time",
-      "replyNote": "Direct communication with the engineers shipping your code."
-    },
-    "capabilities": {
-      "c1": "Commercial Web Apps",
-      "c2": "Internal Sales & Ops Systems",
-      "c3": "Applied AI & Automation",
-      "c4": "NASA Space Apps & GDG Pedigree"
+      "replyLabel": "Founder reply time"
     },
     "buildDeck": {
       "eyebrow": "What we build",
