@@ -1,46 +1,49 @@
 "use client";
 
-import { useRef, useState, useEffect } from "react";
+import { useRef, useState } from "react";
 import { useTranslations } from "next-intl";
+import {
+  ArrowUpRight,
+  Check,
+  Copy,
+  Github,
+  Linkedin,
+  Twitter,
+} from "lucide-react";
+import { toast } from "sonner";
+import { Link } from "@/i18n/navigation";
+import { useIsRtl } from "@/hooks/use-rtl";
 import { useGSAP, gsap } from "@/hooks/useGSAP";
-import LogoLink from "../LogoLink";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { ArrowRight, Github, Linkedin, Twitter } from "lucide-react";
-import Link from "next/link";
-import { cn } from "@/lib/utils";
+import LogoLink from "@/components/LogoLink";
+import { ProjectInquiryTrigger } from "@/components/project-inquiry-modal";
+import { site } from "@/lib/site";
+
+const SOCIAL_ICONS = {
+  github: Github,
+  linkedin: Linkedin,
+  twitter: Twitter,
+} as const;
 
 export const Footer = () => {
   const t = useTranslations("Footer");
+  const tBrand = useTranslations("Brand");
+  const isRtl = useIsRtl();
   const containerRef = useRef<HTMLElement>(null);
-  const [email, setEmail] = useState("");
-  const [isRtl, setIsRtl] = useState(false);
-
-  useEffect(() => {
-    setIsRtl(document.body.getAttribute("data-rtl") === "true");
-    const observer = new MutationObserver(() => {
-      setIsRtl(document.body.getAttribute("data-rtl") === "true");
-    });
-    observer.observe(document.body, {
-      attributes: true,
-      attributeFilter: ["data-rtl"],
-    });
-    return () => observer.disconnect();
-  }, []);
+  const [copied, setCopied] = useState(false);
 
   useGSAP(
     () => {
       gsap.fromTo(
         ".footer-content > *",
-        { opacity: 0, y: 30 },
+        { opacity: 0, y: 20 },
         {
           opacity: 1,
           y: 0,
-          duration: 0.6,
-          stagger: 0.1,
+          duration: 0.55,
+          stagger: 0.08,
           scrollTrigger: {
             trigger: containerRef.current,
-            start: "top 90%",
+            start: "top 92%",
             toggleActions: "play none none reverse",
           },
         }
@@ -49,85 +52,80 @@ export const Footer = () => {
     { scope: containerRef, dependencies: [] }
   );
 
-  const handleNewsletterSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    // TODO: Implement newsletter subscription
-    setEmail("");
+  const handleCopyEmail = async () => {
+    try {
+      await navigator.clipboard.writeText(site.email);
+      setCopied(true);
+      toast.success(t("emailCopied"));
+      window.setTimeout(() => setCopied(false), 2000);
+    } catch {
+      window.open(`mailto:${site.email}`, "_blank", "noopener,noreferrer");
+    }
   };
 
   const menuLinks = [
-    { label: t("links.features"), href: "/#features" },
-    { label: t("links.projects"), href: "/#projects" },
+    { label: t("links.features"), href: "/?scrollTo=features" },
+    { label: t("links.projects"), href: "/?scrollTo=projects" },
     { label: t("links.about"), href: "/about" },
     { label: t("links.contact"), href: "/contact" },
   ];
 
-  const legalLinks = [
+  const resourceLinks = [
+    { label: t("links.linksHub"), href: "/links" },
     { label: t("legal.privacy"), href: "/privacy" },
-    { label: t("legal.terms"), href: "/terms" },
-  ];
-
-  const socialLinks = [
-    { icon: Github, href: "https://github.com/wearemasons", label: "GitHub" },
     {
-      icon: Linkedin,
-      href: "https://linkedin.com/company/wearemasons",
-      label: "LinkedIn",
-    },
-    {
-      icon: Twitter,
-      href: "https://twitter.com/wearemasons",
-      label: "Twitter",
+      label: tBrand("studioName"),
+      href: site.studioUrl,
+      external: true,
     },
   ];
 
   return (
     <footer
       ref={containerRef}
-      className="border-t border-border/50 bg-muted/30 dark:bg-secondary/20"
       dir={isRtl ? "rtl" : "ltr"}
+      className="border-t border-border/50 bg-muted/20 dark:bg-secondary/10"
     >
-      <div className="container mx-auto px-6 py-16">
-        <div className="footer-content grid gap-12 md:grid-cols-2 lg:grid-cols-4">
-          {/* Logo & Description */}
-          <div className="lg:col-span-1">
+      <div className="mx-auto max-w-7xl px-5 py-16 sm:px-6 sm:py-20 lg:px-8">
+        <div className="footer-content grid gap-10 md:grid-cols-2 lg:grid-cols-12">
+          {/* Brand */}
+          <div className="lg:col-span-4">
             <div className="mb-4">
               <LogoLink />
             </div>
-            <p className="text-muted-foreground text-sm leading-relaxed mb-6">
+            <p className="max-w-xs text-base leading-relaxed text-muted-foreground">
               {t("tagline")}
             </p>
-            {/* Social Links */}
-            <div
-              className={cn(
-                "flex gap-3",
-                isRtl && "flex-row-reverse justify-end"
-              )}
-            >
-              {socialLinks.map((social) => (
-                <a
-                  key={social.label}
-                  href={social.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-10 h-10 rounded-lg bg-background border border-border/50 flex items-center justify-center text-muted-foreground hover:text-foreground hover:border-primary/50 transition-all"
-                  aria-label={social.label}
-                >
-                  <social.icon className="w-4 h-4" />
-                </a>
-              ))}
+            <div className="mt-6 flex flex-wrap gap-2">
+              {site.socials.map((social) => {
+                const Icon = SOCIAL_ICONS[social.id];
+                return (
+                  <a
+                    key={social.id}
+                    href={social.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={social.label}
+                    className="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-border/60 bg-card/70 text-muted-foreground transition-colors hover:border-primary/50 hover:text-primary"
+                  >
+                    <Icon className="h-4 w-4" />
+                  </a>
+                );
+              })}
             </div>
           </div>
 
-          {/* Menu Links */}
-          <div>
-            <h4 className="font-semibold mb-4">{t("menuTitle")}</h4>
-            <ul className="space-y-3">
+          {/* Navigation */}
+          <div className="lg:col-span-2">
+            <p className="text-xs font-semibold uppercase tracking-[0.12em] text-foreground">
+              {t("menuTitle")}
+            </p>
+            <ul className="mt-4 space-y-3">
               {menuLinks.map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-muted-foreground hover:text-foreground transition-colors text-sm"
+                    className="text-base text-muted-foreground transition-colors hover:text-foreground"
                   >
                     {link.label}
                   </Link>
@@ -136,57 +134,79 @@ export const Footer = () => {
             </ul>
           </div>
 
-          {/* Legal Links */}
-          <div>
-            <h4 className="font-semibold mb-4">{t("legalTitle")}</h4>
-            <ul className="space-y-3">
-              {legalLinks.map((link) => (
-                <li key={link.href}>
-                  <Link
-                    href={link.href}
-                    className="text-muted-foreground hover:text-foreground transition-colors text-sm"
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Newsletter */}
-          <div>
-            <h4 className="font-semibold mb-4">{t("newsletterTitle")}</h4>
-            <p className="text-muted-foreground text-sm mb-4">
-              {t("newsletterDesc")}
+          {/* Resources */}
+          <div className="lg:col-span-2">
+            <p className="text-xs font-semibold uppercase tracking-[0.12em] text-foreground">
+              {t("resourcesTitle")}
             </p>
-            <form
-              onSubmit={handleNewsletterSubmit}
-              className={cn("flex gap-2", isRtl && "flex-row-reverse")}
-            >
-              <Input
-                type="email"
-                placeholder={t("newsletterPlaceholder")}
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                className="bg-background"
-                required
-              />
-              <Button type="submit" size="icon" className="shrink-0">
-                <ArrowRight className={cn("w-4 h-4", isRtl && "rotate-180")} />
-              </Button>
-            </form>
+            <ul className="mt-4 space-y-3">
+              {resourceLinks.map((link) => (
+                <li key={link.href}>
+                  {"external" in link && link.external ? (
+                    <a
+                      href={link.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="group inline-flex items-center gap-1 text-base text-muted-foreground transition-colors hover:text-foreground"
+                    >
+                      <span>{link.label}</span>
+                      <ArrowUpRight className="h-3.5 w-3.5 text-muted-foreground transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-primary" />
+                    </a>
+                  ) : (
+                    <Link
+                      href={link.href}
+                      className="text-base text-muted-foreground transition-colors hover:text-foreground"
+                    >
+                      {link.label}
+                    </Link>
+                  )}
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Direct Inquiry Block */}
+          <div className="lg:col-span-4">
+            <div className="surface-card rounded-2xl p-6">
+              <p className="text-xs font-semibold uppercase tracking-[0.12em] text-primary">
+                {t("inquiryKicker")}
+              </p>
+              <p className="mt-2 text-base leading-relaxed text-muted-foreground">
+                {t("inquiryDesc")}
+              </p>
+
+              <div className="mt-5 flex flex-col gap-2.5 sm:flex-row">
+                <ProjectInquiryTrigger className="btn-animate inline-flex min-h-[42px] flex-1 items-center justify-center gap-1.5 rounded-full bg-primary px-5 py-2 text-sm font-medium text-primary-foreground shadow-sm shadow-primary/20 transition-colors hover:bg-primary/90">
+                  <span>{t("inquiryCta")}</span>
+                  <ArrowUpRight className="h-4 w-4" />
+                </ProjectInquiryTrigger>
+
+                <button
+                  type="button"
+                  onClick={handleCopyEmail}
+                  className="inline-flex min-h-[42px] items-center justify-center gap-1.5 rounded-full border border-border/70 bg-background/70 px-4 py-2 text-sm font-medium text-foreground transition-colors hover:border-primary/50 hover:text-primary"
+                >
+                  {copied ? (
+                    <>
+                      <Check className="h-4 w-4 text-primary" />
+                      <span>{t("copiedLabel")}</span>
+                    </>
+                  ) : (
+                    <>
+                      <Copy className="h-4 w-4 text-muted-foreground" />
+                      <span>{t("copyEmailLabel")}</span>
+                    </>
+                  )}
+                </button>
+              </div>
+            </div>
           </div>
         </div>
 
         {/* Bottom bar */}
-        <div
-          className={cn(
-            "mt-12 pt-8 border-t border-border/50 flex flex-col md:flex-row justify-between items-center gap-4",
-            isRtl && "md:flex-row-reverse"
-          )}
-        >
-          <p className="text-muted-foreground text-sm">{t("copyright")}</p>
-          <p className="text-muted-foreground text-sm">{t("madeWith")}</p>
+        <div className="mt-12 flex flex-col items-center justify-between gap-3 border-t border-border/50 pt-7 text-sm text-muted-foreground sm:flex-row">
+          <p>{t("copyright")}</p>
+          <p>{t("madeWith")}</p>
         </div>
       </div>
     </footer>

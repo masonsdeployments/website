@@ -1,148 +1,116 @@
 export const metadata = {
-  title: "repAI",
+  title: "repAI | Masons Case Study",
+  description:
+    "An AI recycling rewards platform built for the AI Finance Hackathon 2025 by GDG Cairo, finishing in the Top 7.",
 };
 
-# **RepAi - Recycling Rewards Platform**
+# repAI: Recycling Rewards Platform
 
-**AI-Powered Recycling for a Sustainable Future**  
-**Built for AI Finance Hackathon 2025 by GDG Cairo**
-
----
-
-## **Project Overview**
-
-RepAi is an AI-driven web application that incentivizes recycling by providing real-time pricing for recyclable materials, connecting users with collectors, and rewarding them with cashback. By leveraging cutting-edge AI and financial technologies, RepAi transforms recycling into a profitable and sustainable activity for individuals and businesses.
+**AI-Powered Recycling Rewards**  
+**Built for AI Finance Hackathon 2025 by GDG Cairo (Top 7)**
 
 ---
 
-## **Key Features**
+## Project Overview
 
-- **AI-Powered Object Detection:**
-  - Scan any item using **Google Gemini API** to detect recyclable materials and provide pricing information.
-- **Receipt Scanning with AI:**
-  - Extract recyclable items from receipts using **Google Image API**.
-- **Dynamic Cashback Calculation:**
-  - Automatically calculate cashback rewards based on market prices and user contributions.
-- **Reward Redemption:**
-  - Users can redeem cashback through partnerships with eco-friendly companies.
-- **Recycling Marketplace:**
-  - Access a database of companies that accept recycled materials or use them in production.
-- **Secure Transactions:**
-  - Powered by **Firebase Authentication** and protected by **reCAPTCHA**.
+repAI is a web application that pays users cashback for recycling. The platform identifies recyclable materials from photos and receipts, quotes live material prices, connects households with local collectors, and credits rewards once pickup completes.
 
 ---
 
-## **Technologies Used**
+## Key Features
 
-- **Frontend:** Angular
-- **Backend:** Go (Golang)
-- **AI/ML APIs:**
+- **AI Object Detection**: Scans household items through the **Google Gemini API** to classify recyclable material types and estimate payout value.
+- **Receipt Scanning**: Extracts recyclable packaging lines from shopping receipts via the **Google Image API**.
+- **Dynamic Cashback Pricing**: Calculates cashback payouts from live material rates and logged drop-off volume.
+- **Reward Redemption**: Lets users spend earned balances with participating eco-focused partner merchants.
+- **Recycling Marketplace**: Lists verified companies that purchase recycled stock or use recovered materials in manufacturing.
+- **Protected Accounts**: Secures sign-in and reward claims with **Firebase Authentication** and **reCAPTCHA**.
+
+---
+
+## Technology Stack
+
+- **Frontend**: Angular
+- **Backend**: Go (Golang)
+- **AI / Vision APIs**:
   - Google Gemini API (Object Detection)
   - Google Image API (Receipt Scanning)
-  - Imagen 3 (Enhanced Image Processing)
-- **Hosting:** Google Cloud Platform (GCP)
-- **Database:** Firebase Firestore
-- **Authentication:** Firebase Authentication + reCAPTCHA
-- **Finance Integration:** Custom cashback algorithms and reward systems.
+  - Imagen 3 (Image Processing)
+- **Hosting**: Google Cloud Platform (GCP)
+- **Database**: Firebase Firestore
+- **Authentication**: Firebase Authentication + reCAPTCHA
+- **Rewards Engine**: Custom cashback pricing and payout ledger
 
 ---
 
-## **Why RepAi?**
+## Why repAI
 
-- **AI Meets Finance:** RepAi combines AI-powered object detection with dynamic cashback calculations, creating a seamless financial incentive for recycling.
-- **Sustainability:** Encourages eco-friendly behavior by making recycling profitable.
-- **Scalability:** Built on Google Cloud, RepAi can scale to serve millions of users worldwide.
-- **Hackathon Fit:** Perfectly aligns with the **AI Finance Hackathon 2025** theme by integrating AI and financial technologies to solve real-world problems.
+- **Direct Financial Incentive**: Combines computer vision with transparent cashback payouts so recycling pays out in cash value.
+- **Practical Sustainability**: Turns daily sorting into a measurable habit backed by local collector pickup.
+- **Cloud-Ready Architecture**: Built on Google Cloud Run and Firestore to scale with regional demand.
+- **Hackathon Recognition**: Placed in the **Top 7** at the **AI Finance Hackathon 2025 by GDG Cairo**.
 
 ---
 
-## **Getting Started**
+## Local Setup
 
-Follow these steps to set up and run the project locally.
-
-### **Prerequisites**
+### Prerequisites
 
 - Go (v1.20 or higher)
 - Angular CLI (v15 or higher)
 - Firebase CLI
 - Google Cloud SDK
 
-### **Installation**
+### Installation Steps
 
-1. **Clone the Repository.**
-
-2. **Install Frontend Dependencies.**
-
-3. **Install Backend Dependencies.**
-
-4. **Set Up Firebase:**
-
-   - Create a Firebase project at [Firebase Console](https://console.firebase.google.com/).
-   - Add your Firebase configuration.
+1. Clone the repository and install both frontend and backend dependencies.
+2. **Configure Firebase**:
+   - Create a project in the [Firebase Console](https://console.firebase.google.com/).
+   - Add your Firebase config keys to the frontend environment.
    - Enable **Firebase Authentication** and **Firestore**.
-
-5. **Set Up Google Cloud:**
-
-   - Enable **Google Gemini API** and **Google Image API** in your GCP project.
-   - Add your API keys to the backend configuration.
-
-6. **Set Up reCAPTCHA:**
-
-   - Register your site at [Google reCAPTCHA](https://www.google.com/recaptcha/admin/).
-   - Add your reCAPTCHA site key to the frontend configuration.
-
-7. **Run the Application.**
-
-8. **Access the App:**
-   - Open your browser and navigate to `http://localhost:4200`.
+3. **Configure Google Cloud**:
+   - Enable the **Google Gemini API** and **Google Image API** in your GCP project.
+   - Add API credentials to the Go backend configuration.
+4. **Configure reCAPTCHA**:
+   - Register the app domain in [Google reCAPTCHA](https://www.google.com/recaptcha/admin/).
+   - Add the site key to the frontend configuration.
+5. Start the frontend and backend services, then open `http://localhost:4200`.
 
 ---
 
-## **Deployment**
+## Deployment
 
-RepAi is hosted on **Google Cloud Platform**. Follow these steps to deploy:
+repAI runs on **Google Cloud Platform** and **Firebase Hosting**:
 
-1. **Build the Frontend:**
-
+1. **Build the Frontend**:
    ```bash
    cd frontend
    ng build --prod
    ```
-
-2. **Deploy to Firebase Hosting:**
-
+2. **Deploy to Firebase Hosting**:
    ```bash
    firebase deploy
    ```
-
-3. **Deploy the Backend:**
-
-   - Use **Google Cloud Run** to deploy the Go backend:
-     ```bash
-     gcloud run deploy repai-backend --image=gcr.io/your-project-id/repai-backend
-     ```
-
-4. **Set Up CI/CD:**
-   - Use GitHub Actions or Google Cloud Build for automated deployments.
+3. **Deploy the Go Backend on Google Cloud Run**:
+   ```bash
+   gcloud run deploy repai-backend --image=gcr.io/your-project-id/repai-backend
+   ```
+4. **Automate CI/CD**: Connect GitHub Actions or Google Cloud Build for automated staging and production releases.
 
 ---
 
-## **AI and Finance Integration**
+## AI and Finance Pipeline
 
-- **AI-Powered Object Detection:**
-  - Uses **Google Gemini API** to identify recyclable materials and provide real-time pricing.
-- **Dynamic Cashback Calculation:**
-  - Algorithms calculate cashback based on market prices and user contributions.
-- **Receipt Scanning:**
-  - **Google Image API** extracts recyclable items from receipts for cashback rewards.
-- **Financial Incentives:**
-  - Users earn cashback, which can be redeemed through partnerships with eco-friendly companies.
+- **Classification**: **Google Gemini API** inspects uploaded item photos and assigns recyclable categories.
+- **Receipt Extraction**: **Google Image API** parses store receipts for eligible packaging items.
+- **Payout Calculation**: The Go pricing service applies current market rates per kilogram and updates user balances.
+- **Redemption**: Verified balances convert into partner vouchers or cashback credits.
 
 ---
 
-## **Future Enhancements**
+## Future Roadmap
 
-- **Mobile App:** Develop a cross-platform mobile app using Flutter.
-- **Blockchain Integration:** Use blockchain for transparent and secure reward transactions.
-- **Gamification:** Add gamified elements to encourage more users to recycle.
-- **Partnerships:** Expand partnerships with governments and large corporations.
+- **Mobile App**: Ship a cross-platform Flutter client for faster on-site camera scanning.
+- **Auditable Payout Ledger**: Explore blockchain settlement for transparent collector and recycler payouts.
+- **Community Challenges**: Add neighborhood recycling milestones and referral bonuses.
+- **Municipal Partnerships**: Integrate city collection schedules and corporate sustainability programs.

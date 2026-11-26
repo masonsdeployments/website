@@ -8,10 +8,6 @@ const nextConfig: NextConfig = {
     remotePatterns: [
       {
         protocol: "https",
-        hostname: "avatar.iran.liara.run",
-      },
-      {
-        protocol: "https",
         hostname: "wearemasons.com",
       },
     ],

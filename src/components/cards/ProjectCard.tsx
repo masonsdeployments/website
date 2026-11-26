@@ -1,188 +1,192 @@
-import { Card, CardContent } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
-import { ArrowLeft, ArrowRight, Award, TrendingUp, Users } from "lucide-react";
-import Link from "next/link";
-import { useTranslations } from "next-intl";
-import { useEffect, useState } from "react";
+"use client";
 
-type ProjectCardProps = {
+import Image from "next/image";
+import { ArrowLeft, ArrowRight, ArrowUpRight } from "lucide-react";
+import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
+import { useIsRtl } from "@/hooks/use-rtl";
+
+export type ProjectMetric = {
+  label: string;
+  value: string;
+};
+
+export type ProjectCardProps = {
+  index: string;
+  year: string;
   badge: string;
   title: string;
   story: string;
-  achievement?: string;
-  winner?: boolean;
-  testimonial?: {
-    quote: string;
-    author: string;
-  };
-  metrics?: {
-    label: string;
-    value: string;
-    icon?: React.ReactNode;
-  }[];
+  imageSrc: string;
+  imageAlt: string;
+  recognition?: string;
+  metrics: [ProjectMetric, ProjectMetric];
   demoHref?: string;
   codeHref?: string;
   caseStudyHref?: string;
 };
 
 export const ProjectCard = ({
+  index,
+  year,
   badge,
   title,
   story,
-  achievement,
-  winner,
-  testimonial,
+  imageSrc,
+  imageAlt,
+  recognition,
   metrics,
   demoHref,
   codeHref,
   caseStudyHref,
 }: ProjectCardProps) => {
   const t = useTranslations("Projects.card");
-  const [isRtl, setIsRtl] = useState(false);
+  const isRtl = useIsRtl();
 
-  useEffect(() => {
-    // RTL detection
-    setIsRtl(document.body.getAttribute("data-rtl") === "true");
-    const observer = new MutationObserver(() => {
-      setIsRtl(document.body.getAttribute("data-rtl") === "true");
-    });
-    observer.observe(document.body, {
-      attributes: true,
-      attributeFilter: ["data-rtl"],
-    });
-  }, []);
+  const imageFrame = (
+    <div className="relative aspect-[16/10] w-full overflow-hidden border-b border-border/50 bg-muted/40">
+      <Image
+        src={imageSrc}
+        alt={imageAlt}
+        fill
+        unoptimized={imageSrc.endsWith(".svg")}
+        sizes="(min-width: 1024px) 46vw, (min-width: 768px) 48vw, 100vw"
+        className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.03]"
+      />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/35 via-transparent to-black/15"
+      />
+
+      {/* Quiet top-start index & year overlay */}
+      <div className="absolute inset-x-4 top-4 flex items-center justify-between gap-2">
+        <span
+          dir="ltr"
+          className="inline-flex items-center gap-1.5 rounded-full border border-white/15 bg-black/45 px-3 py-1 font-mono text-[11px] font-medium text-white/90 backdrop-blur-md"
+        >
+          <span>{index}</span>
+          <span aria-hidden className="text-white/40">
+            ·
+          </span>
+          <span>{year}</span>
+        </span>
+
+        {recognition ? (
+          <span className="rounded-full border border-white/15 bg-black/45 px-3 py-1 text-xs font-medium text-white/90 backdrop-blur-md">
+            {recognition}
+          </span>
+        ) : null}
+      </div>
+    </div>
+  );
+
   return (
-    <Card className="glass-card hover:bg-card/70 transition-all duration-500 h-full group hover:shadow-2xl min-h-[500px] md:min-h-auto">
-      <CardContent className="py-2 px-6 flex flex-col justify-between h-full">
-        <div className="space-y-6">
-          {/* Header */}
-          <div className="flex items-start justify-between">
-            <Badge variant="secondary" className="font-mono text-xs">
-              {badge}
-            </Badge>
-            {winner && (
-              <div className="flex items-center gap-1 text-primary">
-                <Award className="h-4 w-4" />
-                <span className="text-xs font-medium">{t("award")}</span>
-              </div>
-            )}
-          </div>
+    <article className="surface-card group flex h-full flex-col overflow-hidden rounded-3xl transition-all duration-300 hover:-translate-y-1 hover:border-primary/40 hover:shadow-xl hover:shadow-primary/5">
+      {/* Visual Preview Stage */}
+      {caseStudyHref ? (
+        <Link
+          href={caseStudyHref}
+          className="block focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-ring"
+          aria-label={`${title}: ${t("cta1")}`}
+        >
+          {imageFrame}
+        </Link>
+      ) : (
+        imageFrame
+      )}
 
-          {/* Title */}
-          <h3 className="text-2xl font-semibold group-hover:text-primary transition-colors">
-            {title}
+      {/* Editorial Body */}
+      <div className="flex flex-1 flex-col justify-between p-6 sm:p-7">
+        <div>
+          <p className="text-xs font-semibold uppercase tracking-[0.12em] text-primary">
+            {badge}
+          </p>
+
+          <h3 className="mt-2 font-serif text-2xl font-bold tracking-tight text-foreground transition-colors group-hover:text-primary sm:text-[1.75rem]">
+            {caseStudyHref ? (
+              <Link
+                href={caseStudyHref}
+                className="focus-visible:outline-none focus-visible:underline"
+              >
+                {title}
+              </Link>
+            ) : (
+              title
+            )}
           </h3>
 
-          {/* Story */}
-          <div className="space-y-4">
-            <p className="text-muted-foreground leading-relaxed text-sm">
-              {story}
-            </p>
-          </div>
+          <p className="mt-2.5 text-base leading-relaxed text-muted-foreground">
+            {story}
+          </p>
+        </div>
 
-          {/* Metrics */}
-          {metrics && metrics.length > 0 && (
-            <div className="grid grid-cols-2 gap-3 pt-4 border-t border-border/50">
-              {metrics.map((metric, index) => (
-                <div key={index} className="flex items-center gap-2">
-                  {metric.icon || (
-                    <TrendingUp className="h-4 w-4 text-primary" />
-                  )}
-                  <div className="flex flex-col">
-                    <span className="text-lg font-bold text-primary">
-                      {metric.value}
-                    </span>
-                    <span className="text-xs text-muted-foreground">
-                      {metric.label}
-                    </span>
-                  </div>
-                </div>
-              ))}
-            </div>
-          )}
-
-          {/* Achievement Badge */}
-          {achievement && (
-            <div className="bg-gradient-to-r from-primary/10 to-primary/10 border border-primary/20 rounded-lg p-3">
-              <div className="flex items-center gap-2">
-                <Award className="h-4 w-4 text-primary" />
-                <span className="text-sm font-semibold text-primary">
-                  {achievement}
-                </span>
+        <div className="mt-6">
+          {/* Uniform 2-Point Editorial Highlights */}
+          <dl className="grid grid-cols-2 gap-4 border-t border-border/50 pt-5">
+            {metrics.map((metric, idx) => (
+              <div
+                key={metric.label}
+                className={idx === 1 ? "border-s border-border/50 ps-4" : undefined}
+              >
+                <dd
+                  dir={/[\u0600-\u06FF]/.test(metric.value) ? "rtl" : "ltr"}
+                  className="inline-block font-serif text-xl font-bold tracking-tight text-foreground sm:text-2xl"
+                >
+                  {metric.value}
+                </dd>
+                <dt className="mt-0.5 text-xs font-medium text-muted-foreground">
+                  {metric.label}
+                </dt>
               </div>
+            ))}
+          </dl>
+
+          {/* Quiet Editorial Links */}
+          <div className="mt-5 flex flex-wrap items-center justify-between gap-4 border-t border-border/50 pt-4">
+            {caseStudyHref ? (
+              <Link
+                href={caseStudyHref}
+                className="group/link inline-flex items-center gap-1.5 text-sm font-semibold text-foreground transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+              >
+                <span>{t("cta1")}</span>
+                {isRtl ? (
+                  <ArrowLeft className="h-4 w-4 text-primary transition-transform group-hover/link:-translate-x-0.5" />
+                ) : (
+                  <ArrowRight className="h-4 w-4 text-primary transition-transform group-hover/link:translate-x-0.5" />
+                )}
+              </Link>
+            ) : (
+              <span />
+            )}
+
+            <div className="flex items-center gap-4">
+              {demoHref ? (
+                <a
+                  href={demoHref}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group/ext inline-flex items-center gap-1 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                >
+                  <span>{t("cta2")}</span>
+                  <ArrowUpRight className="h-3.5 w-3.5 transition-transform group-hover/ext:-translate-y-0.5 group-hover/ext:translate-x-0.5" />
+                </a>
+              ) : null}
+
+              {codeHref ? (
+                <a
+                  href={codeHref}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group/ext inline-flex items-center gap-1 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                >
+                  <span>{t("cta3")}</span>
+                  <ArrowUpRight className="h-3.5 w-3.5 transition-transform group-hover/ext:-translate-y-0.5 group-hover/ext:translate-x-0.5" />
+                </a>
+              ) : null}
             </div>
-          )}
-
-          {/* Testimonial */}
-          {testimonial && (
-            <blockquote className="border-l-4 border-primary/30 pl-4 italic text-sm text-muted-foreground">
-              &quot;{testimonial.quote}&quot;
-              <footer className="mt-2 text-xs font-medium text-primary">
-                — {testimonial.author}
-              </footer>
-            </blockquote>
-          )}
+          </div>
         </div>
-
-        {/* Action Buttons */}
-        <div className="flex gap-3 mt-4 pt-4">
-          {caseStudyHref && (
-            <Button
-              variant="default"
-              size="sm"
-              className="flex-1 group/btn cursor-pointer"
-              asChild
-            >
-              <Link href={caseStudyHref}>
-                <Users className="mr-2 h-4 w-4" />
-                {t("cta1")}
-                {isRtl ? (
-                  <ArrowLeft className="ml-2 h-4 w-4 group-hover/btn:translate-x-1 transition-transform" />
-                ) : (
-                  <ArrowRight className="ml-2 h-4 w-4 group-hover/btn:translate-x-1 transition-transform" />
-                )}
-              </Link>
-            </Button>
-          )}
-
-          {demoHref && (
-            <Button
-              variant="outline"
-              size="sm"
-              className={`group/btn cursor-pointer ${!caseStudyHref ? "flex-1" : "flex-1"}`}
-              asChild
-            >
-              <Link href={demoHref}>
-                {t("cta2")}
-                {isRtl ? (
-                  <ArrowLeft className="ml-2 h-4 w-4 group-hover/btn:translate-x-1 transition-transform" />
-                ) : (
-                  <ArrowRight className="ml-2 h-4 w-4 group-hover/btn:translate-x-1 transition-transform" />
-                )}
-              </Link>
-            </Button>
-          )}
-
-          {codeHref && (
-            <Button
-              variant="outline"
-              size="sm"
-              className={`group/btn cursor-pointer ${!caseStudyHref ? "flex-1" : "flex-1"}`}
-              asChild
-            >
-              <Link href={codeHref}>
-                {t("cta3")}
-                {isRtl ? (
-                  <ArrowLeft className="ml-2 h-4 w-4 group-hover/btn:translate-x-1 transition-transform" />
-                ) : (
-                  <ArrowRight className="ml-2 h-4 w-4 group-hover/btn:translate-x-1 transition-transform" />
-                )}
-              </Link>
-            </Button>
-          )}
-        </div>
-      </CardContent>
-    </Card>
+      </div>
+    </article>
   );
 };

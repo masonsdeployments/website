@@ -1,57 +1,50 @@
 "use client";
 
-import { useRouter, usePathname } from "next/navigation";
+import { useEffect, useState } from "react";
+import { ArrowUpRight, Menu } from "lucide-react";
+import { useTranslations } from "next-intl";
+import { usePathname, useRouter } from "@/i18n/navigation";
+import { useIsRtl } from "@/hooks/use-rtl";
+import { useLenis } from "@/components/providers/LenisProvider";
 import {
   Sheet,
   SheetContent,
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
-// import Link from "next/link";
-import { useEffect, useState } from "react";
-import { Menu } from "lucide-react";
-import { Button } from "../ui/button";
-import { useTranslations } from "next-intl";
-// import { LogoSvg } from "../LogoSvg";
-
-const NAV_HEIGHT = 72;
+import { LogoSvg } from "@/components/LogoSvg";
+import { site } from "@/lib/site";
+import { cn } from "@/lib/utils";
 
 const MobileNav = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [isRtl, setIsRtl] = useState(false);
   const pathname = usePathname();
   const router = useRouter();
   const t = useTranslations("Navbar");
+  const tBrand = useTranslations("Brand");
+  const isRtl = useIsRtl();
+  const { scrollTo, stop, start } = useLenis();
 
   useEffect(() => {
-    setIsRtl(document.body.getAttribute("data-rtl") === "true");
-    const observer = new MutationObserver(() => {
-      setIsRtl(document.body.getAttribute("data-rtl") === "true");
-    });
-    observer.observe(document.body, {
-      attributes: true,
-      attributeFilter: ["data-rtl"],
-    });
-    return () => observer.disconnect();
-  }, []);
-
-  const scrollToSection = (id: string) => {
-    const el = document.getElementById(id);
-    if (el) {
-      const y =
-        el.getBoundingClientRect().top + window.scrollY - NAV_HEIGHT - 8;
-      window.scrollTo({ top: y, behavior: "smooth" });
+    if (isOpen) {
+      stop();
+    } else {
+      start();
     }
-  };
+    return () => start();
+  }, [isOpen, stop, start]);
 
   const handleNav = (sectionId: string) => {
     setIsOpen(false);
-    const localePrefix = pathname.split("/")[1];
-    const isRoot = pathname === `/${localePrefix}` || pathname === "/";
-    if (isRoot) {
-      scrollToSection(sectionId);
+    if (pathname === "/") {
+      window.setTimeout(() => {
+        const el = document.getElementById(sectionId);
+        if (el) {
+          scrollTo(el, { offset: -88 });
+        }
+      }, 120);
     } else {
-      router.push(`/${localePrefix}?scrollTo=${sectionId}`);
+      router.push(`/?scrollTo=${sectionId}`);
     }
   };
 
@@ -60,68 +53,108 @@ const MobileNav = () => {
     router.push(path);
   };
 
-  const handleClickHome = (e: React.MouseEvent) => {
-    e.preventDefault();
-    setIsOpen(false);
-    const localePrefix = pathname.split("/")[1];
-    const isRoot = pathname === `/${localePrefix}` || pathname === "/";
-    if (isRoot) {
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    } else {
-      router.push(`/${localePrefix}`);
-    }
-  };
-
-  // Determine locale from pathname
-  const localePrefix = pathname.split("/")[1];
-  const isArabic = localePrefix === "ar";
+  const items = [
+    { index: "01", label: t("features"), action: () => handleNav("features") },
+    { index: "02", label: t("projects"), action: () => handleNav("projects") },
+    {
+      index: "03",
+      label: t("howItWorks"),
+      action: () => handleNav("how-it-works"),
+    },
+    {
+      index: "04",
+      label: t("testimonials"),
+      action: () => handleNav("testimonials"),
+    },
+    {
+      index: "05",
+      label: t("about"),
+      action: () => handleRouteClick("/about"),
+    },
+    {
+      index: "06",
+      label: t("links"),
+      action: () => handleRouteClick("/links"),
+    },
+  ];
 
   return (
     <Sheet open={isOpen} onOpenChange={setIsOpen}>
-      <SheetTrigger className="flex justify-center items-center">
-        <Menu className="text-[48px] text-primary" />
+      <SheetTrigger asChild>
+        <button
+          type="button"
+          aria-label="Open navigation menu"
+          className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-border/60 bg-background/60 text-foreground backdrop-blur-md transition-colors hover:border-primary/50 hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+        >
+          <Menu className="h-4 w-4" />
+        </button>
       </SheetTrigger>
+
       <SheetContent
-        className="flex flex-col"
-        side={isArabic ? "left" : "right"}
+        side={isRtl ? "left" : "right"}
         dir={isRtl ? "rtl" : "ltr"}
+        className="glass flex flex-col justify-between border-border/60 p-6 sm:max-w-sm"
       >
         <SheetTitle className="sr-only">Navigation Menu</SheetTitle>
 
-        {/* <div className="pl-3 pt-3">
-          <Link href="/">
-            <span className="text-primary">
-              <LogoSvg />
-            </span>
-          </Link>
-        </div> */}
-        <div className="mt-32 mb-40 text-center text-2xl">
-          <nav className="flex flex-col justify-center items-center gap-8">
-            <button
-              onClick={handleClickHome}
-              className="text-xl hover:text-accent-hover transition-all"
-            >
-              {t("home")}
-            </button>
-            <button
-              onClick={() => handleNav("projects")}
-              className="text-xl hover:text-accent-hover transition-all"
-            >
-              {t("projects")}
-            </button>
-            <button
-              onClick={() => handleRouteClick("/about")}
-              className="text-xl hover:text-accent-hover transition-all"
-            >
-              {t("about")}
-            </button>
-            <Button
-              onClick={() => handleRouteClick("/contact")}
-              className="bg-primary text-primary-foreground hover:bg-primary/90"
-            >
-              {t("contact")}
-            </Button>
+        <div>
+          <div className="flex items-center gap-3 border-b border-border/50 pb-5">
+            <LogoSvg className="text-primary" width={36} height={36} />
+            <div>
+              <p className="font-serif text-lg font-bold leading-none text-foreground">
+                {tBrand("name")}
+              </p>
+              <p className="mt-1 text-xs text-muted-foreground">
+                {site.location}
+              </p>
+            </div>
+          </div>
+
+          <nav aria-label="Mobile navigation" className="mt-6 flex flex-col">
+            {items.map((item) => (
+              <button
+                key={item.index}
+                type="button"
+                onClick={item.action}
+                className={cn(
+                  "group flex items-center justify-between border-b border-border/40 py-3.5 text-start transition-colors hover:text-primary",
+                  isRtl && "font-arabic"
+                )}
+              >
+                <span className="flex items-baseline gap-3">
+                  <span className="font-mono text-[11px] text-muted-foreground group-hover:text-primary">
+                    {item.index}
+                  </span>
+                  <span className="text-base font-medium text-foreground group-hover:text-primary">
+                    {item.label}
+                  </span>
+                </span>
+                <ArrowUpRight className="h-4 w-4 text-muted-foreground transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-primary" />
+              </button>
+            ))}
           </nav>
+        </div>
+
+        <div className="mt-8 space-y-2.5 border-t border-border/50 pt-5">
+          <button
+            type="button"
+            onClick={() => handleRouteClick("/contact")}
+            className="inline-flex min-h-[46px] w-full items-center justify-center gap-2 rounded-full bg-primary px-5 py-3 text-sm font-medium text-primary-foreground shadow-sm shadow-primary/20 transition-colors hover:bg-primary/90"
+          >
+            <span>{t("contactShort")}</span>
+            <ArrowUpRight className="h-4 w-4" />
+          </button>
+
+          <a
+            href={site.studioUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={() => setIsOpen(false)}
+            className="inline-flex min-h-[44px] w-full items-center justify-center gap-2 rounded-full border border-border/70 bg-background/60 px-5 py-2.5 text-sm font-medium text-foreground transition-colors hover:border-primary/50 hover:text-primary"
+          >
+            <span>{tBrand("studioName")}</span>
+            <ArrowUpRight className="h-4 w-4" />
+          </a>
         </div>
       </SheetContent>
     </Sheet>

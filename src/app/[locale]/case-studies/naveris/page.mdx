@@ -1,22 +1,22 @@
 export const metadata = {
-  title: "NAVERIS",
+  title: "NAVERIS | Masons Case Study",
   description:
-    "An early warning system for natural disasters developed during NASA Space Apps Cairo 2023 Hackathon",
+    "An early warning system for natural disasters built during the NASA Space Apps Cairo 2023 Hackathon.",
 };
 
 # NAVERIS
 
 ## Project Overview
 
-NAVERIS is an innovative early warning system for natural disasters that was developed as part of the **NASA Space Apps Cairo 2023 Hackathon**. The project leverages advanced data analysis and machine learning techniques to predict various natural disasters with different accuracy levels.
+We built NAVERIS during the **NASA Space Apps Cairo 2023 Hackathon** as an early warning system for natural disasters. The platform runs machine learning models over meteorological and environmental feeds to forecast severe events ahead of landfall.
 
 ## Project Mission
 
-The primary goal of NAVERIS is to serve as a comprehensive early warning system that can help communities prepare for and respond to natural disasters before they occur. By analyzing meteorological data and environmental patterns, NAVERIS aims to save lives and reduce property damage through timely alerts and predictions.
+NAVERIS gives local communities and emergency teams lead time before severe weather strikes. The system analyzes atmospheric pressure, wind speed, wind direction, and regional patterns to issue early alerts that reduce casualties and property damage.
 
 ## Prediction Accuracy
 
-Our system has been tested and validated with the following accuracy rates for different types of natural disasters:
+Validation testing across three hazard categories produced these results:
 
 <Table
   data={{
@@ -31,26 +31,26 @@ Our system has been tested and validated with the following accuracy rates for d
 
 ### Accuracy Analysis
 
-- **Tornadoes (91%)**: Our highest accuracy prediction, utilizing advanced atmospheric pressure analysis and wind pattern recognition
-- **Storms (87%)**: Strong predictive capability through meteorological data integration
-- **Earthquakes (45%)**: Currently in development phase, focusing on seismic data analysis and geological pattern recognition
+- **Tornadoes (91%)**: Highest prediction accuracy, driven by atmospheric pressure drops and wind pattern classification.
+- **Storms (87%)**: Reliable detection across combined meteorological feeds.
+- **Earthquakes (45%)**: Prototype stage, focused on seismic telemetry and geological pattern modeling.
 
 ## Technical Implementation
 
-### MAPPING WITH DOTMATRIX
+### Mapping with DotMatrix
 
 #### Dot Matrix Generator System
 
-The Dot Matrix Generator is a sophisticated geospatial data processor that creates comprehensive environmental maps. This system:
+The Dot Matrix Generator builds coordinate-based environmental maps from live sensor feeds:
 
-- **Generates coordinate-based data points** with longitude and latitude mapping
-- **Collects real-time meteorological data** including atmospheric pressure, wind speed, and wind direction
-- **Outputs structured JSON data** for easy integration with prediction algorithms
-- **Creates visual dot projections** for geographic representation of weather patterns
+- **Generates coordinate points** mapped by latitude and longitude.
+- **Collects live meteorological telemetry** covering atmospheric pressure, wind speed, and wind direction.
+- **Outputs structured JSON** formatted for the prediction pipeline.
+- **Renders dot projections** that plot regional weather systems across a map grid.
 
 #### Data Structure
 
-Each data point captured by our system contains the following information:
+Each captured sensor reading follows this JSON schema:
 
 ```json
 {
@@ -65,52 +65,52 @@ Each data point captured by our system contains the following information:
 
 **Field Descriptions:**
 
-- `id`: Unique identifier for each data point
-- `lat`: Latitude coordinate (decimal degrees)
-- `lon`: Longitude coordinate (decimal degrees)
-- `ws`: Wind speed (km/h or mph)
-- `wd`: Wind direction (degrees, 0-360)
-- `ap`: Atmospheric pressure (millibars)
+- `id`: Unique identifier for the reading.
+- `lat`: Latitude coordinate in decimal degrees.
+- `lon`: Longitude coordinate in decimal degrees.
+- `ws`: Wind speed in km/h or mph.
+- `wd`: Wind direction in degrees (0-360).
+- `ap`: Atmospheric pressure in millibars.
 
 #### Data Collection Network
 
-Our system continuously monitors thousands of data points across various geographic regions, creating a comprehensive network of environmental sensors. The complete dataset can be found in our `dotMatrix.json` file, which contains real-time updates from our monitoring network.
+The ingestion layer monitors thousands of coordinate points across geographic regions and writes live updates into `dotMatrix.json` for downstream risk scoring.
 
 ## System Architecture
 
 ### Data Processing Pipeline
 
-1. **Data Collection**: Real-time gathering of meteorological and seismic data
-2. **Data Validation**: Quality checks and anomaly detection
-3. **Pattern Analysis**: Machine learning algorithms identify disaster precursors
-4. **Risk Assessment**: Probability calculations for different disaster types
-5. **Alert Generation**: Automated warnings sent to relevant authorities and communities
+1. **Data Collection**: Ingests live meteorological and seismic readings.
+2. **Data Validation**: Runs schema checks and flags sensor anomalies.
+3. **Pattern Analysis**: Machine learning models detect disaster precursors.
+4. **Risk Assessment**: Computes event probability scores per disaster type.
+5. **Alert Generation**: Dispatches automated warnings to emergency teams and affected areas.
 
 ### Technology Stack
 
-- **Backend**: Python-based data processing and machine learning models
-- **Data Storage**: JSON-based structured data with real-time updates
-- **Mapping**: Geographic Information System (GIS) integration
-- **API**: RESTful services for data access and alert distribution
+- **Backend**: Python data processing and machine learning models.
+- **Data Storage**: Structured JSON datasets with live updates.
+- **Mapping**: Geographic Information System (GIS) integration.
+- **API**: REST endpoints for telemetry access and alert distribution.
 
 ## Project Resources
 
-For more detailed information about our project, including technical specifications and presentation materials, please refer to:
+Technical specifications and deck slides from the hackathon are available here:
 
-[**📊 Project Presentation Slides**](https://1drv.ms/p/s!AlyuzmZQIYJHgiW5B2xo33LxTSsD?e=jxOLkA)
+[**Project Presentation Slides**](https://1drv.ms/p/s!AlyuzmZQIYJHgiW5B2xo33LxTSsD?e=jxOLkA)
 
 ## Future Development
 
 ### Planned Enhancements
 
-- **Improved Earthquake Prediction**: Integrating additional seismic data sources and advanced geological analysis
-- **Mobile Application**: User-friendly mobile app for real-time alerts and safety information
-- **International Expansion**: Scaling the system to cover more geographic regions
-- **AI Model Refinement**: Continuous improvement of prediction algorithms through machine learning
+- **Earthquake Model Expansion**: Add regional seismic feeds and geological features to raise accuracy above the 45% baseline.
+- **Mobile Application**: Deliver push alerts and preparedness checklists to residents.
+- **Geographic Scaling**: Extend sensor ingestion to additional regions.
+- **Model Retraining**: Retrain classifiers on new storm and tornado records as datasets grow.
 
 ### Research Partnerships
 
-We are actively seeking partnerships with:
+We welcome collaboration with:
 
 - Meteorological organizations
 - Disaster management agencies
@@ -119,13 +119,9 @@ We are actively seeking partnerships with:
 
 ## Impact and Applications
 
-NAVERIS has the potential to significantly impact disaster preparedness by:
+NAVERIS supports regional preparedness in four ways:
 
-- **Reducing casualty rates** through early warning systems
-- **Minimizing economic losses** by enabling proactive measures
-- **Improving emergency response coordination** through accurate predictions
-- **Enhancing public safety awareness** in disaster-prone areas
-
----
-
-_This project represents our commitment to using technology and data science to protect communities and save lives through innovative disaster prediction and early warning systems._
+- **Lower casualty rates** through earlier evacuation windows.
+- **Reduced economic loss** when municipalities prepare infrastructure ahead of storms.
+- **Faster response coordination** backed by localized risk scores.
+- **Higher public readiness** across disaster-prone regions.

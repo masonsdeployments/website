@@ -1,120 +1,127 @@
-# Rafiqi: Our Journey Building Egypt's Mental Health Companion
+export const metadata = {
+  title: "Rafiqi | Masons Case Study",
+  description:
+    "Building an AI mental health companion designed for Egyptian Arabic dialects and local cultural context.",
+};
+
+# Rafiqi: Building Egypt's Mental Health Companion
 
 ## Why We Started This
 
-We're a team of Egyptian developers, designers, and researchers who kept running into the same wall: every time we tried to solve problems with technology, we realized the biggest problems weren't technical, they were human.
+As Egyptian engineers, designers, and researchers, we kept seeing the same gap: imported mental health tools fail when they ignore local language, family structure, and economic reality.
 
-Mental health in Egypt isn't just an abstract challenge we read about in reports. It's the reality we see in our communities, our families, and honestly, in ourselves. When 60% of your country is under 30 and struggling with stress, anxiety, and depression while only having access to 1 psychiatrist per 200,000 people, you start to wonder if there's a better way.
+In Egypt, 60% of the population is under 30, and many young adults face stress, anxiety, and depression with access to 1 psychiatrist per 200,000 people.
 
-## The Problem We Couldn't Walk Away From
+## The Barriers on the Ground
 
-Here's what we kept seeing:
-- **Economic barriers**: Therapy costs more than most people's monthly salary
-- **Geographic reality**: Mental health resources are concentrated in Cairo and Alexandria, leaving millions without access
-- **Cultural disconnect**: Western therapeutic models don't always translate to Egyptian family dynamics and social structures
-- **Language gap**: Most mental health resources aren't available in Egyptian Arabic dialects
-- **Stigma**: Seeking mental health support is still seen as admitting weakness
+Five structural gaps block access to care:
 
-But the thing that really motivated us wasn't the statistics, it was the conversations. People around us were struggling, and the existing solutions weren't meeting them where they were.
+- **Cost**: Private therapy sessions exceed what most people can afford from a monthly salary.
+- **Geography**: Clinical specialists cluster in Cairo and Alexandria, leaving millions outside major cities underserved.
+- **Cultural mismatch**: Western therapeutic scripts overlook Egyptian family structures and social expectations.
+- **Dialect gap**: Few mental health tools understand Egyptian Arabic idioms and everyday phrasing.
+- **Stigma**: Asking for psychological support still carries heavy social friction.
 
-## Our Approach: Technology That Understands Culture
+Conversations with friends, classmates, and family members made those numbers concrete. Existing apps failed to meet people in the language they think and speak in.
 
-We decided to build Rafiqi (meaning "My Companion") because we believe technology should adapt to culture, not the other way around.
+## Our Approach: Culture First
 
-### What We're Building
+We named the product **Rafiqi** ("My Companion") around a clear principle: software should adapt to local culture.
 
-**An AI-Powered Mental Health Companion That:**
-- Speaks Egyptian Arabic naturally, understanding local expressions and cultural references  
-- Recognizes Egyptian family dynamics and social expectations
-- Integrates with religious practices rather than ignoring them
-- Provides 24/7 support at a fraction of traditional therapy costs
-- Works offline for areas with limited internet connectivity
+### Core Capabilities
 
-### Our Technical Philosophy
+**An AI Mental Health Companion That:**
 
-We're not just translating existing therapy apps into Arabic. We're rebuilding mental health support from the ground up with Egyptian culture as the foundation.
+- Converses in Egyptian Arabic, recognizing local idioms and cultural references.
+- Accounts for Egyptian family dynamics and social expectations.
+- Respects religious habits and daily prayer routines.
+- Delivers 24/7 support at a fraction of clinic therapy costs.
+- Retains core offline access for regions with unreliable connectivity.
+
+### Technical Architecture
+
+We designed Rafiqi from scratch around Egyptian speech patterns and clinical safety protocols instead of translating a generic English therapy bot.
 
 **Core Features:**
-- **Culturally Intelligent Chatbot**: Trained on Egyptian conversational patterns and cultural contexts
-- **Mood Tracking**: Using scales and frameworks that make sense within Egyptian emotional expression
-- **Personalized Wellness Plans**: That account for prayer times, family schedules, and cultural expectations
-- **Crisis Intervention**: Connected to local resources and understanding of Egyptian emergency protocols
-- **Guided Meditation**: Integrating Islamic mindfulness practices with evidence-based relaxation techniques
 
-## The Technical Challenges We're Solving
+- **Dialect-Aware Companion**: Trained on Egyptian conversational corpora and cultural contexts.
+- **Mood Tracking**: Check-in scales written around how Egyptians describe emotional states.
+- **Personal Wellness Plans**: Routines structured around prayer times, work hours, and family schedules.
+- **Crisis Escalation**: Connected to local Egyptian emergency hotlines and escalation rules.
+- **Guided Mindfulness**: Combines Islamic reflection practices with evidence-based breathing and grounding exercises.
 
-### Challenge 1: Cultural Nuance in AI
-**The Problem**: How do you teach AI to understand the difference between Egyptian expressions of frustration, genuine distress, and cultural hyperbole?
+## Technical Challenges
 
-**Our Approach**: We're building training datasets that include Egyptian cultural context, working with linguists and cultural experts to create AI that doesn't just process language but understands cultural meaning.
+### Challenge 1: Cultural Nuance in Language
 
-### Challenge 2: Crisis Detection Across Cultures
-**The Problem**: Risk assessment tools developed in Western contexts may miss or misinterpret Egyptian expressions of distress.
+**The Problem**: Distinguishing everyday Egyptian hyperbole and frustration from genuine emotional distress.
 
-**Our Solution**: We're developing culturally adapted risk assessment algorithms that understand how Egyptians express emotional distress while maintaining high accuracy for genuine crisis detection.
+**Our Approach**: We collaborate with Egyptian linguists and cultural advisors to build annotated dialect datasets so the model separates idioms from risk signals.
 
-### Challenge 3: Family-Centered vs. Individual Therapy
-**The Problem**: Most mental health apps focus on individual users, but Egyptian mental health is deeply connected to family and community dynamics.
+### Challenge 2: Crisis Detection in Local Context
 
-**Our Innovation**: We're creating features that respect individual privacy while acknowledging the role of family support, allowing users to involve family members in their wellness journey when appropriate.
+**The Problem**: Risk classifiers tuned on Western phrasing can miss or misclassify Egyptian expressions of crisis.
 
-## Why This Matters to Us
+**Our Solution**: We tune risk detection models on Egyptian phrasing while keeping strict recall thresholds for real emergencies.
 
-This isn't just a business venture for us—it's personal. We're building the mental health support system we wish existed when we needed it.
+### Challenge 3: Family-Centered Support
 
-**Our Core Motivations:**
-- **Accessibility**: Mental health support shouldn't be a luxury available only to the wealthy
-- **Cultural Respect**: Technology should enhance rather than replace cultural wisdom
-- **Local Impact**: We want to solve problems in our own community first
-- **Scalable Change**: If we can create culturally intelligent mental health tech in Egypt, we can adapt it for other underserved communities
+**The Problem**: Conventional apps assume an isolated individual user, whereas emotional health in Egypt intertwines with family and community.
 
-## The Implementation Journey
+**Our Design**: Users keep strict personal privacy by default while gaining optional controls to share selected progress or involve trusted family members.
 
-### Phase 1: Building the Foundation
-We started with OpenAI's GPT models and began the intensive process of fine-tuning for Egyptian Arabic and cultural contexts. This meant:
-- Creating conversation datasets in Egyptian dialects
-- Developing cultural context libraries
-- Testing with Egyptian mental health professionals
-- Building crisis intervention protocols adapted for local emergency services
+## Core Principles
+
+- **Accessibility**: Mental health support must reach beyond high-income neighborhoods.
+- **Cultural Respect**: Digital tools should work alongside community and spiritual practices.
+- **Local Proof First**: Solving the Egyptian context builds a grounded foundation before expanding across the region.
+- **Transferable Blueprint**: Lessons learned in Egyptian Arabic inform future dialect-first health products.
+
+## Implementation Roadmap
+
+### Phase 1: Foundation
+
+We started with OpenAI GPT models and tuned prompts, evaluation suites, and safety layers for Egyptian Arabic:
+
+- Built conversational datasets in Egyptian dialects.
+- Assembled cultural context reference guides.
+- Reviewed sample dialogues with licensed Egyptian mental health professionals.
+- Mapped crisis escalation steps to local emergency services.
 
 ### Phase 2: Community Integration
-We're not just building an app in isolation. We're:
-- Partnering with Egyptian universities and community centers
-- Collaborating with licensed local therapists
-- Integrating with existing healthcare systems where possible
-- Training community health workers to support our digital intervention
+
+We pair engineering with on-the-ground partnerships:
+
+- Partnering with Egyptian universities and student communities.
+- Collaborating with licensed local therapists for clinical review.
+- Mapping referral paths into existing clinics where available.
+- Training community health volunteers to guide first-time users.
 
 ### Phase 3: Scaling Across Egypt
-Our goal is to reach all 27 Egyptian governorates, adapting our approach for:
-- Different regional dialects and cultural nuances
-- Varying levels of digital literacy
-- Different economic contexts
-- Rural vs. urban mental health needs
 
-## What Success Looks Like to Us
+Our rollout targets 27 Egyptian governorates, adapting for:
 
-**Quantitative Goals:**
-- 100,000+ active users within the first year
-- 95%+ successful crisis intervention rate
-- Coverage across all Egyptian governorates within 24 months
-- 70%+ weekly user retention
+- Regional dialect variations outside Cairo.
+- Varying smartphone specs and digital literacy levels.
+- Different income tiers.
+- Rural and urban support networks.
 
-**Qualitative Impact:**
-- Reduced stigma around mental health discussions in Egyptian communities
-- Increased mental health literacy among young Egyptians
-- Better integration between traditional cultural support systems and modern therapeutic approaches
-- A model for culturally intelligent digital health solutions
+## Target Milestones
 
-## The Bigger Picture
+**Quantitative Targets:**
 
-Rafiqi is our attempt to prove that technology can be both cutting-edge and culturally rooted. We're not trying to replace Egyptian culture with Silicon Valley solutions, we're trying to enhance Egyptian wisdom with modern tools.
+- 100,000+ active users within the first year.
+- 95%+ crisis escalation accuracy rate.
+- Coverage across 27 Egyptian governorates within 24 months.
+- 70%+ weekly active retention.
 
-If we succeed, we'll have created more than just an app. We'll have demonstrated that the future of digital health lies in deep cultural understanding, not cultural replacement.
+**Qualitative Goals:**
 
-## What We've Learned So Far
+- Lower stigma around asking for mental health support.
+- Higher mental health literacy among young Egyptians.
+- Stronger bridges between trusted community support and clinical care.
+- A repeatable reference architecture for dialect-first digital health.
 
-Building Rafiqi has taught us that the most sophisticated technology is useless if it doesn't understand the people it's meant to serve. Every algorithm we write, every feature we build, and every conversation flow we design has to pass one test: would this actually help someone in our community?
+## Lessons Learned
 
-We're not just developers anymore, we're cultural translators, community advocates, and hopefully, part of the solution to one of Egypt's most pressing challenges.
-
-The work is hard, the stakes are high, and the impact could be transformational. That's exactly why we're doing it.
+Engineering Rafiqi showed us that model benchmarks mean little if responses sound foreign to the person reading them. Each model change, safety check, and conversation flow goes through one filter: does this help someone in our community right now?

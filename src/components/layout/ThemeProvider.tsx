@@ -1,5 +1,14 @@
 "use client";
-import React, { createContext, useContext, useEffect, useState } from "react";
+
+import React, {
+  createContext,
+  useCallback,
+  useContext,
+  useEffect,
+  useMemo,
+  useState,
+  useSyncExternalStore,
+} from "react";
 
 type Theme = "dark" | "light" | "system";
 type Coords = { x: number; y: number };
@@ -24,88 +33,81 @@ const initialState: ThemeProviderState = {
 
 const ThemeProviderContext = createContext<ThemeProviderState>(initialState);
 
+const emptySubscribe = () => () => {};
+
+function useHydrated() {
+  return useSyncExternalStore(
+    emptySubscribe,
+    () => true,
+    () => false
+  );
+}
+
 export function ThemeProvider({
   children,
   defaultTheme = "system",
   storageKey = "vite-ui-theme",
   ...props
 }: ThemeProviderProps) {
-  const [theme, setTheme] = useState<Theme>(defaultTheme);
-  const [mounted, setMounted] = useState(false);
+  const mounted = useHydrated();
+  const [theme, setThemeState] = useState<Theme>(() => {
+    if (typeof window === "undefined") return defaultTheme;
+    return (localStorage.getItem(storageKey) as Theme | null) ?? defaultTheme;
+  });
 
   useEffect(() => {
-    // Only run on client
-    setMounted(true);
-    const storedTheme =
-      typeof window !== "undefined"
-        ? (localStorage.getItem(storageKey) as Theme)
-        : null;
-    if (storedTheme) {
-      setTheme(storedTheme);
-    } else {
-      setTheme(defaultTheme);
-    }
-  }, [defaultTheme, storageKey]);
-
-  const applyTheme = (newTheme: Theme) => {
     if (!mounted) return;
     const root = window.document.documentElement;
     root.classList.remove("light", "dark");
-    let appliedTheme = newTheme;
-    if (newTheme === "system") {
+    let appliedTheme: "light" | "dark" = theme === "dark" ? "dark" : "light";
+    if (theme === "system") {
       appliedTheme = window.matchMedia("(prefers-color-scheme: dark)").matches
         ? "dark"
         : "light";
     }
     root.classList.add(appliedTheme);
-    localStorage.setItem(storageKey, newTheme);
-  };
-
-  useEffect(() => {
-    applyTheme(theme);
+    localStorage.setItem(storageKey, theme);
   }, [theme, mounted, storageKey]);
 
-  const handleThemeChange = (newTheme: Theme) => {
-    setTheme(newTheme);
-  };
+  const handleThemeChange = useCallback((newTheme: Theme) => {
+    setThemeState(newTheme);
+  }, []);
 
-  const handleThemeToggle = (coords?: Coords) => {
-    const newTheme = theme === "dark" ? "light" : "dark";
-    const root = document.documentElement;
+  const handleThemeToggle = useCallback(
+    (coords?: Coords) => {
+      const root = document.documentElement;
+      const isCurrentlyDark = root.classList.contains("dark");
+      const newTheme: Theme = isCurrentlyDark ? "light" : "dark";
 
-    // Check for reduced motion preference
-    const prefersReducedMotion = window.matchMedia(
-      "(prefers-reduced-motion: reduce)"
-    ).matches;
+      const prefersReducedMotion = window.matchMedia(
+        "(prefers-reduced-motion: reduce)"
+      ).matches;
 
-    // If no view transitions support or reduced motion, just change theme
-    if (!document.startViewTransition || prefersReducedMotion) {
-      handleThemeChange(newTheme);
-      return;
-    }
+      if (!document.startViewTransition || prefersReducedMotion) {
+        handleThemeChange(newTheme);
+        return;
+      }
 
-    // Set coordinates for the radar animation
-    if (coords) {
-      root.style.setProperty("--x", `${coords.x}px`);
-      root.style.setProperty("--y", `${coords.y}px`);
-    }
+      if (coords) {
+        root.style.setProperty("--x", `${coords.x}px`);
+        root.style.setProperty("--y", `${coords.y}px`);
+      }
 
-    // Start the view transition with radar effect
-    document.startViewTransition(() => {
-      handleThemeChange(newTheme);
-    });
-  };
+      document.startViewTransition(() => {
+        handleThemeChange(newTheme);
+      });
+    },
+    [handleThemeChange]
+  );
 
-  const value = {
-    theme,
-    setTheme: handleThemeChange,
-    toggleTheme: handleThemeToggle,
-  };
-
-  // Prevent hydration mismatch by not rendering children until mounted
-  if (!mounted) {
-    return <div style={{ visibility: "hidden" }}>{children}</div>;
-  }
+  const value = useMemo(
+    () => ({
+      theme,
+      setTheme: handleThemeChange,
+      toggleTheme: handleThemeToggle,
+    }),
+    [theme, handleThemeChange, handleThemeToggle]
+  );
 
   return (
     <ThemeProviderContext.Provider {...props} value={value}>
@@ -117,8 +119,9 @@ export function ThemeProvider({
 export const useTheme = () => {
   const context = useContext(ThemeProviderContext);
 
-  if (context === undefined)
+  if (context === undefined) {
     throw new Error("useTheme must be used within a ThemeProvider");
+  }
 
   return context;
 };

@@ -4,6 +4,8 @@ import localFont from "next/font/local";
 import "@/styles/globals.css";
 import "@/styles/gruvbox-dark-hard.css";
 import { ThemeProvider } from "../../components/layout/ThemeProvider";
+import { LenisProvider } from "@/components/providers/LenisProvider";
+import { ProjectInquiryModalProvider } from "@/components/project-inquiry-modal";
 import { Toaster } from "@/components/ui/sonner";
 import { Suspense } from "react";
 import { NextIntlClientProvider, hasLocale } from "next-intl";
@@ -59,9 +61,9 @@ const ibmPlexSansArabic = IBM_Plex_Sans_Arabic({
 });
 
 export const metadata: Metadata = {
-  title: "Masons",
+  title: "Masons | Product Engineering Studio",
   description:
-    "Masons is a lean software team known for scalable, high-performance systems. From NASA Space Apps to building Rafiqi, our AI mental health platform. We engineer impactful, real-world solutions with relentless execution.",
+    "Masons is a Cairo software engineering studio building commercial web apps, internal operations systems, and applied AI for growing businesses.",
   icons: {
     icon: "/logo.svg",
   },
@@ -80,11 +82,11 @@ export default async function LocaleLayout({
   }
   const isArabic = locale === "ar";
   return (
-    <html lang={isArabic ? "ar" : "en"} dir={isArabic ? "rtl" : "ltr"}>
+    <html lang={locale} dir={isArabic ? "rtl" : "ltr"}>
       <body
         className={`antialiased no-scrollbar ${
           isArabic
-            ? `${ibmPlexSansArabic.variable}`
+            ? `${ibmPlexSansArabic.variable} ${jetbrainsMono.variable}`
             : `${outfit.variable} ${jetbrainsMono.variable} ${trenchSlab.variable}`
         }`}
         data-rtl={isArabic ? "true" : undefined}
@@ -92,7 +94,11 @@ export default async function LocaleLayout({
         <ThemeProvider>
           <Suspense>
             <NextIntlClientProvider locale={locale}>
-              {children}
+              <LenisProvider>
+                <ProjectInquiryModalProvider>
+                  {children}
+                </ProjectInquiryModalProvider>
+              </LenisProvider>
             </NextIntlClientProvider>
           </Suspense>
         </ThemeProvider>

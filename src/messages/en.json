@@ -1,4 +1,8 @@
 {
+  "Brand": {
+    "name": "Masons",
+    "studioName": "Masons Studio"
+  },
   "Navbar": {
     "home": "Home",
     "features": "Why Us",
@@ -6,279 +10,392 @@
     "howItWorks": "Process",
     "testimonials": "Reviews",
     "about": "Team",
-    "cta": "Start a Project",
-    "contact": "Contact Us"
+    "links": "Links",
+    "cta": "Start a project",
+    "contact": "Contact",
+    "contactShort": "Contact"
   },
   "Hero": {
-    "tagline": "Impact-Driven Engineering",
-    "titleLine1": "We Build Products That",
-    "titleHighlight": "Change Lives",
-    "description": "From emotional AI companions to disaster prediction systems, we build technology that saves lives. Real impact, not just vanity metrics.",
-    "ctaPrimary": "Start Building Today",
-    "ctaSecondary": "See Our Work",
-    "socialProof": "Trusted by founders building the future",
-    "previewAlt": "Product Preview"
+    "tagline": "Product Engineering Studio",
+    "location": "Cairo, Egypt",
+    "availability": "Booking Q1 2027",
+    "titleLine1": "Software Engineered",
+    "titleHighlight": "for Real Growth",
+    "description": "Masons is a Cairo engineering studio building commercial web apps, internal operations systems, and applied AI that convert visitors, save team hours, and hold up under load.",
+    "ctaPrimary": "Visit Masons Studio",
+    "ctaSecondary": "See our work",
+    "ctaQuickBrief": "Quick brief",
+    "socialProof": "10M+ EGP in monthly client volume across 20+ shipped builds",
+    "previewAlt": "Rafiqi product preview"
+  },
+  "HeroDemo": {
+    "demo1Subnote": "Founding engineers on each build. Pragmatic architecture chosen for product speed, conversion, and long-term uptime.",
+    "ledger": {
+      "volumeLabel": "EGP/mo client volume",
+      "volumeNote": "Live commercial dashboards and sales operations in production.",
+      "buildsLabel": "Shipped builds",
+      "buildsNote": "Commercial web apps, internal systems, and applied AI tools.",
+      "timelineValue": "6-16 wks",
+      "timelineLabel": "Brief to launch",
+      "timelineNote": "Weekly staging releases you can review with customers.",
+      "replyLabel": "Founder reply time",
+      "replyNote": "Direct communication with the engineers shipping your code."
+    },
+    "capabilities": {
+      "c1": "Commercial Web Apps",
+      "c2": "Internal Sales & Ops Systems",
+      "c3": "Applied AI & Automation",
+      "c4": "NASA Space Apps & GDG Pedigree"
+    },
+    "buildDeck": {
+      "eyebrow": "What we build",
+      "webapps": {
+        "category": "Web & SaaS Products",
+        "title": "Commercial Web Apps",
+        "timeline": "6-12 wks",
+        "summary": "Customer-facing platforms, client portals, and subscription products engineered for fast load times, clear UX, and dependable uptime.",
+        "d1": "Custom product UI",
+        "d2": "Auth & billing",
+        "d3": "Cloud deployment",
+        "cta": "Scope a web app"
+      },
+      "internal": {
+        "category": "Operations & Sales",
+        "title": "Internal Business Systems",
+        "timeline": "4-8 wks",
+        "summary": "Live sales dashboards, inventory trackers, and custom ops tools that replace fragile spreadsheets, proven at 10M+ EGP in monthly client volume.",
+        "d1": "Live dashboards",
+        "d2": "Role permissions",
+        "d3": "Reports & exports",
+        "cta": "Scope an internal system"
+      },
+      "ai": {
+        "category": "Applied Intelligence",
+        "title": "AI & Workflow Automation",
+        "timeline": "4-10 wks",
+        "summary": "Practical LLM assistants, document extraction pipelines, and automated back-office workflows that eliminate repetitive manual work.",
+        "d1": "Custom AI agents",
+        "d2": "Document pipelines",
+        "d3": "CRM & API hooks",
+        "cta": "Scope an AI workflow"
+      },
+      "conversion": {
+        "category": "Performance & Growth",
+        "title": "Marketing Sites & Audits",
+        "timeline": "2-6 wks",
+        "summary": "High-trust editorial sites, lead capture funnels, and codebase performance refactors built to lift conversion and Core Web Vitals.",
+        "d1": "Editorial design",
+        "d2": "Speed & SEO",
+        "d3": "Lead capture",
+        "cta": "Book a technical audit"
+      }
+    }
   },
   "TrustedBy": {
-    "title": "Building with bleeding edge technologies"
+    "title": "Built on modern, production-proven technologies"
   },
   "Features": {
-    "headlineStart": "Why Teams",
-    "headlineSerif": "Choose Us",
-    "description": "We don't just write code. We solve meaningful problems with technology that actually works.",
+    "kicker": "Why Masons",
+    "headlineStart": "Built for",
+    "headlineSerif": "Commercial Returns",
+    "description": "You hire Masons to ship dependable software, convert traffic into qualified leads, and move faster without managing a bloated agency.",
     "f1": {
-      "title": "Human-First Engineering",
-      "desc": "Great systems start with empathy. We design for humans first, ensuring technology serves people, not just algorithms."
+      "title": "Built to Convert & Close",
+      "desc": "Interfaces, funnels, and checkout flows are engineered around conversion, speed, and buyer trust from day one."
     },
     "f2": {
-      "title": "Zero-Waste Development",
-      "desc": "No bloated features. No technical debt. We build lean, powerful systems that solve actual problems."
+      "title": "Pragmatic Technology Choices",
+      "desc": "No over-engineered architecture for ego. We pick proven tools that keep delivery fast, maintenance low, and scaling predictable."
     },
     "f3": {
-      "title": "Collective Intelligence",
-      "desc": "Our distributed team operates as a single unit, combining diverse perspectives to create solutions no individual could imagine."
+      "title": "Founding Engineers on Your Build",
+      "desc": "No handoffs to junior contractors. The engineers scoping your business goals are the ones shipping your production code."
     },
     "f4": {
-      "title": "Battle-Tested Systems",
-      "desc": "We build software as if lives depend on it. Because sometimes, they do. Robust, reliable, and ready for anything."
+      "title": "Commercial Scale, Battle-Tested Roots",
+      "desc": "We cut our teeth winning under pressure at NASA Space Apps and GDG Cairo. Today we bring that speed to revenue-critical systems."
     },
     "f5": {
-      "title": "Rapid Iteration",
-      "desc": "See progress in days, not months. We ship fast, gather feedback, and iterate until it's exceptional."
+      "title": "Weekly Production Milestones",
+      "desc": "Review working builds on staging each week, validate with customers early, and reach market ahead of slower teams."
     },
     "f6": {
-      "title": "Long-Term Partnership",
-      "desc": "Launch is just the beginning. We measure what matters and continuously enhance your solution."
+      "title": "Built to Run Past Launch",
+      "desc": "After release, we watch conversion and uptime metrics, remove operational bottlenecks, and expand what drives growth."
     }
   },
   "Projects": {
+    "kicker": "Selected Work",
     "card": {
-      "award": "Winner",
-      "cta1": "See Impact",
-      "cta2": "Live Demo",
-      "cta3": "Code Base"
+      "cta1": "Read case study",
+      "cta2": "Live demo",
+      "cta3": "Source code",
+      "previewSuffix": "project preview"
     },
-    "headlineStart": "Real Problems,",
-    "headlineSerif": "Real Impact",
-    "description": "Technology that changes lives, not just chases metrics.",
+    "headlineStart": "Products Built",
+    "headlineSerif": "To Perform",
+    "description": "Flagship products and engineering proofs that show how we take hard ideas to working software.",
     "rafiqi": {
-      "badge": "AI + Mental Health",
+      "year": "2025",
+      "badge": "AI Product · Mental Health",
       "title": "Rafiqi",
-      "story": "Mental health support that feels genuinely human. We built an AI companion that understands context, reads emotional nuance, and adapts to individual healing journeys. Support that is available whenever it is needed most."
+      "story": "Our flagship AI companion built for Egyptian Arabic dialects and local cultural context, delivering 24/7 support at a fraction of clinic costs.",
+      "recognition": "Flagship Product",
+      "metrics": [
+        { "label": "Arabic AI Support", "value": "24/7" },
+        { "label": "Target Governorates", "value": "27" }
+      ]
     },
     "repai": {
+      "year": "2025",
       "badge": "AI + Fintech",
       "title": "repAI",
-      "story": "What if recycling could pay your bills? RepAI transforms environmental responsibility into personal profit with real-time pricing, collector connections, and instant cashback rewards.",
-      "achievement": "GDG Cairo AI Hackathon Top 7"
+      "story": "An AI recycling rewards platform combining Gemini object detection and receipt scanning with collector pickups and instant cashback payouts.",
+      "recognition": "GDG Cairo Top 7",
+      "metrics": [
+        { "label": "GDG AI Hackathon", "value": "Top 7" },
+        { "label": "Reward Payouts", "value": "Instant" }
+      ]
     },
     "orbit": {
-      "badge": "3D Visualization",
+      "year": "2024",
+      "badge": "3D Engineering",
       "title": "Orbit",
-      "story": "Space made accessible. An interactive 3D solar system tracking Near-Earth Objects in real-time. We turn complex astronomical data into engaging education.",
-      "achievement": "NASA Space Apps Cairo 2024",
+      "story": "An interactive 3D solar system built in Next.js, Three.js, and Go that tracks Near-Earth Objects live from NASA's Small Body Database.",
+      "recognition": "NASA Space Apps",
       "metrics": [
         { "label": "NEOs Tracked", "value": "100+" },
         { "label": "Potential Reach", "value": "10K+" }
       ]
     },
     "naveris": {
-      "badge": "Disaster Early Warning",
+      "year": "2023",
+      "badge": "Predictive AI",
       "title": "NAVERIS",
-      "story": "Seconds matter when disaster strikes. Our AI predicts natural disasters with 91% tornado accuracy. This gives communities precious time to prepare and save lives.",
-      "achievement": "NASA Space Apps Cairo 2023",
+      "story": "A meteorological early-warning platform forecasting tornadoes at 91% accuracy and storms at 87% accuracy from geospatial dot-matrix feeds.",
+      "recognition": "NASA Space Apps",
       "metrics": [
         { "label": "Tornado Accuracy", "value": "91%" },
         { "label": "Storm Detection", "value": "87%" }
       ]
+    },
+    "privateWork": {
+      "kicker": "Private Client Work",
+      "title": "Most commercial systems ship under NDA.",
+      "description": "Book a quick call to walk through relevant client dashboards, web platforms, and AI builds.",
+      "cta": "Request a walkthrough"
     }
   },
   "HowItWorks": {
-    "headlineStart": "Our",
-    "headlineSerif": "Process",
-    "description": "From the first conversation to launch, here is how we turn your vision into reality.",
+    "kicker": "Process",
+    "headlineStart": "From Brief to",
+    "headlineSerif": "Production",
+    "description": "Four focused stages designed to take your product live, reliable, and ready to grow without wasted months.",
     "s1": {
-      "title": "Discovery",
-      "desc": "We don't just ask what you want, we uncover what you actually need. Deep conversations reveal the real challenge hiding behind the obvious one."
+      "title": "Commercial Scope",
+      "desc": "We map your revenue model, user bottlenecks, and must-have v1 features so budget goes where it pays back."
     },
     "s2": {
-      "title": "Design",
-      "desc": "Every feature exists for a reason. We design systems that solve real problems with intentional choices and user-centered thinking."
+      "title": "Architecture & UX",
+      "desc": "We choose the sharpest stack for your business goals and design high-trust interfaces built to convert."
     },
     "s3": {
-      "title": "Build",
-      "desc": "We build like your users' lives depend on it. Every interaction is crafted, every edge case considered, and every detail refined until it is both functional and meaningful."
+      "title": "Weekly Shipped Builds",
+      "desc": "We deliver tested staging releases each week with clean APIs, payment and CRM hooks, and transparent progress."
     },
     "s4": {
-      "title": "Launch & Grow",
-      "desc": "Launch is just the beginning. We measure what matters, iterate based on real usage, and continuously enhance until your solution transforms lives."
+      "title": "Launch & Growth",
+      "desc": "We ship to production, track conversion and speed, and iterate on the features that bring in leads and revenue."
     }
   },
   "Testimonials": {
+    "kicker": "Endorsements",
+    "headlineStart": "Backed by",
+    "headlineSerif": "Leaders & Builders",
+    "description": "Notes from CTOs, senior engineering leaders, technical judges, and teammates who have seen us deliver.",
     "t0": {
-      "text": "Judging the GDG Cairo hackathon, Masons stood out not just for their tech but for their incredible team energy. Top 7 well deserved!",
-      "by": "Mohamed, Senior Android Developer @ Yassir & GDG Hackthon Judge"
+      "text": "Judging the GDG Cairo hackathon, Masons stood out for their engineering depth and strong team energy. Top 7 well deserved.",
+      "by": "Mohamed, Senior Android Developer @ Yassir & GDG Hackathon Judge"
     },
     "t1": {
-      "text": "As a hackathon judge, I rarely see teams with such genuine passion. Masons creates an environment where creativity thrives.",
-      "by": "Mohamed, CTO @ Electro Pi & GDG Hackthon Judge"
+      "text": "As a hackathon judge, I see few teams with this level of drive. Masons builds a culture where sharp ideas ship fast.",
+      "by": "Mohamed, CTO @ Electro Pi & GDG Hackathon Judge"
     },
     "t2": {
-      "text": "Masons brought such positive energy to the hackathon. Their approach to problem-solving is both technical and deeply human.",
-      "by": "Qamar, Android Developer @ Yassir & GDG Hackthon Judge"
+      "text": "Masons brought strong positive energy to the hackathon. Their problem-solving is technical and grounded in real human needs.",
+      "by": "Qamar, Android Developer @ Yassir & GDG Hackathon Judge"
     },
     "t3": {
-      "text": "The collaborative spirit at Masons is unmatched. we felt like part of the family from day one.",
+      "text": "The collaborative spirit at Masons is unmatched. We felt part of the team from day one.",
       "by": "Collective of Interns @ Masons"
     },
     "t4": {
-      "text": "Judging their NASA project, I was impressed by their technical skills but blown away by their team dynamics. Special culture.",
+      "text": "Judging their NASA project, I was impressed by their technical skills and blown away by their team dynamics. Special culture.",
       "by": "Ayman, CTO @ North West Africa Nokia"
     },
     "t5": {
-      "text": "Masons creates an environment where learning never stops. The growth mindset here is absolutely contagious.",
+      "text": "Masons builds an environment where learning stays constant. The growth mindset here pushes the whole team forward.",
       "by": "Abdelaziz, Co-Founder @ Masons"
     },
     "t6": {
-      "text": "At Masons, we focus on building a culture of trust, curiosity, and continuous improvement. Every milestone is a reflection of the team's dedication and shared vision.",
-      "by": "Seif, Founder & CEO @ Masons"
+      "text": "At Masons, we focus on trust, curiosity, and steady craft. Each milestone reflects the team's dedication and shared vision.",
+      "by": "Seif, Co-Founder @ Masons"
     },
     "t7": {
-      "text": "Seif showed excellent technical depth and leadership at DEPI. He leads by example and understands how to move teams with clarity and focus.",
+      "text": "Seif showed strong technical depth and leadership at DEPI. He leads by example and moves teams with clarity and focus.",
       "by": "Sayed Safwet, Senior Full Stack Engineer @ _VOIS & Mentor @ DEPI"
     }
   },
   "FAQ": {
-    "headlineStart": "Common",
-    "headlineSerif": "Questions",
-    "description": "Everything you need to know before we start building together.",
+    "kicker": "FAQ",
+    "headlineStart": "Straight",
+    "headlineSerif": "Answers",
+    "description": "What founders and business owners ask before bringing Masons onto a build.",
     "q1": {
-      "question": "How do you typically work with clients?",
-      "answer": "We start with a discovery conversation to understand your goals, then propose a collaborative approach. We believe in transparent communication, regular check-ins, and building solutions together rather than in isolation."
+      "question": "How do you work with clients?",
+      "answer": "We start with a focused scoping call around your revenue goals and constraints, then lock a clear milestone plan. You get live staging links, weekly demos, and open access to the engineers shipping your product."
     },
     "q2": {
-      "question": "What's your typical project timeline?",
-      "answer": "Most projects range from 6-16 weeks depending on scope. We work in focused sprints so you see progress quickly and can provide feedback along the way."
+      "question": "What technology stack do you use?",
+      "answer": "We choose proven tools based on your product goals, timeline, and budget. Our day-to-day toolkit spans Next.js, TypeScript, Go, Python, Convex, Postgres, Stripe, and production AI APIs."
     },
     "q3": {
-      "question": "Do you work with early-stage startups?",
-      "answer": "Absolutely. We love working with founders solving real problems. We can help validate ideas, build MVPs, and scale when you're ready to grow."
+      "question": "How fast can we get to production?",
+      "answer": "Most commercial web apps and MVPs launch in 6 to 16 weeks, with high-impact landing systems and internal dashboards shipping even faster in focused sprints."
     },
     "q4": {
-      "question": "What makes Masons different?",
-      "answer": "We are problem solvers, not just developers. From emotional AI to disaster prediction, we build technology that matters."
+      "question": "What makes Masons different from a typical agency?",
+      "answer": "We think like product owners, not ticket takers. You work with the founding engineers, avoid bloated retainers, and get software engineered to earn its keep."
     }
   },
   "CTA": {
-    "headlineStart": "Ready to Build Something",
-    "headlineSerif": "That Matters?",
-    "description": "Whether you have a clear vision or just a burning problem that needs solving, let's talk. No pitch decks required. Just real conversations about real solutions.",
-    "button": "Start a Conversation",
-    "trustNote": "Typically respond within 24 hours. No spam, no pushy sales."
+    "kicker": "Start a Project",
+    "headlineStart": "Ready to Build Software",
+    "headlineSerif": "That Delivers?",
+    "description": "Whether you are launching a new product or replacing a system slowing your team down, send us the brief. No pitch decks required.",
+    "button": "Start a conversation",
+    "quickBriefButton": "Quick brief",
+    "trustNote": "Replies within 24 hours · Cairo, Egypt"
   },
   "Footer": {
-    "tagline": "We build technology that changes lives and drives real impact.",
-    "menuTitle": "Menu",
-    "legalTitle": "Legal",
-    "newsletterTitle": "Stay Updated",
-    "newsletterDesc": "Get occasional updates on our projects and insights.",
-    "newsletterPlaceholder": "your@email.com",
+    "tagline": "Cairo product engineering studio building commercial web apps, internal business systems, and applied AI.",
+    "menuTitle": "Navigation",
+    "resourcesTitle": "Resources",
+    "inquiryKicker": "Direct Inquiry",
+    "inquiryDesc": "Need an app shipped, a funnel rebuilt, or an internal system automated? Send a short brief and we reply within 24 hours.",
+    "inquiryCta": "Start a project",
+    "copyEmailLabel": "Copy email",
+    "copiedLabel": "Copied",
+    "emailCopied": "Email address copied to clipboard.",
     "links": {
       "features": "Why Us",
       "projects": "Our Work",
       "about": "The Team",
-      "contact": "Contact"
+      "contact": "Contact",
+      "linksHub": "All Links"
     },
     "legal": {
-      "privacy": "Privacy Policy",
-      "terms": "Terms of Service"
+      "privacy": "Privacy Policy"
     },
-    "copyright": "© 2026 Masons. Crafting tomorrow's solutions today.",
+    "copyright": "© 2026 Masons. All rights reserved.",
     "madeWith": "Based in Cairo, Egypt"
   },
   "About": {
-    "heroIntro": "Masons started in a coffee shop at 2AM. Three teenage devs sat huddled over half-dead laptops, half-full cups of bitter Turkish coffee, and fully charged dreams.",
-    "heroStory1": "Back then, they were barely 16. Still figuring out what a for loop was, still learning to walk in the dev world without tripping over syntax errors. They had an idea: an app that could actually help people. So they mapped it out, picked a stack they barely knew, and dove in headfirst. For three months, they learned, built, dreamed. Everything felt like it was lining up.",
-    "heroStory2": "Then one random day, just opening the Play Store to update Clash of Clans like any other normal teenager... bam. There it was. The exact same app. Built by someone else. Shipped. Polished. Everywhere. And it was good. Like, damn, hats-off kind of good. It crushed in Egypt. That sting? Yeah, it hurt. But respect where it's due. They got beat fair and square.",
-    "heroStory3": "After that, life kicked in. One dev dipped. School got hectic. The dream went into deep freeze for a while. Third secondary, finals, the chaos of teenhood. Masons went quiet.",
-    "heroStory4": "But legends don't stay dormant forever.",
-    "heroStory5": "They graduated highschool. Life shifted. Seif crossed paths with two powerhouses: Ahmed Khalid, better known as Z3ln, and Sherif Lotfy, aka Sizif. Meanwhile, Abdelaziz met Omar Waleed in a different corner of the college cosmos. And just like that, the universe tossed a new challenge their way: NASA Space Apps Cairo 2023. That was the spark.",
-    "heroStory6": "Seif called in the cavalry: his cousin Omar Ellaban. The puzzle pieces locked in. Six minds, six stories, one wild idea. For the first time, the Mighty Founding Six stood assembled.",
-    "heroStory7": "When Rafiqi came into view, something shifted. The mission got real. They searched, reached out, brought new people into the fold. Each one brought a different background, a new way of thinking, skills the OGs didn't have. And that's what made the team powerful as hell. Not clones, but a crew of misfits with heart, grit, and range. Every one of them unique as hell.",
-    "heroStory8": "From there, it was never about the hype. Not about slapping \"AI-powered\" on a landing page just to raise eyebrows. They weren't here for billion-dollar nothings.",
-    "heroStory9": "They were here to build real stuff that mattered. Sometimes that meant AI that actually understood the context of a conversation, not just spit out buzzwords. Other times it was about infrastructure that didn't fall apart when 50,000 users showed up at once. Always, always, it was about putting people before ego.",
-    "heroStory10": "This wasn't just a startup. This was Masons.",
-    "teamHeadlineStart": "Meet The",
-    "teamHeadlineSerif": "Builders",
-    "ctaHeadlineStart": "Let's Build Something That",
-    "ctaHeadlineSerif": "Matters",
-    "ctaDescription": "Whether you need help bringing an idea to life, or want to join a team that gives a damn — we'd love to talk. No pitch decks needed. Just real conversations about real problems worth solving.",
-    "ctaButton": "Start a Conversation",
+    "kicker": "About Masons",
+    "headlineStart": "An Engineering Studio Built for",
+    "headlineSerif": "Real Commercial Outcomes",
+    "subtitle": "Small by choice, obsessed with execution, and accountable for software that captures leads, moves revenue, and stays up under load.",
+    "storyLead": "Masons is a Cairo product studio built by engineers who have shipped together for years. Businesses hire us when they need dependable software that converts customers and scales without burning months on bloated agencies.",
+    "storyP1": "We started with a deep love for hard engineering problems, testing ourselves in public at NASA Space Apps Cairo (NAVERIS, Orbit), placing Top 7 at GDG Cairo's AI Finance Hackathon (repAI), and building our own AI product, Rafiqi. We remain proud of those roots because they forged our speed, discipline, and ability to ship under real pressure.",
+    "storyP2": "Today, that same engineering edge powers commercial software: live business dashboards tracking 10M+ EGP in monthly client volume, high-converting web platforms, and AI automations that remove manual bottlenecks. Our technical approach is pragmatic: we choose proven tools matched to your business goals, timeline, and long-term margins.",
+    "storyP3": "When you hire Masons, you sit side by side with the founding engineers. No account-manager telephone game, no padded timelines, and no vanishing after launch. We ship working software each week and stay invested in the numbers your product produces.",
+    "stats": {
+      "founded": "Founded in Cairo",
+      "builds": "Shipped builds",
+      "volume": "EGP/mo client volume",
+      "reply": "Direct reply time"
+    },
+    "dossier": {
+      "title": "Studio Overview",
+      "studioLabel": "Commercial Studio",
+      "basedLabel": "Headquarters",
+      "basedValue": "Cairo, Egypt · Worldwide",
+      "modelLabel": "Engagement Model",
+      "modelValue": "Founding engineers on each build",
+      "stackLabel": "Core Stack",
+      "stackValue": "Pragmatic, chosen per product",
+      "contactLabel": "Direct Email"
+    },
+    "teamKicker": "The Team",
+    "teamHeadlineStart": "The People Behind",
+    "teamHeadlineSerif": "The Work",
+    "teamSubtitle": "No account-manager handoffs. Meet the engineers architecting, shipping, and scaling your product.",
+    "ctaKicker": "Work With Us",
+    "ctaHeadlineStart": "Ready to Ship a Product That",
+    "ctaHeadlineSerif": "Earns Its Keep?",
+    "ctaDescription": "Tell us what you are building and what commercial result you need. We will reply within 24 hours with clear next steps.",
+    "ctaButton": "Start a conversation",
+    "ctaQuickBrief": "Quick brief",
     "team": {
       "seif": {
         "name": "Seif Zakaria",
-        "role": "Founder & CEO of Masons",
-        "description": "Just a guy who loves shipping apps that actually works. Deep in code, big on clarity, always chasing better systems.",
-        "focus": "Pretending it's simple until it actually is",
-        "portfolioButton": "Visit Portfolio"
+        "role": "Co-Founder & Full-Stack Software Engineer",
+        "bio": "Leads product strategy, client scoping, and full-stack delivery at Masons. Focused on turning business requirements into fast, dependable web apps, internal dashboards, and AI systems.",
+        "tags": ["Product Strategy", "Full-Stack Delivery", "Web Platforms"]
+      },
+      "sherif": {
+        "name": "Sherif Lotfy",
+        "role": "Co-Founder & Full-Stack Software Engineer",
+        "bio": "Builds full-stack web products, design systems, and conversion-focused interfaces at Masons. Pairs frontend precision with end-to-end engineering so products feel sharp across desktop and mobile.",
+        "tags": ["Full-Stack Engineering", "Design Systems", "Frontend Craft"]
       },
       "abdelaziz": {
         "name": "Abdelaziz Amr",
-        "role": "Backend Dev & Co-Founder of Masons",
-        "description": "Turns user pain into elegant solutions. Has strong opinions about whitespace.",
-        "focus": "Design that respects humans"
+        "role": "Co-Founder & Backend Engineer",
+        "bio": "Co-founded Masons and owns backend architecture, database modeling, and high-reliability services. Keeps transactions, auth, and server workloads steady as client volume scales.",
+        "tags": ["Backend Systems", "Data Modeling", "System Reliability"]
       },
       "ahmed": {
-        "name": "Ahmed Khaled (Z3ln)",
-        "role": "Fullstack Dev & CTO of Masons",
-        "description": "Turns user pain into elegant solutions. Has strong opinions about whitespace.",
-        "focus": "Design that respects humans"
-      },
-      "sherif": {
-        "name": "Sherif Lotfy (Sizif)",
-        "role": "Fullstack Dev & VP of Frontend Team",
-        "description": "Turns user pain into elegant solutions. Has strong opinions about whitespace.",
-        "focus": "Design that respects humans",
-        "portfolioButton": "Visit Portfolio"
+        "name": "Ahmed Khaled",
+        "role": "Co-Founder & Infrastructure Engineer",
+        "bio": "Owns cloud infrastructure, deployment pipelines, observability, and server reliability across Masons builds. Keeps production systems fast, secure, and ready to scale under real traffic.",
+        "tags": ["Cloud Infrastructure", "DevOps & CI/CD", "Observability"]
       },
       "omar": {
-        "name": "Omar Ellaban (Ktlr)",
-        "role": "Backend Engineer",
-        "description": "Builds APIs you actually want to use. Once fixed a critical bug from a moving taxi.",
-        "focus": "Rock-solid foundations"
-      },
-      "omarWaleed": {
-        "name": "Omar Waleed",
-        "role": "AI Engineer",
-        "description": "Teaches machines empathy. Writes algorithms that actually understand context.",
-        "focus": "Humanizing artificial intelligence"
+        "name": "Omar Ellaban",
+        "role": "Co-Founder & Backend Engineer",
+        "bio": "Designs clean service APIs, payment and CRM integrations, and background automation pipelines. Focused on dependable server foundations that keep business operations moving.",
+        "tags": ["API Design", "Integrations", "Automation Pipelines"]
       }
     }
   },
   "ContactPage": {
-    "heroHeadlineStart": "Let's Start a",
-    "heroHeadlineSerif": "Conversation",
-    "heroDescription1": "Got an idea that needs building? A problem that needs solving? Or just want to chat about what's possible?",
-    "heroDescription2": "We believe the best projects start with genuine conversations. No pitch decks, no lengthy proposals. Just real talk about real solutions.",
-    "contactMethodsHeadlineStart": "Ways To",
-    "contactMethodsHeadlineSerif": "Connect",
+    "kicker": "Contact",
+    "heroHeadlineStart": "Let's Scope Your",
+    "heroHeadlineSerif": "Next Build",
+    "heroDescription1": "Need a product launched, a conversion bottleneck fixed, or an internal system built right the first time?",
+    "heroDescription2": "Send the rough notes. No bloated sales decks, just a direct conversation about scope, timeline, and ROI.",
     "contactMethods": {
       "email": {
         "title": "Email Us",
-        "description": "Drop us a line anytime. We read every message personally.",
-        "action": "wearemasonsteam@gmail.com"
+        "description": "Write anytime at wearemasonsteam@gmail.com. A founder reads each message.",
+        "action": "wearemasonsteam@gmail.com",
+        "openAction": "Open email",
+        "copyAction": "Copy email address",
+        "copiedToast": "Email address copied to clipboard."
       },
       "chat": {
-        "title": "Quick Chat",
-        "description": "Schedule a 15-minute call to discuss your project.",
-        "action": "Book a Call"
+        "title": "Quick Call",
+        "description": "Share a few details below and we will set up a focused 15-minute scoping call.",
+        "action": "Jump to brief"
       },
       "visit": {
-        "title": "Visit Us",
-        "description": "We're based in Cairo, but work with teams globally.",
-        "action": "Get Directions"
+        "title": "Based in Cairo",
+        "description": "Headquartered in Cairo, Egypt and partnering with founders and operators worldwide.",
+        "action": "View on Maps"
       }
     },
+    "formKicker": "Project Brief",
     "formHeadlineStart": "Tell Us About Your",
     "formHeadlineSerif": "Project",
     "form": {
@@ -291,59 +408,271 @@
       "projectTypeLabel": "Project Type",
       "projectTypePlaceholder": "Select project type",
       "projectTypes": {
-        "webDevelopment": "Web Development",
-        "aiIntegration": "AI Integration",
-        "systemArchitecture": "System Architecture",
-        "productDesign": "Product Design",
-        "consulting": "Consulting",
+        "webDevelopment": "Web App / Revenue Platform",
+        "aiIntegration": "AI & Workflow Automation",
+        "systemArchitecture": "Internal Business Systems",
+        "productDesign": "Conversion UI / Product Design",
+        "consulting": "Technical Audit & Advisory",
         "other": "Other"
       },
       "messageLabel": "Message *",
-      "messagePlaceholder": "Tell us about your project, timeline, and what you're hoping to achieve...",
-      "submitButton": "Start the Conversation",
+      "messagePlaceholder": "Tell us what you are building, your target timeline, and the business result you want...",
+      "submitButton": "Send project brief",
       "submittingButton": "Sending...",
-      "disclaimer": "We typically respond within 24 hours. No spam, no pushy sales calls.",
-      "successTitle": "✅ Email Sent!",
-      "successDescription": "We'll get back to you within 24 hours.",
-      "errorTitle": "❌ Failed to Send",
-      "networkErrorTitle": "🚨 Error",
-      "networkErrorDescription": "Check your network or try again later."
+      "disclaimer": "We reply within 24 hours. No spam and no pushy sales calls.",
+      "successTitle": "Message sent",
+      "successDescription": "We will reply within 24 hours.",
+      "errorTitle": "Failed to send",
+      "networkErrorTitle": "Network error",
+      "networkErrorDescription": "Check your connection or try again later."
     },
-    "projectTypesHeadline": "How we typically help",
+    "projectTypesKicker": "Capabilities",
+    "projectTypesHeadline": "Where we drive ROI",
     "projectTypes": {
       "newProduct": {
-        "title": "New Product Development",
-        "description": "From concept to launch, we help bring your ideas to life with thoughtful technology choices."
+        "title": "Commercial Web Apps & MVPs",
+        "description": "From scope to live launch, we ship fast, conversion-ready products engineered to capture leads and close revenue."
       },
       "teamAugmentation": {
-        "title": "Team Augmentation",
-        "description": "Need extra hands? We integrate seamlessly with your existing team and processes."
+        "title": "Dedicated Engineering Sprints",
+        "description": "Need senior execution inside your repo? We plug into your roadmap and clear product bottlenecks fast."
       },
       "consulting": {
-        "title": "Technical Consulting",
-        "description": "Architecture reviews, technology audits, and strategic guidance for your tech decisions."
+        "title": "Architecture & Conversion Audits",
+        "description": "Sharp diagnostics on slow apps, leaky funnels, and tangled codebases before you spend on a rewrite."
       }
     },
+    "faqKicker": "FAQ",
     "faqHeadlineStart": "Common",
     "faqHeadlineSerif": "Questions",
     "faq": {
       "q1": {
-        "question": "How do you typically work with clients?",
-        "answer": "We start with a discovery conversation to understand your goals, then propose a collaborative approach. We believe in transparent communication, regular check-ins, and building solutions together rather than in isolation."
+        "question": "How do you work with clients?",
+        "answer": "We start with a scoping call tied to your business targets, then ship in weekly sprints with live staging demos."
       },
       "q2": {
-        "question": "What's your typical project timeline?",
-        "answer": "It depends on scope, but most projects range from 6-16 weeks. We prefer working in focused sprints so you can see progress quickly and provide feedback along the way."
+        "question": "What is a standard project timeline?",
+        "answer": "Most commercial builds launch in 6 to 16 weeks depending on scope, with focused landing systems and dashboards shipping sooner."
       },
       "q3": {
-        "question": "Do you work with early-stage startups?",
-        "answer": "Absolutely. We love working with founders who are solving real problems. We can help validate ideas, build MVPs, and scale when you're ready to grow."
+        "question": "Do you work with early-stage founders and growing businesses?",
+        "answer": "Yes. We build v1 products for funded founders and replace messy spreadsheets with live dashboards for established operators."
+      }
+    }
+  },
+  "InquiryModal": {
+    "kickerLeft": "Masons",
+    "kickerRight": "Quick Brief",
+    "title": "Start a Project",
+    "subtitle": "Pick the closest track to prefill an email, or open the full project brief form.",
+    "closeLabel": "Close modal",
+    "scopeLabel": "Select track",
+    "options": {
+      "new-product": {
+        "title": "Commercial App / MVP",
+        "description": "Revenue-ready web apps, funnels, and full-stack launches."
+      },
+      "ai-integration": {
+        "title": "AI & Automation",
+        "description": "Applied AI workflows that cut manual ops and lift margins."
+      },
+      "team-augmentation": {
+        "title": "Engineering Sprints",
+        "description": "Senior full-stack velocity plugged into your roadmap."
+      },
+      "consulting": {
+        "title": "Technical Audit",
+        "description": "Architecture, speed, and conversion bottleneck review."
+      }
+    },
+    "emailAction": "Write an email",
+    "copyButton": "Copy email",
+    "copiedButton": "Copied",
+    "copiedToast": "Email address copied to clipboard.",
+    "copyFallback": "Email us at",
+    "formAction": "Open contact form",
+    "studioAction": "Masons Studio",
+    "responseNote": "Replies within 24 hours · wearemasonsteam@gmail.com"
+  },
+  "LinksPage": {
+    "backHome": "Website",
+    "city": "Cairo",
+    "kicker": "Product Engineering Studio · Cairo",
+    "bio": "Cairo engineering studio building commercial web apps, internal operations dashboards, and applied AI.",
+    "tags": {
+      "t1": "Commercial Web Apps",
+      "t2": "Internal Dashboards",
+      "t3": "AI & Automation",
+      "t4": "Cairo · Worldwide"
+    },
+    "emailButton": "Email us",
+    "copyButton": "Copy email",
+    "copiedButton": "Copied",
+    "copiedToast": "Email address copied to clipboard.",
+    "featuredHeading": "Start here",
+    "featured": {
+      "studio": {
+        "title": "Masons Studio",
+        "subtitle": "Commercial engineering, client builds, and high-velocity product sprints"
+      },
+      "website": {
+        "title": "Masons Website",
+        "subtitle": "Selected work, process, and engineering proof"
+      },
+      "contact": {
+        "title": "Start a Project",
+        "subtitle": "Send a project brief or book a 15-minute scoping call"
+      },
+      "team": {
+        "title": "Meet the Team",
+        "subtitle": "The founding engineers behind 20+ shipped builds and 10M+ EGP in monthly client volume"
+      }
+    },
+    "productsHeading": "Flagship & Legacy Builds",
+    "socialsHeading": "Elsewhere",
+    "quickBriefLabel": "Open quick project brief",
+    "quickBriefMeta": "24h reply"
+  },
+  "PrivacyPage": {
+    "kicker": "Legal & Privacy",
+    "title": "Privacy Policy",
+    "updated": "Updated November 2026",
+    "scopeNote": "Applies to wearemasons.com and project inquiries",
+    "intro": "Plain language on what we collect when you visit our site or send a brief, how we protect commercial details, and how you can remove your data at any time.",
+    "highlightsLabel": "Privacy commitments",
+    "highlights": {
+      "h1": {
+        "title": "Zero Data Resale",
+        "desc": "We do not sell, rent, or broker contact lists, project briefs, or visitor data to third parties."
+      },
+      "h2": {
+        "title": "Confidential Briefs & NDAs",
+        "desc": "Specs, revenue figures, and internal workflows shared with us stay private. Mutual NDAs are signed before scoping on request."
+      },
+      "h3": {
+        "title": "Minimal Browser Footprint",
+        "desc": "No ad retargeting pixels or cross-site trackers. Your browser stores only your display theme and language choice."
+      }
+    },
+    "tocTitle": "On this page",
+    "tocEmailLabel": "Privacy & NDA inbox",
+    "s1": {
+      "title": "Information We Collect",
+      "body": "We collect only the information required to answer inquiries, scope client builds, and keep this website operational.",
+      "p1": "Contact form and email details you submit: your name, email address, optional company name, project category, and brief.",
+      "p2": "Basic hosting request logs (such as IP address, browser type, and timestamp) recorded by our infrastructure provider for uptime and abuse protection.",
+      "p3": "Project documents, links, or credentials you choose to share during discovery or active engineering engagements."
+    },
+    "s2": {
+      "title": "How We Use Your Information",
+      "body": "Your details are used for clear operational purposes tied to your request.",
+      "p1": "Replying to project inquiries, preparing scope proposals, and scheduling discovery calls.",
+      "p2": "Delivering contracted software builds, staging previews, invoicing, and post-launch support.",
+      "p3": "Protecting the site and contact endpoint against spam, automated abuse, and unauthorized access."
+    },
+    "s3": {
+      "title": "Client Confidentiality & NDAs",
+      "body": "We treat product ideas, commercial metrics, customer data models, and architecture notes shared during inquiries as confidential business information. Access is limited to founding Masons engineers involved in evaluating or building your project. If your company requires a mutual NDA before sharing full specifications, email us first and we will execute one prior to discovery."
+    },
+    "s4": {
+      "title": "Storage, Infrastructure & Retention",
+      "body": "Contact form submissions travel over encrypted HTTPS and encrypted email transport into our private team inbox. We rely on vetted infrastructure providers for hosting and email delivery. Inquiry records are retained only as long as needed to handle ongoing discussions, active contracts, or legal accounting obligations."
+    },
+    "s5": {
+      "title": "Cookies & Local Browser Preferences",
+      "body": "This website avoids third-party advertising cookies and behavioral tracking scripts. We use lightweight browser storage (localStorage) to remember your chosen light or dark theme and standard routing cookies or URL prefixes to keep your selected language (English, Arabic, or French) consistent as you browse."
+    },
+    "s6": {
+      "title": "Your Data Rights",
+      "body": "Regardless of where your company operates, you stay in control of the information you share with Masons.",
+      "p1": "Request a copy of the personal contact records or inquiry messages we hold for you.",
+      "p2": "Ask us to correct inaccurate contact or billing details.",
+      "p3": "Request deletion of your inquiry emails and attachments once no active contract or legal retention requirement applies."
+    },
+    "s7": {
+      "title": "Policy Updates",
+      "body": "As we expand our studio services or adopt new infrastructure, we may update this policy. Material revisions will be reflected by updating the date at the top of this page."
+    },
+    "contactKicker": "Privacy & NDA Requests",
+    "contactTitle": "Need a data deletion or mutual NDA?",
+    "contactDesc": "Write to our founding team at",
+    "contactCta": "Quick brief"
+  },
+  "CaseStudy": {
+    "backToWork": "All work",
+    "kicker": "Case Study",
+    "tocTitle": "On this page",
+    "highlightsLabel": "Project highlights",
+    "liveDemo": "Live demo",
+    "sourceCode": "Source code",
+    "liveLabel": "Live deployment",
+    "repoLabel": "Public repository",
+    "ctaKicker": "Next Build",
+    "ctaTitle": "Ready to ship something that earns?",
+    "ctaDesc": "Send us your product brief and we will reply within 24 hours.",
+    "ctaButton": "Start a project",
+    "items": {
+      "rafiqi": {
+        "h1": {
+          "title": "AI + Mental Health",
+          "desc": "Built for Egyptian Arabic dialects, local cultural context, and 24/7 accessibility."
+        },
+        "h2": {
+          "title": "Nationwide Target",
+          "desc": "Designed for 27 Egyptian governorates, 100,000+ active users, and 95%+ crisis accuracy."
+        },
+        "h3": {
+          "title": "Dialect-First Stack",
+          "desc": "Fine-tuned LLM workflows, crisis escalation rules, and offline-resilient mobile access."
+        }
+      },
+      "repai": {
+        "h1": {
+          "title": "AI + Fintech Rewards",
+          "desc": "Turns household recycling into instant cashback via vision detection and collector pickup."
+        },
+        "h2": {
+          "title": "GDG Cairo Top 7",
+          "desc": "Selected in the Top 7 at the AI Finance Hackathon 2025 by GDG Cairo."
+        },
+        "h3": {
+          "title": "Angular · Go · GCP",
+          "desc": "Gemini vision detection, Google Image receipt parsing, Firestore, and Cloud Run."
+        }
+      },
+      "orbit": {
+        "h1": {
+          "title": "3D Orbital Orrery",
+          "desc": "Interactive WebGL solar system tracking Near-Earth Objects live in the browser."
+        },
+        "h2": {
+          "title": "NASA Space Apps 2024",
+          "desc": "Tracks 100+ NEOs from NASA's Small Body Database with Keplerian propagation."
+        },
+        "h3": {
+          "title": "Next.js · Three.js · Go",
+          "desc": "Paired with a Gemini space chatbot and background orbital computation."
+        }
+      },
+      "naveris": {
+        "h1": {
+          "title": "Disaster Early Warning",
+          "desc": "Geospatial dot-matrix ingestion pipeline forecasting severe weather before landfall."
+        },
+        "h2": {
+          "title": "91% Tornado · 87% Storm",
+          "desc": "Validated accuracy across multi-hazard datasets for NASA Space Apps Cairo 2023."
+        },
+        "h3": {
+          "title": "Python · GIS · REST",
+          "desc": "Automated sensor ingestion, anomaly validation, risk scoring, and alert dispatch."
+        }
       }
     }
   },
   "NotFound": {
-    "line1": "Oops. This page doesn't exist. Maybe it's hiding with the secrets of the universe.",
-    "line2": "Or maybe you just took a wrong turn. No shame in that. Happens to the best of us.",
-    "cta": "Back to Home"
+    "line1": "This page does not exist. It may have moved or been removed.",
+    "line2": "Head back to the homepage to explore our work and team.",
+    "cta": "Back to home"
   }
 }

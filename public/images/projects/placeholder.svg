@@ -1,0 +1,142 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1000" viewBox="0 0 1600 1000" fill="none">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1600" y2="1000" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#17141d"/>
+      <stop offset="55%" stop-color="#1d1827"/>
+      <stop offset="100%" stop-color="#131118"/>
+    </linearGradient>
+
+    <radialGradient id="glowTop" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(1160 190) rotate(138) scale(760 540)">
+      <stop offset="0%" stop-color="#a78bfa" stop-opacity="0.28"/>
+      <stop offset="52%" stop-color="#8b5cf6" stop-opacity="0.09"/>
+      <stop offset="100%" stop-color="#8b5cf6" stop-opacity="0"/>
+    </radialGradient>
+
+    <radialGradient id="glowBottom" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(360 880) rotate(-25) scale(640 420)">
+      <stop offset="0%" stop-color="#c4b5fd" stop-opacity="0.16"/>
+      <stop offset="100%" stop-color="#c4b5fd" stop-opacity="0"/>
+    </radialGradient>
+
+    <pattern id="grid" width="64" height="64" patternUnits="userSpaceOnUse">
+      <path d="M 64 0 L 0 0 0 64" fill="none" stroke="#c4b5fd" stroke-opacity="0.07" stroke-width="1"/>
+    </pattern>
+
+    <linearGradient id="panelSurface" x1="220" y1="180" x2="1380" y2="860" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#2a2438" stop-opacity="0.88"/>
+      <stop offset="100%" stop-color="#1c1826" stop-opacity="0.72"/>
+    </linearGradient>
+
+    <linearGradient id="panelStroke" x1="220" y1="180" x2="1380" y2="860" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#d8ccf8" stop-opacity="0.26"/>
+      <stop offset="50%" stop-color="#a78bfa" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0.05"/>
+    </linearGradient>
+
+    <linearGradient id="accentBar" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#c4b5fd"/>
+      <stop offset="100%" stop-color="#8b5cf6"/>
+    </linearGradient>
+
+    <linearGradient id="chartFill" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#a78bfa" stop-opacity="0.34"/>
+      <stop offset="100%" stop-color="#a78bfa" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Studio Canvas -->
+  <rect width="1600" height="1000" fill="url(#bg)"/>
+  <rect width="1600" height="1000" fill="url(#grid)"/>
+  <rect width="1600" height="1000" fill="url(#glowTop)"/>
+  <rect width="1600" height="1000" fill="url(#glowBottom)"/>
+
+  <!-- Subtle architectural framing guides -->
+  <line x1="120" y1="0" x2="120" y2="1000" stroke="#c4b5fd" stroke-opacity="0.07" stroke-width="1"/>
+  <line x1="1480" y1="0" x2="1480" y2="1000" stroke="#c4b5fd" stroke-opacity="0.07" stroke-width="1"/>
+  <line x1="0" y1="112" x2="1600" y2="112" stroke="#c4b5fd" stroke-opacity="0.07" stroke-width="1"/>
+  <line x1="0" y1="888" x2="1600" y2="888" stroke="#c4b5fd" stroke-opacity="0.07" stroke-width="1"/>
+
+  <!-- Main Architectural Product Stage -->
+  <g>
+    <rect x="200" y="168" width="1200" height="664" rx="28" fill="url(#panelSurface)" stroke="url(#panelStroke)" stroke-width="1.5"/>
+
+    <!-- Top Chrome Bar -->
+    <line x1="200" y1="234" x2="1400" y2="234" stroke="#c4b5fd" stroke-opacity="0.11" stroke-width="1"/>
+    <circle cx="244" cy="201" r="6" fill="#c4b5fd" fill-opacity="0.28"/>
+    <circle cx="268" cy="201" r="6" fill="#c4b5fd" fill-opacity="0.18"/>
+    <circle cx="292" cy="201" r="6" fill="#c4b5fd" fill-opacity="0.12"/>
+    <rect x="650" y="191" width="300" height="20" rx="10" fill="#c4b5fd" fill-opacity="0.07" stroke="#c4b5fd" stroke-opacity="0.12"/>
+    <rect x="1280" y="191" width="84" height="20" rx="10" fill="#a78bfa" fill-opacity="0.18"/>
+
+    <!-- Left Navigation Rail Wireframe -->
+    <line x1="418" y1="234" x2="418" y2="832" stroke="#c4b5fd" stroke-opacity="0.09" stroke-width="1"/>
+    <rect x="238" y="274" width="142" height="14" rx="7" fill="#c4b5fd" fill-opacity="0.22"/>
+    <rect x="238" y="320" width="142" height="34" rx="10" fill="#a78bfa" fill-opacity="0.18" stroke="#c4b5fd" stroke-opacity="0.2"/>
+    <rect x="254" y="332" width="76" height="10" rx="5" fill="#e9e2fc" fill-opacity="0.65"/>
+    <rect x="254" y="378" width="96" height="10" rx="5" fill="#c4b5fd" fill-opacity="0.18"/>
+    <rect x="254" y="416" width="82" height="10" rx="5" fill="#c4b5fd" fill-opacity="0.14"/>
+    <rect x="254" y="454" width="104" height="10" rx="5" fill="#c4b5fd" fill-opacity="0.14"/>
+    <rect x="254" y="492" width="72" height="10" rx="5" fill="#c4b5fd" fill-opacity="0.11"/>
+
+    <!-- Bottom Sidebar Card -->
+    <rect x="238" y="688" width="142" height="106" rx="16" fill="#17141f" fill-opacity="0.6" stroke="#c4b5fd" stroke-opacity="0.12"/>
+    <rect x="256" y="710" width="54" height="8" rx="4" fill="#a78bfa" fill-opacity="0.5"/>
+    <rect x="256" y="732" width="102" height="12" rx="6" fill="#e9e2fc" fill-opacity="0.28"/>
+    <rect x="256" y="756" width="84" height="16" rx="8" fill="url(#accentBar)" fill-opacity="0.65"/>
+
+    <!-- Top Metric Cards Row -->
+    <rect x="456" y="272" width="286" height="132" rx="18" fill="#181522" fill-opacity="0.65" stroke="#c4b5fd" stroke-opacity="0.13"/>
+    <rect x="480" y="298" width="88" height="10" rx="5" fill="#c4b5fd" fill-opacity="0.24"/>
+    <rect x="480" y="328" width="142" height="24" rx="8" fill="#efeafc" fill-opacity="0.72"/>
+    <rect x="480" y="368" width="108" height="8" rx="4" fill="#a78bfa" fill-opacity="0.45"/>
+
+    <rect x="766" y="272" width="286" height="132" rx="18" fill="#181522" fill-opacity="0.65" stroke="#c4b5fd" stroke-opacity="0.13"/>
+    <rect x="790" y="298" width="102" height="10" rx="5" fill="#c4b5fd" fill-opacity="0.24"/>
+    <rect x="790" y="328" width="124" height="24" rx="8" fill="#efeafc" fill-opacity="0.62"/>
+    <rect x="790" y="368" width="92" height="8" rx="4" fill="#c4b5fd" fill-opacity="0.28"/>
+
+    <rect x="1076" y="272" width="286" height="132" rx="18" fill="#181522" fill-opacity="0.65" stroke="#c4b5fd" stroke-opacity="0.13"/>
+    <rect x="1100" y="298" width="96" height="10" rx="5" fill="#c4b5fd" fill-opacity="0.24"/>
+    <rect x="1100" y="328" width="136" height="24" rx="8" fill="#efeafc" fill-opacity="0.62"/>
+    <rect x="1100" y="368" width="118" height="8" rx="4" fill="#c4b5fd" fill-opacity="0.28"/>
+
+    <!-- Primary Editorial Analytics / Canvas Module -->
+    <rect x="456" y="428" width="596" height="366" rx="20" fill="#181522" fill-opacity="0.72" stroke="#c4b5fd" stroke-opacity="0.14"/>
+    <rect x="484" y="458" width="146" height="12" rx="6" fill="#efeafc" fill-opacity="0.5"/>
+    <rect x="484" y="480" width="96" height="8" rx="4" fill="#c4b5fd" fill-opacity="0.22"/>
+    <rect x="942" y="456" width="82" height="22" rx="11" fill="#a78bfa" fill-opacity="0.18" stroke="#c4b5fd" stroke-opacity="0.22"/>
+
+    <!-- Horizontal guide lines inside chart -->
+    <line x1="484" y1="548" x2="1024" y2="548" stroke="#c4b5fd" stroke-opacity="0.08" stroke-dasharray="4 6"/>
+    <line x1="484" y1="616" x2="1024" y2="616" stroke="#c4b5fd" stroke-opacity="0.08" stroke-dasharray="4 6"/>
+    <line x1="484" y1="684" x2="1024" y2="684" stroke="#c4b5fd" stroke-opacity="0.08" stroke-dasharray="4 6"/>
+    <line x1="484" y1="752" x2="1024" y2="752" stroke="#c4b5fd" stroke-opacity="0.12"/>
+
+    <!-- Smooth Curve & Area -->
+    <path d="M 484 720 C 548 706, 588 648, 650 656 C 712 664, 756 592, 822 598 C 888 604, 944 532, 1024 516 L 1024 752 L 484 752 Z" fill="url(#chartFill)"/>
+    <path d="M 484 720 C 548 706, 588 648, 650 656 C 712 664, 756 592, 822 598 C 888 604, 944 532, 1024 516" stroke="url(#accentBar)" stroke-width="3" stroke-linecap="round" fill="none"/>
+    <circle cx="822" cy="598" r="6" fill="#181522" stroke="#c4b5fd" stroke-width="3"/>
+    <circle cx="1024" cy="516" r="6" fill="#c4b5fd"/>
+
+    <!-- Right Activity / Modules Column -->
+    <rect x="1076" y="428" width="286" height="366" rx="20" fill="#181522" fill-opacity="0.72" stroke="#c4b5fd" stroke-opacity="0.14"/>
+    <rect x="1102" y="458" width="112" height="12" rx="6" fill="#efeafc" fill-opacity="0.5"/>
+
+    <rect x="1102" y="496" width="234" height="58" rx="14" fill="#231e30" fill-opacity="0.75" stroke="#c4b5fd" stroke-opacity="0.14"/>
+    <circle cx="1128" cy="525" r="12" fill="#a78bfa" fill-opacity="0.28"/>
+    <rect x="1152" y="514" width="112" height="10" rx="5" fill="#efeafc" fill-opacity="0.45"/>
+    <rect x="1152" y="532" width="76" height="8" rx="4" fill="#c4b5fd" fill-opacity="0.2"/>
+
+    <rect x="1102" y="568" width="234" height="58" rx="14" fill="#231e30" fill-opacity="0.55" stroke="#c4b5fd" stroke-opacity="0.1"/>
+    <circle cx="1128" cy="597" r="12" fill="#c4b5fd" fill-opacity="0.18"/>
+    <rect x="1152" y="586" width="128" height="10" rx="5" fill="#efeafc" fill-opacity="0.35"/>
+    <rect x="1152" y="604" width="88" height="8" rx="4" fill="#c4b5fd" fill-opacity="0.18"/>
+
+    <rect x="1102" y="640" width="234" height="58" rx="14" fill="#231e30" fill-opacity="0.55" stroke="#c4b5fd" stroke-opacity="0.1"/>
+    <circle cx="1128" cy="669" r="12" fill="#c4b5fd" fill-opacity="0.18"/>
+    <rect x="1152" y="658" width="98" height="10" rx="5" fill="#efeafc" fill-opacity="0.35"/>
+    <rect x="1152" y="676" width="110" height="8" rx="4" fill="#c4b5fd" fill-opacity="0.18"/>
+
+    <rect x="1102" y="716" width="234" height="48" rx="12" fill="#a78bfa" fill-opacity="0.14" stroke="#c4b5fd" stroke-opacity="0.22"/>
+    <rect x="1164" y="735" width="110" height="10" rx="5" fill="#e9e2fc" fill-opacity="0.6"/>
+  </g>
+</svg>

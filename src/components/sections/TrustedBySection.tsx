@@ -1,7 +1,8 @@
 "use client";
 
-import { useRef, useEffect, useState } from "react";
+import { useRef } from "react";
 import { useTranslations } from "next-intl";
+import { useIsRtl } from "@/hooks/use-rtl";
 import { useGSAP, gsap } from "@/hooks/useGSAP";
 import { cn } from "@/lib/utils";
 import {
@@ -24,11 +25,10 @@ import {
   SiGit,
   SiShadcnui,
   SiRadixui,
-  SiAwslambda,
+  SiGo,
 } from "react-icons/si";
 import Marquee from "react-fast-marquee";
 
-// Define a type for the logo object to handle the icon component
 type TechLogo = {
   name: string;
   icon: React.ReactNode;
@@ -36,8 +36,8 @@ type TechLogo = {
 
 const ConvexLogo = () => (
   <svg
-    width="1.5em"
-    height="1.5em"
+    width="1.35em"
+    height="1.35em"
     viewBox="0 0 184 188"
     fill="currentColor"
     xmlns="http://www.w3.org/2000/svg"
@@ -66,7 +66,7 @@ const techLogos: TechLogo[] = [
   { name: "Node.js", icon: <SiNodedotjs /> },
   { name: "Shadcn UI", icon: <SiShadcnui /> },
   { name: "Radix UI", icon: <SiRadixui /> },
-  { name: "Amazon AWS", icon: <SiAwslambda /> },
+  { name: "Go", icon: <SiGo /> },
   { name: "Vercel", icon: <SiVercel /> },
   { name: "PostgreSQL", icon: <SiPostgresql /> },
   { name: "MongoDB", icon: <SiMongodb /> },
@@ -83,33 +83,21 @@ const techLogos: TechLogo[] = [
 
 export const TrustedBySection = () => {
   const t = useTranslations("TrustedBy");
+  const isRtl = useIsRtl();
   const containerRef = useRef<HTMLDivElement>(null);
-  const [isRtl, setIsRtl] = useState(false);
-
-  useEffect(() => {
-    setIsRtl(document.body.getAttribute("data-rtl") === "true");
-    const observer = new MutationObserver(() => {
-      setIsRtl(document.body.getAttribute("data-rtl") === "true");
-    });
-    observer.observe(document.body, {
-      attributes: true,
-      attributeFilter: ["data-rtl"],
-    });
-    return () => observer.disconnect();
-  }, []);
 
   useGSAP(
     () => {
       gsap.fromTo(
         ".trusted-title",
-        { opacity: 0, y: 20 },
+        { opacity: 0, y: 14 },
         {
           opacity: 1,
           y: 0,
-          duration: 0.6,
+          duration: 0.5,
           scrollTrigger: {
             trigger: containerRef.current,
-            start: "top 85%",
+            start: "top 88%",
             toggleActions: "play none none reverse",
           },
         }
@@ -121,51 +109,35 @@ export const TrustedBySection = () => {
   return (
     <section
       ref={containerRef}
-      className="section-padding-sm border-y border-border/50 bg-muted/30"
       dir={isRtl ? "rtl" : "ltr"}
+      className="section-padding-sm border-y border-border/50 bg-muted/20"
     >
-      <div className="container mx-auto px-6">
-        <p className="trusted-title text-center text-sm text-muted-foreground mb-8 uppercase tracking-widest">
+      <div className="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
+        <p className="trusted-title mb-7 text-center text-xs font-semibold uppercase tracking-[0.14em] text-muted-foreground">
           {t("title")}
         </p>
 
-        {/* Marquee container */}
-        <div className="relative overflow-hidden">
-          {/* Gradient masks */}
-          <div
-            className={cn(
-              "absolute top-0 bottom-0 w-20 z-10 pointer-events-none",
-              isRtl
-                ? "right-0 bg-gradient-to-l from-muted/30 to-transparent"
-                : "left-0 bg-gradient-to-r from-muted/30 to-transparent"
-            )}
-          />
-          <div
-            className={cn(
-              "absolute top-0 bottom-0 w-20 z-10 pointer-events-none",
-              isRtl
-                ? "left-0 bg-gradient-to-r from-muted/30 to-transparent"
-                : "right-0 bg-gradient-to-l from-muted/30 to-transparent"
-            )}
-          />
-          {/* Scrolling logos using react-fast-marquee */}
+        <div className="relative overflow-hidden" dir="ltr">
+          <div className="pointer-events-none absolute top-0 bottom-0 left-0 z-10 w-16 bg-gradient-to-r from-background to-transparent" />
+          <div className="pointer-events-none absolute top-0 bottom-0 right-0 z-10 w-16 bg-gradient-to-l from-background to-transparent" />
+
           <Marquee
             gradient={false}
-            speed={30}
+            speed={28}
             pauseOnHover={true}
-            className={cn(
-              "items-center",
-              isRtl ? "flex-row-reverse" : "flex-row"
-            )}
+            direction={isRtl ? "right" : "left"}
+            className="items-center"
             autoFill={true}
           >
             {techLogos.map((logo, i) => (
               <div
                 key={`${logo.name}-${i}`}
-                className="flex items-center gap-3 text-muted-foreground/60 hover:text-foreground transition-colors duration-300 shrink-0 mx-8"
+                className={cn(
+                  "mx-7 flex shrink-0 items-center gap-2.5 text-muted-foreground/75 transition-colors duration-300 hover:text-foreground"
+                )}
               >
-                <span className="text-2xl">{logo.icon}</span>
-                <span className="text-lg font-medium whitespace-nowrap">
+                <span className="text-xl">{logo.icon}</span>
+                <span className="whitespace-nowrap text-sm font-medium tracking-tight">
                   {logo.name}
                 </span>
               </div>

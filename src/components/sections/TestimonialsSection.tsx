@@ -2,10 +2,11 @@
 
 import React, { useState, useEffect, useCallback } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import { cn } from "@/lib/utils";
 import Image from "next/image";
-import { Button } from "../ui/button";
 import { useTranslations } from "next-intl";
+import { useIsRtl } from "@/hooks/use-rtl";
+import { cn } from "@/lib/utils";
+import { Button } from "@/components/ui/button";
 
 const SQRT_5000 = Math.sqrt(5000);
 
@@ -50,7 +51,7 @@ const testimonials = [
     tempId: 6,
     testimonialKey: "t6.text",
     byKey: "t6.by",
-    imgSrc: "/images/team/seif.jpeg",
+    imgSrc: "/images/team/seif.webp",
   },
   {
     tempId: 7,
@@ -88,10 +89,10 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({
     <div
       onClick={() => handleManualMove(position)}
       className={cn(
-        "absolute left-1/2 top-1/2 cursor-pointer border-2 p-8 transition-all duration-500 ease-in-out min-h-[375px]",
+        "absolute left-1/2 top-1/2 cursor-pointer border-2 p-7 transition-all duration-500 ease-in-out min-h-[375px]",
         isCenter
-          ? "z-10 bg-primary text-primary-foreground border-primary"
-          : "z-0 bg-card text-card-foreground border-border hover:border-primary/50",
+          ? "z-10 border-primary bg-primary text-primary-foreground"
+          : "z-0 border-border bg-card text-card-foreground hover:border-primary/50"
       )}
       style={{
         width: cardSize,
@@ -129,38 +130,38 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({
       />
       <h3
         className={cn(
-          "text-base sm:text-xl font-medium",
-          isCenter ? "text-primary-foreground" : "text-foreground",
+          "text-base leading-relaxed font-medium",
+          isCenter ? "text-primary-foreground" : "text-foreground"
         )}
       >
         &quot;{t(testimonial.testimonialKey)}&quot;
       </h3>
       <p
         className={cn(
-          "absolute bottom-8 left-8 right-8 mt-2 text-sm italic",
-          isCenter ? "text-primary-foreground/80" : "text-muted-foreground",
+          "absolute bottom-7 left-7 right-7 mt-2 text-xs font-medium leading-snug",
+          isCenter ? "text-primary-foreground/90" : "text-muted-foreground"
         )}
       >
-        - {t(testimonial.byKey)}
+        {t(testimonial.byKey)}
       </p>
     </div>
   );
 };
 
 export const StaggerTestimonials: React.FC = () => {
+  const t = useTranslations("Testimonials");
+  const isRtl = useIsRtl();
   const [cardSize, setCardSize] = useState(365);
   const [testimonialsList, setTestimonialsList] =
     useState<Testimonial[]>(testimonials);
   const [isAutoPlay, setIsAutoPlay] = useState(true);
   const [isHovered, setIsHovered] = useState(false);
   const [screenWidth, setScreenWidth] = useState(1200);
-  const [isRtl, setIsRtl] = useState(false);
 
-  // Create extended testimonials list for infinite scroll
   const createExtendedTestimonials = useCallback(
-    (width: number, cardSize: number) => {
-      const cardSpacing = cardSize / 1.5;
-      const maxVisibleCards = Math.floor(width / cardSpacing) + 6; // +6 for buffer
+    (width: number, size: number) => {
+      const cardSpacing = size / 1.5;
+      const maxVisibleCards = Math.floor(width / cardSpacing) + 6;
       const originalCount = testimonials.length;
       const repetitions = Math.ceil(maxVisibleCards / originalCount);
 
@@ -176,7 +177,7 @@ export const StaggerTestimonials: React.FC = () => {
       }
       return extended;
     },
-    [],
+    []
   );
 
   const handleMove = useCallback(
@@ -197,14 +198,13 @@ export const StaggerTestimonials: React.FC = () => {
       }
       setTestimonialsList(newList);
     },
-    [testimonialsList],
+    [testimonialsList]
   );
 
   const handleManualMove = (steps: number) => {
     setIsAutoPlay(false);
     handleMove(steps);
-    // Resume auto-play after 10 seconds of inactivity
-    setTimeout(() => setIsAutoPlay(true), 10000);
+    window.setTimeout(() => setIsAutoPlay(true), 10000);
   };
 
   useEffect(() => {
@@ -216,7 +216,6 @@ export const StaggerTestimonials: React.FC = () => {
       setCardSize(newCardSize);
       setScreenWidth(newScreenWidth);
 
-      // Create extended testimonials list to fill screen
       const extended = createExtendedTestimonials(newScreenWidth, newCardSize);
       setTestimonialsList(extended);
     };
@@ -226,83 +225,100 @@ export const StaggerTestimonials: React.FC = () => {
     return () => window.removeEventListener("resize", updateSize);
   }, [createExtendedTestimonials]);
 
-  // Auto-rotation effect
   useEffect(() => {
     if (!isAutoPlay || isHovered) return;
 
-    const interval = setInterval(() => {
+    const interval = window.setInterval(() => {
       handleMove(1);
-    }, 3000);
+    }, 3500);
 
-    return () => clearInterval(interval);
+    return () => window.clearInterval(interval);
   }, [isAutoPlay, isHovered, handleMove]);
 
-  useEffect(() => {
-    // RTL detection
-    setIsRtl(document.body.getAttribute("data-rtl") === "true");
-    const observer = new MutationObserver(() => {
-      setIsRtl(document.body.getAttribute("data-rtl") === "true");
-    });
-    observer.observe(document.body, {
-      attributes: true,
-      attributeFilter: ["data-rtl"],
-    });
-  }, []);
-
   return (
-    <div
-      className="relative w-full overflow-hidden bg-background"
-      style={{ height: 600 }}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
+    <section
+      id="testimonials"
+      dir={isRtl ? "rtl" : "ltr"}
+      className="section-padding scroll-mt-24 border-t border-border/50 bg-background"
     >
-      {testimonialsList.map((testimonial, index) => {
-        const centerIndex = Math.floor(testimonialsList.length / 2);
-        const position = index - centerIndex;
+      <div className="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
+        <header className="grid grid-cols-1 gap-5 md:grid-cols-12 md:items-end md:gap-8">
+          <div className="md:col-span-7">
+            <p className="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.14em] text-muted-foreground">
+              <span className="font-mono text-[11px] text-primary">04</span>
+              <span aria-hidden className="text-border">
+                /
+              </span>
+              <span>{t("kicker")}</span>
+            </p>
+            <h2 className="mt-4 font-serif text-4xl font-bold leading-[1.03] tracking-[-0.02em] text-foreground sm:text-5xl lg:text-6xl">
+              {t("headlineStart")}{" "}
+              <span className="gradient-text font-serif">
+                {t("headlineSerif")}
+              </span>
+            </h2>
+          </div>
 
-        // Only render cards that are reasonably close to the center for performance
-        const maxRenderDistance =
-          Math.floor(screenWidth / (cardSize / 1.5)) + 2;
-        if (Math.abs(position) > maxRenderDistance) return null;
-
-        return (
-          <TestimonialCard
-            key={testimonial.tempId}
-            testimonial={testimonial}
-            handleManualMove={handleManualMove}
-            position={position}
-            cardSize={cardSize}
-          />
-        );
-      })}
-      <div
-        className={`absolute bottom-4 left-1/2 flex -translate-x-1/2 gap-2 ${isRtl ? "flex-row-reverse" : ""}`}
-      >
-        <Button
-          onClick={() => handleManualMove(-1)}
-          variant="outline"
-          className={cn(
-            "flex h-14 w-14 items-center justify-center text-2xl transition-colors",
-            "bg-background border-2 border-border",
-            "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 rounded-lg cursor-pointer",
-          )}
-          aria-label="Previous testimonial"
-        >
-          <ChevronLeft />
-        </Button>
-        <Button
-          onClick={() => handleManualMove(1)}
-          variant="outline"
-          className={cn(
-            "flex h-14 w-14 items-center justify-center text-2xl transition-colors",
-            "bg-background border-2 border-border",
-            "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 rounded-lg cursor-pointer",
-          )}
-          aria-label="Next testimonial"
-        >
-          <ChevronRight />
-        </Button>
+          <p
+            className={cn(
+              "max-w-md text-base leading-relaxed text-muted-foreground md:col-span-5 md:justify-self-end",
+              isRtl ? "md:text-left" : "md:text-right"
+            )}
+          >
+            {t("description")}
+          </p>
+        </header>
       </div>
-    </div>
+
+      <div
+        className="relative mt-10 w-full overflow-hidden bg-background"
+        style={{ height: 580 }}
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
+      >
+        {testimonialsList.map((testimonial, index) => {
+          const centerIndex = Math.floor(testimonialsList.length / 2);
+          const position = index - centerIndex;
+
+          const maxRenderDistance =
+            Math.floor(screenWidth / (cardSize / 1.5)) + 2;
+          if (Math.abs(position) > maxRenderDistance) return null;
+
+          return (
+            <TestimonialCard
+              key={testimonial.tempId}
+              testimonial={testimonial}
+              handleManualMove={handleManualMove}
+              position={position}
+              cardSize={cardSize}
+            />
+          );
+        })}
+
+        <div
+          className={cn(
+            "absolute bottom-4 left-1/2 flex -translate-x-1/2 gap-2.5",
+            isRtl && "flex-row-reverse"
+          )}
+        >
+          <Button
+            onClick={() => handleManualMove(-1)}
+            variant="outline"
+            className="flex h-12 w-12 cursor-pointer items-center justify-center rounded-full border border-border/70 bg-card/85 shadow-sm backdrop-blur-md transition-colors hover:border-primary/50 hover:text-primary"
+            aria-label="Previous testimonial"
+          >
+            <ChevronLeft className="h-5 w-5" />
+          </Button>
+          <Button
+            onClick={() => handleManualMove(1)}
+            variant="outline"
+            className="flex h-12 w-12 cursor-pointer items-center justify-center rounded-full border border-border/70 bg-card/85 shadow-sm backdrop-blur-md transition-colors hover:border-primary/50 hover:text-primary"
+            aria-label="Next testimonial"
+          >
+            <ChevronRight className="h-5 w-5" />
+          </Button>
+        </div>
+      </div>
+    </section>
   );
 };

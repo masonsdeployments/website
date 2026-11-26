@@ -1,106 +1,104 @@
 export const metadata = {
-  title: "Orbit",
+  title: "Orbit | Masons Case Study",
+  description:
+    "An interactive 3D solar system web app tracking Near-Earth Objects for NASA Space Apps Cairo 2024.",
 };
 
 # Orbit
 
-**Orbit** is an interactive 3D web application designed to simulate the solar system and track Near-Earth Objects (NEOs). The project utilizes **Next.js** for the frontend, **Three.js** for 3D rendering, and a **Golang** backend. This is our official submission for the **NASA Space Apps Cairo 2024** hackathon. Post-hackathon, this project will remain open-source, and we plan to continue developing and refining it based on community feedback and new feature ideas.
+**Orbit** is an interactive 3D web application that simulates the solar system and tracks Near-Earth Objects (NEOs). We built it for the **NASA Space Apps Cairo 2024** hackathon with **Next.js** on the frontend, **Three.js** for 3D rendering, and **Go** on the backend. The project stays open-source so contributors can extend its orbital tools and visual features.
 
 ---
 
 ## High-Level Summary
 
-**Orbit** serves as a platform for both educational and scientific purposes, bringing real-time space data to the general public and space enthusiasts. By leveraging NASA's open-source datasets, the web app provides users with the ability to explore celestial bodies and understand their trajectories in an interactive and visually appealing manner.
+Orbit brings live NASA orbital datasets into the browser for students, researchers, and space enthusiasts. Users explore celestial bodies, inspect orbital paths, and track Near-Earth Objects (NEOs) and Potentially Hazardous Asteroids (PHAs) in a live 3D simulation.
 
-The primary focus of Orbit is to educate users about the threats posed by Near-Earth Objects (NEOs) and Potentially Hazardous Asteroids (PHAs), while also offering a unique visualization tool to simulate the solar system’s dynamics in real-time. The app tracks NEOs, allowing users to see these objects’ orbits, get detailed information, and manage their favorite NEOs via a personalized dashboard.
+Visitors can inspect individual object trajectories, read Keplerian orbital metrics, and save favorite NEOs in a personal dashboard.
 
 ---
 
 ## Project Details
 
-Orbit provides the following key functionalities:
+### 1. NEO Management
 
-### **1. NEO Management**
+- **NEO Database Integration**: Syncs with NASA's **Small Body Database** to pull current parameters for tracked NEOs and Potentially Hazardous Asteroids (PHAs).
+- **Scheduled Data Refreshes**: The Go backend refreshes cached orbital records on a schedule to capture revised trajectories and new discoveries.
+- **Detailed Object Pages**: Each NEO has a dedicated profile listing Keplerian parameters (eccentricity, semi-major axis, inclination) alongside its plotted trajectory.
 
-- **NEO Database Integration:** The app is integrated with NASA's **Small Body Database**, fetching up-to-date information on all NEOs, including Potentially Hazardous Asteroids (PHAs).
-- **Real-Time Data Updates:** The backend periodically refreshes the NEO database to keep track of any changes in orbital data or newly discovered NEOs.
-- **Detailed Object Pages:** For every NEO, a detailed page is available showing its Keplerian parameters (e.g., eccentricity, semi-major axis, inclination), visualized with accurate orbital trajectories.
+### 2. 3D Visualization with Three.js
 
-### **2. 3D Visualization with Three.js**
+- **Interactive Orrery**: Built in **Three.js** with zoom, rotate, and pan controls for navigating live planetary and asteroid orbits.
+- **Time Controls**: Users step forward or backward through time to inspect past positions and upcoming close approaches.
+- **Camera Perspectives**: Switch between wide orbital views and a first-person flight perspective across the solar system.
 
-- **Interactive Orrery:** A core feature of Orbit is the 3D orrery that allows users to explore the solar system. Built with **Three.js**, this provides real-time orbits, interactive controls (zoom, rotate, pan), and an engaging visualization of celestial movements.
-- **Dynamic Simulation:** Users can control the speed of time, moving forwards or backwards, to see the past and future positions of celestial objects.
-- **Point of View Control:** Users can change their perspective to explore the solar system from different angles or switch to a first-person view for an immersive experience of flying through space.
+### 3. Visit Tracking
 
-### **3. Visit Tracking**
-
-- **Session-Based Tracking:** We generate a unique session key for each user visit, enabling us to track and log user behavior and interactions with the platform. This helps in analyzing user patterns and improving the experience based on actual user interaction data.
-- **Historical Tracking:** Users can review their past interactions with the app and revisit objects or timeframes they explored during previous sessions.
+- **Session Keys**: Each visit generates a unique session key to log explored objects and interaction paths.
+- **Exploration History**: Returning visitors can jump back to objects and timestamps reviewed in prior sessions.
 
 ---
 
 ## Use of Artificial Intelligence
 
-Orbit integrates AI capabilities using two cutting-edge technologies:
+Orbit pairs two AI integrations for user education and orbital math:
 
-### **1. Gemini API for AI-Powered Chatbot**
+### 1. Gemini API for the Space Chatbot
 
-We integrated the **Gemini API** to create an **AI-powered chatbot** that answers user queries about space, NEOs, and the solar system in general. The chatbot provides real-time responses using curated data, offering users insights and helping them understand complex space-related topics in a user-friendly manner.
+We integrated the **Gemini API** to answer plain-language questions about the solar system, orbital terms, and tracked asteroids.
 
-- **Q&A Functionality:** Users can ask questions like, “What is the current position of asteroid XYZ?” or “Which NEOs are closest to Earth this month?” and the chatbot provides instant, reliable answers.
-- **Educational Assistance:** The chatbot also serves as an educational tool for users unfamiliar with celestial terminology or orbital mechanics.
+- **Direct Q&A**: Users ask questions such as "What is the current position of asteroid XYZ?" or "Which NEOs pass closest to Earth this month?" and receive structured answers grounded in curated data.
+- **Astronomy Glossary**: Explains orbital mechanics terminology for newcomers exploring the orrery.
 
-### **2. Claude for Complex Computations**
+### 2. Claude for Orbital Computations
 
-We utilize **Claude**, a powerful AI tool, for handling **complex astronomical computations** related to orbital mechanics. Claude processes large datasets, running intensive calculations that would otherwise slow down the web app or backend, ensuring smooth performance and fast response times.
+We paired the backend with **Claude** to assist with heavy orbital calculations without stalling the browser.
 
-- **Orbital Propagation:** Claude helps in predicting future orbital positions of NEOs by applying accurate Keplerian elements and propagating them over time, allowing users to visualize future encounters or potential threats to Earth.
-- **Real-Time Updates:** Claude also assists in refining predictions and running background calculations, ensuring real-time data is always up-to-date without compromising the speed of user interactions.
+- **Orbital Propagation**: Applies Keplerian elements to project future NEO positions and flag close-approach windows.
+- **Background Computation**: Offloads intensive trajectory analysis from the UI thread so 3D frame rates stay responsive.
 
 ---
 
 ## Space Agency Data
 
-Orbit’s main data sources are provided by NASA’s publicly available space data. We heavily rely on NASA’s **Small Body Database (SBD)** for information about NEOs, their orbital parameters, and potential hazards to Earth. This database provides all the necessary Keplerian parameters for plotting accurate orbits and identifying key features of NEOs.
+Orbit pulls orbital parameters from NASA's public **Small Body Database (SBD)**.
 
-- **Keplerian Elements:** The platform calculates orbits using Keplerian elements such as eccentricity, inclination, and semi-major axis.
-- **Regular Updates:** Our backend fetches updates from NASA’s database periodically to ensure the app stays current with the latest NEO discoveries and orbital adjustments.
+- **Keplerian Elements**: Plots trajectories from eccentricity, inclination, and semi-major axis values.
+- **Ongoing Sync**: The backend refreshes SBD records on a regular cycle to include new NEO entries and updated orbital elements.
 
 ---
 
 ## Hackathon Journey
 
-Our development process for the hackathon followed these steps:
+### 1. Planning Phase
 
-### **1. Planning Phase**
+We scoped features we could finish inside the hackathon window: responsive 3D navigation, live NEO lookup, and AI-assisted Q&A over NASA datasets.
 
-We began by brainstorming features that would be both useful and achievable within the hackathon timeline. We identified our primary focus as user interaction, real-time visualization, and NEO tracking. After reviewing NASA's datasets, we also decided to use AI to enhance the user experience.
+### 2. Development Phase
 
-### **2. Development Phase**
+We split execution into two parallel tracks:
 
-We split the project into front-end and back-end development:
+- The **frontend** team built the **Next.js** interface and the **Three.js** orrery.
+- The **backend** team built the **Go** API, NASA Small Body Database ingestion, and session tracking.
 
-- The **frontend** team worked on creating an intuitive user interface with **Next.js** and designed the interactive 3D orrery with **Three.js**.
-- The **backend** team focused on building a scalable API using **Golang**, integrating with NASA’s database, and managing user sessions and NEO tracking functionalities.
+### 3. Engineering Tradeoffs
 
-### **3. Overcoming Challenges**
+Our main bottlenecks were syncing live orbital updates into the 3D scene, cutting chatbot latency, and keeping heavy trajectory math off the main thread. Caching queried records and offloading intensive computation kept rendering smooth.
 
-Key challenges included rendering real-time data updates in the 3D visualization, optimizing AI response time for the chatbot, and ensuring that complex orbital computations didn’t affect the performance of the app. We leveraged **Claude** for intensive calculations and tested multiple caching strategies for data efficiency.
+### 4. Testing and Optimization
 
-### **4. Testing and Optimization**
-
-We performed rigorous testing across multiple browsers and devices to ensure seamless performance. The app was optimized for both desktop and mobile devices, and we tested the orrery’s 3D performance under various user interactions (e.g., zooming, rotating).
+We tested frame rates and gesture controls (zoom, pan, rotate) across desktop and mobile browsers before submission.
 
 ---
 
 ## References
 
 - **NASA Small Body Database**: [NASA SBD](https://ssd.jpl.nasa.gov/tools/sbdb_query.html)
-- **Gemini API**: Used for the AI chatbot functionality.
-- **Claude AI**: Used for complex astronomical computations.
-- **Next.js**: Framework for frontend development.
-- **Three.js**: Library for rendering 3D graphics and the interactive orrery.
-- **Golang**: Backend for API management and data retrieval.
+- **Gemini API**: Powers the interactive space Q&A chatbot.
+- **Claude AI**: Supports orbital propagation and heavy astronomical math.
+- **Next.js**: Frontend web framework.
+- **Three.js**: 3D WebGL rendering engine for the solar system orrery.
+- **Go (Golang)**: Backend API and NASA data ingestion service.
 
 ---
 
@@ -109,16 +107,16 @@ We performed rigorous testing across multiple browsers and devices to ensure sea
 ### Prerequisites
 
 - **Go**: Version 1.23.0 or higher
-- **Node.js**: Latest version for running the frontend
-- A working database setup (e.g., PostgreSQL, MySQL, etc.)
+- **Node.js**: Latest LTS release for the frontend
+- A configured database instance (PostgreSQL or MySQL)
 
 ### How to Run the App
 
-1. Install dependencies
+1. Install dependencies:
    ```bash
    bun install
    ```
-2. Start the development server
+2. Start the development server:
    ```bash
    bun run dev
    ```

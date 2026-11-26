@@ -1,15 +1,19 @@
-import { usePathname, useRouter } from "next/navigation";
-import { LogoSvg } from "./LogoSvg"; // or wherever you're importing from
+"use client";
+
+import { usePathname, useRouter } from "@/i18n/navigation";
+import { useLenis } from "@/components/providers/LenisProvider";
+import { LogoSvg } from "./LogoSvg";
 
 const LogoLink = () => {
   const pathname = usePathname();
   const router = useRouter();
+  const { scrollTo } = useLenis();
 
   const handleClick = (e: React.MouseEvent) => {
     e.preventDefault();
 
     if (pathname === "/") {
-      window.scrollTo({ top: 0, behavior: "smooth" });
+      scrollTo(0);
     } else {
       router.push("/");
     }
@@ -17,10 +21,12 @@ const LogoLink = () => {
 
   return (
     <button
+      type="button"
       onClick={handleClick}
-      className="gradient-text hover:opacity-80 transition-opacity"
+      aria-label="Masons home"
+      className="inline-flex items-center gap-2.5 transition-opacity hover:opacity-80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-lg"
     >
-      <LogoSvg className="text-primary cursor-pointer" width={60} height={60} />
+      <LogoSvg className="text-primary cursor-pointer" width={44} height={44} />
     </button>
   );
 };
