@@ -222,7 +222,7 @@
     },
     "t6": {
       "text": "At Masons, we focus on trust, curiosity, and steady craft. Each milestone reflects the team's dedication and shared vision.",
-      "by": "Seif, Co-Founder @ Masons"
+      "by": "Seif, Founder @ Masons"
     },
     "t7": {
       "text": "Seif showed strong technical depth and leadership at DEPI. He leads by example and moves teams with clarity and focus.",
@@ -321,13 +321,13 @@
     "ctaQuickBrief": "Quick brief",
     "team": {
       "seif": {
-        "name": "Seif Zakaria",
-        "role": "Co-Founder & Full-Stack Software Engineer",
+        "name": "Seif Zakaria (Ghamaz)",
+        "role": "Founder & Full-Stack Software Engineer",
         "bio": "Leads product strategy, client scoping, and full-stack delivery at Masons. Focused on turning business requirements into fast, dependable web apps, internal dashboards, and AI systems.",
         "tags": ["Product Strategy", "Full-Stack Delivery", "Web Platforms"]
       },
       "sherif": {
-        "name": "Sherif Lotfy",
+        "name": "Sherif Lotfy (SiZiF)",
         "role": "Co-Founder & Full-Stack Software Engineer",
         "bio": "Builds full-stack web products, design systems, and conversion-focused interfaces at Masons. Pairs frontend precision with end-to-end engineering so products feel sharp across desktop and mobile.",
         "tags": ["Full-Stack Engineering", "Design Systems", "Frontend Craft"]
@@ -339,7 +339,7 @@
         "tags": ["Backend Systems", "Data Modeling", "System Reliability"]
       },
       "ahmed": {
-        "name": "Ahmed Khaled",
+        "name": "Ahmed Khaled (z3ln)",
         "role": "Co-Founder & Infrastructure Engineer",
         "bio": "Owns cloud infrastructure, deployment pipelines, observability, and server reliability across Masons builds. Keeps production systems fast, secure, and ready to scale under real traffic.",
         "tags": ["Cloud Infrastructure", "DevOps & CI/CD", "Observability"]

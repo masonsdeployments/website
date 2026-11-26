@@ -222,7 +222,7 @@
     },
     "t6": {
       "text": "Chez Masons, nous misons sur la confiance, la curiosité et le soin du métier. Chaque jalon reflète l'engagement commun de l'équipe.",
-      "by": "Seif, Co-Fondateur @ Masons"
+      "by": "Seif, Fondateur @ Masons"
     },
     "t7": {
       "text": "Seif a démontré une vraie maîtrise technique et un leadership clair à DEPI. Il entraîne les équipes par l'exemple avec rigueur.",
@@ -321,13 +321,13 @@
     "ctaQuickBrief": "Brief rapide",
     "team": {
       "seif": {
-        "name": "Seif Zakaria",
-        "role": "Co-Fondateur & Ingénieur Logiciel Full-Stack",
+        "name": "Seif Zakaria (Ghamaz)",
+        "role": "Fondateur & Ingénieur Logiciel Full-Stack",
         "bio": "Pilote la stratégie produit, le cadrage client et la livraison full-stack chez Masons. Transforme les objectifs métier en applications web rapides, tableaux de bord et systèmes IA fiables.",
         "tags": ["Stratégie Produit", "Livraison Full-Stack", "Plateformes Web"]
       },
       "sherif": {
-        "name": "Sherif Lotfy",
+        "name": "Sherif Lotfy (SiZiF)",
         "role": "Co-Fondateur & Ingénieur Logiciel Full-Stack",
         "bio": "Conçoit des produits web full-stack, des design systems et des interfaces orientées conversion chez Masons. Allie exigence frontend et ingénierie complète sur ordinateur comme sur mobile.",
         "tags": ["Ingénierie Full-Stack", "Design Systems", "UI Conversion"]
@@ -339,7 +339,7 @@
         "tags": ["Systèmes Backend", "Modélisation", "Fiabilité Système"]
       },
       "ahmed": {
-        "name": "Ahmed Khaled",
+        "name": "Ahmed Khaled (z3ln)",
         "role": "Co-Fondateur & Ingénieur Infrastructure",
         "bio": "Pilote l'infrastructure cloud, les pipelines de déploiement, l'observabilité et la disponibilité serveur chez Masons. Assure des systèmes de production rapides, sûrs et prêts à encaisser la charge.",
         "tags": ["Infrastructure Cloud", "DevOps & CI/CD", "Observabilité"]

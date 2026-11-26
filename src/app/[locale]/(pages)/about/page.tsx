@@ -15,10 +15,12 @@ import { cn } from "@/lib/utils";
 const MemberPortrait = ({
   name,
   image,
+  solidColor,
   size = "md",
 }: {
   name: string;
   image?: string;
+  solidColor?: string;
   size?: "md" | "lg";
 }) => {
   const [imageError, setImageError] = useState(false);
@@ -32,6 +34,20 @@ const MemberPortrait = ({
     .slice(0, 2);
 
   const dimensions = size === "lg" ? "h-16 w-16" : "h-14 w-14";
+
+  if (solidColor) {
+    return (
+      <div
+        role="img"
+        aria-label={name}
+        style={{ backgroundColor: solidColor }}
+        className={cn(
+          "shrink-0 rounded-2xl border border-border/70 shadow-xs",
+          dimensions
+        )}
+      />
+    );
+  }
 
   if (image && !imageError) {
     return (
@@ -73,6 +89,7 @@ interface TeamMember {
   bio: string;
   specialties: string[];
   image?: string;
+  solidColor?: string;
   href?: string;
   linkLabel?: string;
 }
@@ -82,7 +99,12 @@ const TeamMemberCard = ({ member }: { member: TeamMember }) => {
     <article className="glass-card-hover flex h-full flex-col justify-between rounded-2xl p-6 sm:p-7">
       <div>
         <div className="flex items-center gap-4">
-          <MemberPortrait name={member.name} image={member.image} size="md" />
+          <MemberPortrait
+            name={member.name}
+            image={member.image}
+            solidColor={member.solidColor}
+            size="md"
+          />
           <div className="min-w-0">
             <h3 className="font-serif text-xl font-bold leading-snug text-foreground">
               {member.name}
@@ -200,6 +222,9 @@ export default function AboutPage() {
         t("team.ahmed.tags.1"),
         t("team.ahmed.tags.2"),
       ],
+      solidColor: "#000000",
+      href: "https://ahmedk.dev/",
+      linkLabel: "ahmedk.dev",
     },
     {
       key: "abdelaziz",
